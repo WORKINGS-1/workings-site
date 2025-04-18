@@ -6,67 +6,35 @@
   <title>WORKINGS Academy</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
   <style>
-    body { margin: 0; font-family: 'Poppins', sans-serif; background: #f7f9fc; }
+    body { margin: 0; font-family: 'Poppins', sans-serif; background: #f7f9fc; scroll-behavior: smooth; }
     header {
       background: url('https://images.unsplash.com/photo-1503264116251-35a269479413') no-repeat center center;
-      background-size: cover;
-      filter: hue-rotate(10deg);
-      color: white;
-      text-align: center;
-      padding: 6rem 2rem;
-      position: relative;
+      background-size: cover; filter: hue-rotate(10deg);
+      color: white; text-align: center; padding: 6rem 2rem; position: relative;
     }
-    .logo {
-      width: 100px;
-      background: white;
-      padding: 10px;
-      border-radius: 50%;
-      position: absolute;
-      top: 20px;
-      left: 20px;
+    .logo { width: 100px; background: white; padding: 10px; border-radius: 50%; position: absolute; top: 20px; left: 20px; }
+    nav { display: flex; justify-content: center; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 10; }
+    nav a { color: #2c5364; text-decoration: none; padding: 1rem 2rem; }
+    .section { max-width: 1000px; margin: auto; padding: 4rem 2rem; }
+    .reveal {
+      opacity: 0; transform: translateY(40px); transition: all 1.2s ease;
     }
-    nav {
-      display: flex;
-      justify-content: center;
-      background: white;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-      position: sticky;
-      top: 0;
+    .reveal.in-view {
+      opacity: 1; transform: translateY(0);
     }
-    nav a {
-      color: #2c5364;
-      text-decoration: none;
-      padding: 1rem 2rem;
+    .img-zoom-left {
+      max-width: 100%; overflow: hidden; border-radius: 12px; box-shadow: 0 6px 12px rgba(0,0,0,0.1); margin: 2rem 0;
     }
-    .section {
-      max-width: 1000px;
-      margin: auto;
-      padding: 4rem 2rem;
+    .img-zoom-left img {
+      width: 100%; height: auto; transform: scale(1.1) translateX(-40px);
+      transition: all 1.5s ease; opacity: 0;
     }
-    .section img {
-      width: 100%;
-      border-radius: 10px;
-      margin: 1.5rem 0;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    .img-zoom-left.in-view img {
+      transform: scale(1) translateX(0); opacity: 1;
     }
-    .cta {
-      display: block;
-      text-align: center;
-      margin: 3rem auto;
-      width: fit-content;
-      padding: 1rem 2rem;
-      background: #2c5364;
-      color: white;
-      border-radius: 8px;
-      text-decoration: none;
-    }
-    footer {
-      background: #2c5364;
-      color: white;
-      text-align: center;
-      padding: 2rem 1rem;
-      margin-top: 4rem;
-    }
+    .cta { display: block; text-align: center; margin: 3rem auto; width: fit-content;
+      padding: 1rem 2rem; background: #2c5364; color: white; border-radius: 8px; text-decoration: none; }
+    footer { background: #2c5364; color: white; text-align: center; padding: 2rem 1rem; margin-top: 4rem; }
   </style>
 </head>
 <body>
@@ -75,27 +43,30 @@
     <h1>WORKINGS Academy</h1>
   </header>
   <nav>
-    <a href="index.html">Accueil</a>
-    <a href="academy.html">Academy</a>
-    <a href="esn.html">ESN</a>
-    <a href="apropos.html">À propos</a>
-    <a href="contact.html">Contact</a>
+    <a href="index.html">Accueil</a><a href="academy.html">Academy</a><a href="esn.html">ESN</a><a href="apropos.html">À propos</a><a href="contact.html">Contact</a>
   </nav>
 
-  <div class="section">
+  <div class="section reveal">
     <h2>Des parcours certifiants</h2>
-    <p>Admin Salesforce, Développeur, Consultant confirmé — chaque profil suit un chemin clair, encadré, et orienté métier. L'objectif est simple : obtenir une certification officielle, apprendre à délivrer sur le terrain, et intégrer rapidement une mission valorisante.</p>
-    <img src="Image2.jpg" alt="Formation Salesforce" />
+    <p>Admin Salesforce, Développeur, Consultant confirmé — chaque profil suit un chemin clair, encadré, et orienté métier.</p>
+    <div class="img-zoom-left"><img src="Image2.jpg" alt="Formation Salesforce" /></div>
   </div>
 
-  <div class="section">
+  <div class="section reveal">
     <h2>Coaching & suivi</h2>
-    <p>Chaque apprenant bénéficie d’un suivi individualisé, d’un plan de progression, et de points réguliers avec nos formateurs. L'humain est au cœur de notre pédagogie, avec l’objectif de faire émerger le plein potentiel de chacun.</p>
-    <img src="Image5.jpg" alt="Coaching Workings Academy" />
+    <p>Chaque apprenant bénéficie de mentors, de retours individualisés et de mises en situation concrètes.</p>
+    <div class="img-zoom-left"><img src="Image5.jpg" alt="Coaching Academy" /></div>
   </div>
 
   <a class="cta" href="esn.html">Voir les missions ESN</a>
 
   <footer>&copy; 2025 WORKINGS – Tous droits réservés.</footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('in-view'); });
+    }, { threshold: 0.3 });
+    document.querySelectorAll('.reveal, .img-zoom-left').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
