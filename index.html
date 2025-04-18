@@ -31,6 +31,13 @@
       position: absolute;
       top: 20px;
       left: 20px;
+      transition: width 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+      .logo {
+        width: 70px;
+      }
     }
 
     .menu-toggle {
@@ -65,6 +72,12 @@
       color: #2c5364;
       text-decoration: none;
       padding: 1rem 2rem;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #e0efff;
+      color: #1a3e72;
     }
 
     @media (max-width: 768px) {
@@ -214,7 +227,7 @@
   <a class="cta" href="academy.html">Rejoindre l’académie</a>
 
   <div class="cloud-divider">
-    <img src="Image4.jpg" alt="Nuages WORKINGS" class="cloud-image">
+    <img src="image12.png" alt="Nuages WORKINGS" class="cloud-image">
   </div>
 
   <footer>&copy; 2025 WORKINGS – Tous droits réservés.</footer>
