@@ -12,6 +12,7 @@
       background: #eef1f6;
       scroll-behavior: smooth;
     }
+
     header {
       background: url('https://images.unsplash.com/photo-1503264116251-35a269479413') center/cover no-repeat;
       color: white;
@@ -20,6 +21,7 @@
       position: relative;
       filter: grayscale(0.3);
     }
+
     .logo {
       width: 100px;
       background: white;
@@ -28,7 +30,31 @@
       position: absolute;
       top: 20px;
       left: 20px;
+      transition: width 0.3s ease;
     }
+
+    @media (max-width: 768px) {
+      .logo { width: 70px; }
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      padding: 1rem;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      z-index: 11;
+    }
+
+    .bar {
+      height: 3px;
+      width: 25px;
+      background: white;
+      margin: 4px 0;
+    }
+
     nav {
       display: flex;
       justify-content: center;
@@ -38,17 +64,41 @@
       top: 0;
       z-index: 10;
     }
+
     nav a {
       color: #2c5364;
       text-decoration: none;
       padding: 1rem 2rem;
+      transition: background 0.3s ease, color 0.3s ease;
     }
+
+    nav a:hover {
+      background-color: #e0efff;
+      color: #1a3e72;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        display: none;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+    }
+
     .section {
       max-width: 1000px;
       margin: auto;
       padding: 4rem 2rem;
       text-align: center;
     }
+
     .section img {
       width: 100%;
       max-width: 700px;
@@ -60,35 +110,66 @@
       box-shadow: 0 8px 20px rgba(0,0,0,0.08);
       margin-top: 2rem;
     }
+
     .section.in-view img {
       opacity: 1;
       transform: scale(1);
     }
+
     .cta {
       display: block;
       text-align: center;
-      margin: 3rem auto;
+      margin: 3rem auto 0;
       width: fit-content;
       padding: 1rem 2rem;
       background: #2c5364;
       color: white;
       border-radius: 8px;
       text-decoration: none;
+      transition: background 0.3s ease, transform 0.3s ease;
     }
+
+    .cta:hover {
+      background: #1a3e72;
+      transform: scale(1.05);
+    }
+
+    .cloud-divider {
+      width: 100%;
+      height: 150px;
+      overflow: hidden;
+      margin-top: 3rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .cloud-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     footer {
-      background: #2c5364;
-      color: white;
+      background: #e7ecf4;
+      color: #2c5364;
       text-align: center;
-      padding: 2rem 1rem;
-      margin-top: 4rem;
+      padding: 2rem 1rem 4rem;
+      margin-top: 0;
     }
   </style>
 </head>
 <body>
   <header>
     <img src="workings-logo.png" class="logo" />
+    <div class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('active')">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
     <h1>Contact WORKINGS</h1>
   </header>
+
   <nav>
     <a href="index.html">Accueil</a>
     <a href="academy.html">Academy</a>
@@ -99,11 +180,17 @@
 
   <div class="section">
     <h2>Une question ? Un projet ?</h2>
-    <p>📩 contact@workings.fr<br>📞 +33 6 00 00 00 00<br>💼 LinkedIn : <a href="https://www.linkedin.com/in/shai-botbol" target="_blank">Shai Botbol</a></p>
+    <p>📩 contact@workings.fr<br>📞 +33 6 00 00 00 00<br>💼 LinkedIn :
+      <a href="https://www.linkedin.com/in/shai-botbol" target="_blank">Shai Botbol</a>
+    </p>
     <img src="Image11.png" alt="Consultant WORKINGS" />
   </div>
 
   <a class="cta" href="index.html">Retour à l’accueil</a>
+
+  <div class="cloud-divider">
+    <img src="Image44.png" alt="Nuages WORKINGS" class="cloud-image">
+  </div>
 
   <footer>&copy; 2025 WORKINGS – Tous droits réservés.</footer>
 
@@ -113,8 +200,8 @@
         if (entry.isIntersecting) entry.target.classList.add('in-view');
       });
     }, { threshold: 0.4 });
+
     document.querySelectorAll('.section').forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
-
