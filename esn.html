@@ -1,110 +1,43 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>WORKINGS ESN</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
   <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #f7f9fc;
-      color: #1a1a1a;
-    }
-    .banner {
+    body { margin: 0; font-family: 'Poppins', sans-serif; background: #f7f9fc; }
+    header {
       background: url('https://images.unsplash.com/photo-1503264116251-35a269479413') no-repeat center center;
       background-size: cover;
-      filter: hue-rotate(40deg) brightness(0.75);
-      position: relative;
-    }
-    .banner::after {
-      content: "";
-      background: rgba(0,0,0,0.45);
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      z-index: -1;
-    }
-    header {
+      filter: hue-rotate(40deg);
       color: white;
       text-align: center;
-      padding: 6rem 2rem 8rem;
+      padding: 6rem 2rem;
       position: relative;
     }
     .logo {
       width: 100px;
+      background: white;
+      padding: 10px;
+      border-radius: 50%;
       position: absolute;
       top: 20px;
       left: 20px;
-      background: white;
-      border-radius: 50%;
-      padding: 10px;
     }
-    nav {
-      display: flex;
-      justify-content: center;
-      background-color: #ffffff;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    nav a {
-      color: #2c5364;
-      text-decoration: none;
-      padding: 1rem 2rem;
-      display: inline-block;
-      transition: background 0.3s ease;
-    }
-    nav a:hover {
-      background-color: #f0f0f0;
-    }
-    .section {
-      max-width: 1000px;
-      margin: auto;
-      padding: 4rem 2rem;
-    }
-    .section h2 {
-      font-size: 2rem;
-      color: #2c5364;
-      margin-bottom: 1rem;
-    }
-    .section p {
-      line-height: 1.75;
-      font-size: 1.05rem;
-      margin-bottom: 1.5rem;
-    }
-    .section img {
-      width: 100%;
-      border-radius: 10px;
-      margin: 1.5rem 0;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-    }
-    .cta {
-      display: inline-block;
-      margin-top: 2rem;
-      padding: 1rem 2rem;
-      background-color: #2c5364;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-    }
-    footer {
-      background-color: #2c5364;
-      color: white;
-      text-align: center;
-      padding: 2rem 1rem;
-      margin-top: 4rem;
-    }
+    nav { display: flex; justify-content: center; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.05); position: sticky; top: 0; }
+    nav a { color: #2c5364; text-decoration: none; padding: 1rem 2rem; }
+    .section { max-width: 1000px; margin: auto; padding: 4rem 2rem; }
+    .section img { width: 100%; border-radius: 10px; margin: 1.5rem 0; box-shadow: 0 4px 10px rgba(0,0,0,0.08); }
+    .cta { display: block; text-align: center; margin: 3rem auto; width: fit-content; padding: 1rem 2rem; background: #2c5364; color: white; border-radius: 8px; text-decoration: none; }
+    footer { background: #2c5364; color: white; text-align: center; padding: 2rem 1rem; margin-top: 4rem; }
   </style>
 </head>
 <body>
-  <div class="banner">
-    <header>
-      <img src="workings-logo.png" alt="WORKINGS Logo" class="logo" />
-      <h1>WORKINGS ESN</h1>
-    </header>
-  </div>
+  <header>
+    <img src="workings-logo.png" class="logo" />
+    <h1>WORKINGS ESN</h1>
+  </header>
   <nav>
     <a href="index.html">Accueil</a>
     <a href="academy.html">Academy</a>
@@ -112,16 +45,21 @@
     <a href="apropos.html">À propos</a>
     <a href="contact.html">Contact</a>
   </nav>
-<div class="section"><h2>Une ESN spécialisée Salesforce</h2><p>Nous proposons des profils certifiés, accompagnés et prêts à intégrer vos équipes. Notre engagement : offrir à nos clients des consultants compétents, à jour sur les bonnes pratiques Salesforce, et encadrés par notre structure.</p><img src="https://images.unsplash.com/photo-1623050851977-e2ef8e7deee7" alt="Image professionnelle"></div>
-<div class="section"><h2>Nos prestations</h2><p>• Régie : profils Admin, Dev, Fonctionnels.<br>• Forfait projet : équipes dédiées avec pilotage WORKINGS.<br>• TMA : maintenance corrective et évolutive.<br>• Pack PME : implémentations Salesforce clé en main.</p><img src="https://images.unsplash.com/photo-1581090123856-d21b11e9df2f" alt="Image professionnelle"></div>
-<div class="section"><h2>Nos consultants</h2><p>Chaque consultant WORKINGS bénéficie d’un onboarding complet, d’un suivi régulier, et d’un accès à des formations continues. Nous encourageons également la transmission de savoir à travers notre programme formateur interne.</p><img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914" alt="Image professionnelle"></div>
-<div class="section" style="text-align:center;">
-      <a href="contact.html" class="cta">Contactez-nous</a>
-    </div>
 
-    <footer>
-      <p>&copy; 2025 WORKINGS – Academy & ESN Salesforce. Tous droits réservés.</p>
-    </footer>
+  <div class="section">
+    <h2>Une ESN sur-mesure</h2>
+    <p>Des consultants encadrés, préparés, certifiés — prêts à délivrer en mission. WORKINGS propose des profils adaptés à vos enjeux : expertise fonctionnelle, agilité, rigueur.</p>
+    <img src="Image3.jpg" alt="Consultants Salesforce" />
+  </div>
 
+  <div class="section">
+    <h2>Prestations</h2>
+    <p>Régie, TMA, Forfait, accompagnement PME… Nos missions s'adaptent à vos contextes. Chaque consultant WORKINGS est suivi, formé et évalué en continu.</p>
+    <img src="Image6.jpg" alt="Consultant WORKINGS" />
+  </div>
+
+  <a class="cta" href="contact.html">Contactez-nous</a>
+
+  <footer>&copy; 2025 WORKINGS – Tous droits réservés.</footer>
 </body>
 </html>
