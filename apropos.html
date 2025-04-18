@@ -6,10 +6,13 @@
   <title>À propos de WORKINGS</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
 
-  <!-- ✅ AOS CDN -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <style>
-    body { margin: 0; font-family: 'Poppins', sans-serif; background: #f7f9fc; }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f7f9fc;
+      scroll-behavior: smooth;
+    }
     header {
       background: url('https://images.unsplash.com/photo-1503264116251-35a269479413') no-repeat center center;
       background-size: cover;
@@ -28,18 +31,44 @@
       top: 20px;
       left: 20px;
     }
-    nav { display: flex; justify-content: center; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.05); position: sticky; top: 0; }
-    nav a { color: #2c5364; text-decoration: none; padding: 1rem 2rem; }
-    .section { max-width: 1000px; margin: auto; padding: 4rem 2rem; }
-    .section img {
-      width: 100%;
-      border-radius: 10px;
-      margin: 1.5rem 0;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-      transition: transform 0.5s ease;
+    nav {
+      display: flex;
+      justify-content: center;
+      background: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
-    .section img:hover {
-      transform: scale(1.03);
+    nav a {
+      color: #2c5364;
+      text-decoration: none;
+      padding: 1rem 2rem;
+    }
+    .section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 4rem 2rem;
+    }
+    .img-container {
+      overflow: hidden;
+      height: 350px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      margin-top: 2rem;
+      margin-bottom: 3rem;
+    }
+    .img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1);
+      transition: transform 1.5s ease, opacity 1.2s ease;
+      opacity: 0;
+    }
+    .img-container.in-view img {
+      transform: scale(1.08);
+      opacity: 1;
     }
     .cta {
       display: block;
@@ -52,7 +81,13 @@
       border-radius: 8px;
       text-decoration: none;
     }
-    footer { background: #2c5364; color: white; text-align: center; padding: 2rem 1rem; margin-top: 4rem; }
+    footer {
+      background: #2c5364;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 4rem;
+    }
   </style>
 </head>
 <body>
@@ -71,21 +106,30 @@
   <div class="section">
     <h2>Une histoire vécue</h2>
     <p>Shai Botbol a fondé WORKINGS après avoir traversé les mêmes galères que beaucoup : fin de formation, zéro accompagnement. Il a décidé de créer le modèle qu’il aurait aimé trouver.</p>
-    <img src="Image1.jpg" alt="Mentorat Workings" data-aos="fade-up" />
+    <div class="img-container"><img src="Image1.jpg" alt="Mentorat Workings" /></div>
   </div>
 
   <div class="section">
     <h2>Des valeurs fortes</h2>
     <p>Mérite, rigueur, entraide, transmission. WORKINGS forme à Salesforce, mais surtout à une façon de penser, de s’organiser, de collaborer. Chaque consultant devient acteur de sa carrière.</p>
-    <img src="Image2.jpg" alt="Collaboration en équipe" data-aos="fade-up" data-aos-delay="150" />
+    <div class="img-container"><img src="Image2.jpg" alt="Collaboration en équipe" /></div>
   </div>
 
   <a class="cta" href="academy.html">Découvrir l’académie</a>
 
   <footer>&copy; 2025 WORKINGS – Tous droits réservés.</footer>
 
-  <!-- ✅ Script AOS -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>AOS.init();</script>
+  <script>
+    // Animation d'entrée d'image (visible à l'écran)
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        }
+      });
+    }, { threshold: 0.4 });
+
+    document.querySelectorAll('.img-container').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
