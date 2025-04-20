@@ -13,28 +13,53 @@
       scroll-behavior: smooth;
     }
 
-    /* ===== Loader ===== */
+    /* 🌥️ Loader animé */
     #loader {
       position: fixed;
-      z-index: 9999;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       background: #f7f9fc;
-      width: 100vw;
-      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      transition: opacity 0.6s ease;
+      z-index: 9999;
+      animation: fadeOut 2.8s ease forwards 2.8s;
+      pointer-events: none;
     }
 
-    #loader img {
+    .cloud-bg {
+      position: relative;
+      width: 140px;
+      height: 140px;
+      background: url('Image44.png') no-repeat center center;
+      background-size: cover;
+      border-radius: 50%;
+      animation: cloudFade 2s ease forwards;
+    }
+
+    .loader-logo {
       width: 80px;
-      animation: pulse 1.8s infinite ease-in-out;
+      height: 80px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: popUp 1.2s ease forwards 0.8s;
+      opacity: 0;
     }
 
-    @keyframes pulse {
-      0% { transform: scale(1); opacity: 0.6; }
-      50% { transform: scale(1.1); opacity: 1; }
-      100% { transform: scale(1); opacity: 0.6; }
+    @keyframes cloudFade {
+      0% { transform: scale(1.2); opacity: 1; }
+      100% { transform: scale(1); opacity: 0; }
+    }
+
+    @keyframes popUp {
+      0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
+      100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    }
+
+    @keyframes fadeOut {
+      to { opacity: 0; visibility: hidden; }
     }
 
     header {
@@ -107,11 +132,9 @@
         flex-direction: column;
         display: none;
       }
-
       nav.active {
         display: flex;
       }
-
       .menu-toggle {
         display: flex;
       }
@@ -127,26 +150,25 @@
       font-size: 2rem;
     }
 
-    /* ===== Nouvelle animation image fullscreen ===== */
     .img-band {
       overflow: hidden;
+      height: auto;
       border-radius: 12px;
       margin-top: 2rem;
-      max-height: 100vh;
     }
 
     .img-band img {
       width: 100%;
       height: auto;
-      max-height: 100vh;
+      max-height: 500px;
       object-fit: cover;
       opacity: 0;
-      transform: scale(1.08) translateY(40px);
-      transition: transform 1.5s ease, opacity 1.2s ease;
+      transform: scale(1.05);
+      transition: transform 1.4s ease, opacity 1.2s ease;
     }
 
     .img-band.in-view img {
-      transform: scale(1) translateY(0);
+      transform: scale(1);
       opacity: 1;
     }
 
@@ -214,9 +236,11 @@
 </head>
 <body>
 
-  <!-- 🔁 Loader -->
+  <!-- Loader animé -->
   <div id="loader">
-    <img src="workings-logo.png" alt="Chargement WORKINGS" />
+    <div class="cloud-bg">
+      <img src="workings-logo.png" alt="WORKINGS logo" class="loader-logo" />
+    </div>
   </div>
 
   <header>
@@ -261,14 +285,7 @@
 
   <footer>&copy; 2025 WORKINGS – Tous droits réservés.</footer>
 
-  <!-- ✅ Script Loader & Animation -->
   <script>
-    window.addEventListener("load", function () {
-      const loader = document.getElementById("loader");
-      loader.style.opacity = "0";
-      setTimeout(() => loader.style.display = "none", 600);
-    });
-
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
