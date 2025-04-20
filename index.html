@@ -13,7 +13,7 @@
       scroll-behavior: smooth;
     }
 
-    /* 🌥️ Nouveau Loader full-screen */
+    /* 🌥️ Loader */
     #loader {
       position: fixed;
       top: 0; left: 0;
@@ -34,6 +34,8 @@
       font-size: 2rem;
       animation: slideUp 1.2s ease-in-out 0.4s forwards;
       opacity: 0;
+      text-align: center;
+      padding: 0 1rem;
     }
 
     @keyframes slideUp {
@@ -268,7 +270,9 @@
 
   <footer>&copy; 2025 WORKINGS – Tous droits réservés.</footer>
 
+  <!-- ✅ Scripts -->
   <script>
+    // Animation scroll
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -278,6 +282,18 @@
     }, { threshold: 0.4 });
 
     document.querySelectorAll('.img-band, .img-slide-left').forEach(el => observer.observe(el));
+
+    // 🎯 Afficher le loader uniquement à la première visite
+    window.addEventListener("DOMContentLoaded", () => {
+      const loader = document.getElementById('loader');
+      const hasSeenLoader = localStorage.getItem('seenWorkingsLoader');
+
+      if (hasSeenLoader) {
+        loader.style.display = 'none';
+      } else {
+        localStorage.setItem('seenWorkingsLoader', 'true');
+      }
+    });
   </script>
 
 </body>
