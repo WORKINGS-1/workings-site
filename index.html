@@ -13,7 +13,7 @@
       scroll-behavior: smooth;
     }
 
-    /* 🌥️ Loader */
+    /* 🌥️ Nouveau Loader full-screen */
     #loader {
       position: fixed;
       top: 0; left: 0;
@@ -26,22 +26,18 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      animation: fadeOut 1s ease forwards;
-      animation-delay: 5.2s;
+      animation: fadeOut 1.6s ease 2.2s forwards;
     }
 
     #loader h2 {
       color: white;
-      font-size: 2.5rem;
-      text-align: center;
+      font-size: 2rem;
+      animation: slideUp 1.2s ease-in-out 0.4s forwards;
       opacity: 0;
-      animation: slideUp 2s ease forwards;
-      animation-delay: 1s;
-      text-shadow: 0 0 15px rgba(255,255,255,0.8), 0 0 40px rgba(255,255,255,0.4);
     }
 
     @keyframes slideUp {
-      from { transform: translateY(40px); opacity: 0; }
+      from { transform: translateY(20px); opacity: 0; }
       to   { transform: translateY(0); opacity: 1; }
     }
 
@@ -226,12 +222,12 @@
 </head>
 <body>
 
-  <!-- 🌥️ Loader -->
+  <!-- ⛅ Loader -->
   <div id="loader">
     <h2>Bienvenue chez WORKINGS</h2>
   </div>
 
-  <!-- 🔵 Contenu principal -->
+  <!-- ✅ Contenu principal -->
   <header>
     <img src="workings-logo.png" class="logo" />
     <div class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('active')">
@@ -272,9 +268,7 @@
 
   <footer>&copy; 2025 WORKINGS – Tous droits réservés.</footer>
 
-  <!-- ✅ Scripts -->
   <script>
-    // Animation scroll
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -284,18 +278,6 @@
     }, { threshold: 0.4 });
 
     document.querySelectorAll('.img-band, .img-slide-left').forEach(el => observer.observe(el));
-
-    // Loader une seule fois
-    window.addEventListener('load', () => {
-      const loader = document.getElementById('loader');
-      const alreadySeen = localStorage.getItem('welcomeShown');
-
-      if (alreadySeen) {
-        loader.style.display = "none";
-      } else {
-        localStorage.setItem('welcomeShown', 'true');
-      }
-    });
   </script>
 
 </body>
