@@ -123,9 +123,28 @@
       transition: transform 1.3s ease, opacity 1.2s ease;
     }
 
-    .img-band.in-view img {
-      transform: translateY(0);
-      opacity: 1;
+  .img-band {
+  overflow: hidden;
+  height: auto;
+  border-radius: 12px;
+  margin-top: 2rem;
+}
+
+.img-band img {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.05);
+  transition: transform 1.4s ease, opacity 1.2s ease;
+}
+
+.img-band.in-view img {
+  transform: scale(1);
+  opacity: 1;
+}
+
     }
 
     .img-slide-left {
