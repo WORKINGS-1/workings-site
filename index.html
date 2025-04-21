@@ -13,40 +13,6 @@
       scroll-behavior: smooth;
     }
 
-    /* 🌥️ Loader */
-    #loader {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: url('Image35.png') no-repeat center center;
-      background-size: cover;
-      z-index: 9999;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      animation: fadeOut 1.4s ease 2.5s forwards;
-    }
-
-    #loader h2 {
-      color: white;
-      font-size: 2.2rem;
-      animation: slideUp 1.5s ease-in-out forwards;
-      opacity: 0;
-      text-align: center;
-      padding: 0 1rem;
-    }
-
-    @keyframes slideUp {
-      from { transform: translateY(30px); opacity: 0; }
-      to   { transform: translateY(0); opacity: 1; }
-    }
-
-    @keyframes fadeOut {
-      to { opacity: 0; visibility: hidden; }
-    }
-
     header {
       background: url('https://images.unsplash.com/photo-1503264116251-35a269479413') no-repeat center center;
       background-size: cover;
@@ -70,65 +36,6 @@
 
     @media (max-width: 768px) {
       .logo { width: 70px; }
-      #loader h2 { font-size: 1.6rem; }
-    }
-
-    /* Menu */
-    nav {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      background: white;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      margin: 0;
-      padding: 0;
-    }
-
-    nav ul li {
-      position: relative;
-    }
-
-    nav a {
-      display: block;
-      padding: 1rem 1.5rem;
-      text-decoration: none;
-      color: #2c5364;
-      font-weight: 500;
-      transition: background 0.3s ease, color 0.3s ease;
-    }
-
-    nav a:hover {
-      background-color: #e0efff;
-      color: #1a3e72;
-    }
-
-    nav ul ul {
-      display: none;
-      position: absolute;
-      background: white;
-      top: 100%;
-      left: 0;
-      min-width: 220px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    nav ul li:hover > ul {
-      display: block;
-    }
-
-    nav ul ul li a {
-      padding: 0.8rem 1.2rem;
     }
 
     .menu-toggle {
@@ -139,50 +46,80 @@
       position: absolute;
       right: 20px;
       top: 20px;
-      z-index: 1100;
+      z-index: 11;
     }
 
     .bar {
       height: 3px;
       width: 25px;
-      background: #2c5364;
+      background: white;
       margin: 4px 0;
     }
 
-    @media (max-width: 768px) {
-      nav ul {
-        flex-direction: column;
-        display: none;
-        width: 100%;
-        background: white;
-      }
+    nav {
+      background: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
 
-      nav ul.active {
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-links details {
+      position: relative;
+    }
+
+    nav a, details summary {
+      color: #2c5364;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      cursor: pointer;
+    }
+
+    details[open] summary {
+      background-color: #f1f5fa;
+    }
+
+    details ul {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    details ul li a {
+      display: block;
+      padding: 0.8rem 1.5rem;
+      white-space: nowrap;
+    }
+
+    details ul li a:hover {
+      background: #e0efff;
+      color: #1a3e72;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+      }
+      .nav-links.active {
         display: flex;
       }
-
-      nav ul ul {
-        position: relative;
-        top: 0;
-        box-shadow: none;
-      }
-
-      nav ul li:hover > ul {
-        display: none;
-      }
-
-      nav ul li > a.toggle-submenu::after {
-        content: "▾";
-        float: right;
-        margin-left: 8px;
-      }
-
-      nav ul li.open > ul {
-        display: block;
-      }
-
       .menu-toggle {
         display: flex;
+      }
+      details ul {
+        position: relative;
       }
     }
 
@@ -192,13 +129,8 @@
       padding: 4rem 2rem;
     }
 
-    .section h2 {
-      font-size: 2rem;
-    }
-
     .img-band {
       overflow: hidden;
-      height: auto;
       border-radius: 12px;
       margin-top: 2rem;
     }
@@ -240,7 +172,7 @@
     .cta {
       display: block;
       text-align: center;
-      margin: 3rem auto 0;
+      margin: 3rem auto;
       width: fit-content;
       padding: 1rem 2rem;
       background: #2c5364;
@@ -281,74 +213,67 @@
   </style>
 </head>
 <body>
-
-  <!-- ⛅ Loader -->
-  <div id="loader">
-    <h2>Bienvenue chez WORKINGS</h2>
-  </div>
-
   <header>
     <img src="workings-logo.png" class="logo" />
-    <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('active')">
-      <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+    <div class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
     </div>
     <h1>WORKINGS - Academy & ESN Salesforce</h1>
   </header>
 
   <nav>
-    <ul>
-      <li><a href="index.html">Accueil</a></li>
-      <li>
-        <a href="#" class="toggle-submenu">Academy</a>
+    <div class="nav-links">
+      <a href="index.html">Accueil</a>
+      <details>
+        <summary>Academy</summary>
         <ul>
           <li><a href="#">Parcours Admin</a></li>
           <li><a href="#">Parcours Développeur</a></li>
           <li><a href="#">Méthodologie</a></li>
           <li><a href="#">Certification</a></li>
         </ul>
-      </li>
-      <li>
-        <a href="#" class="toggle-submenu">ESN</a>
+      </details>
+      <details>
+        <summary>ESN</summary>
         <ul>
           <li><a href="#">Nos prestations</a></li>
           <li><a href="#">Secteurs d'intervention</a></li>
           <li><a href="#">Success stories</a></li>
           <li><a href="#">Modèles de mission</a></li>
         </ul>
-      </li>
-      <li>
-        <a href="#" class="toggle-submenu">À propos</a>
+      </details>
+      <details>
+        <summary>À propos</summary>
         <ul>
           <li><a href="#">Notre vision</a></li>
           <li><a href="#">L'équipe</a></li>
           <li><a href="#">Valeurs</a></li>
           <li><a href="#">Engagement</a></li>
         </ul>
-      </li>
-      <li>
-        <a href="#" class="toggle-submenu">Contact</a>
+      </details>
+      <details>
+        <summary>Contact</summary>
         <ul>
           <li><a href="#">Nous écrire</a></li>
           <li><a href="#">Rejoindre l'équipe</a></li>
           <li><a href="#">FAQ</a></li>
         </ul>
-      </li>
-    </ul>
+      </details>
+    </div>
   </nav>
 
   <div class="section">
     <h2>Notre mission</h2>
     <p>WORKINGS est une ESN & Academy 100% Salesforce.</p>
     <p>Notre ambition est de révéler le potentiel de chacun via des formations certifiantes, un accompagnement humain, et une intégration rapide en entreprise.</p>
-    <p>Juniors, reconvertis ou consultants expérimentés : nous accompagnons chacun vers son prochain niveau de performance.</p>
-    <p>WORKINGS, c’est une montée en compétences, une certification et une mission à la clé.</p>
     <div class="img-band"><img src="Image21.png" alt="Mission Workings" /></div>
   </div>
 
   <div class="section">
     <h2>Une vision humaine</h2>
     <p>Nous croyons au pouvoir de la transmission, du coaching individualisé et de la progression continue.</p>
-    <p>Nos talents juniors montent en puissance, tandis que nos profils confirmés et seniors continuent de se perfectionner et de transmettre leur expertise.</p>
     <div class="img-slide-left"><img src="Image1.jpg" alt="Vision humaine" /></div>
   </div>
 
@@ -361,33 +286,21 @@
   <footer>&copy; 2025 WORKINGS – Tous droits réservés.</footer>
 
   <script>
-    // Scroll animation
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('in-view');
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        }
       });
     }, { threshold: 0.4 });
-
     document.querySelectorAll('.img-band, .img-slide-left').forEach(el => observer.observe(el));
 
-    // ✅ Loader uniquement à la première visite
-    window.addEventListener("DOMContentLoaded", () => {
-      const loader = document.getElementById('loader');
-      const hasSeenLoader = localStorage.getItem('seenWorkingsLoader');
-      if (hasSeenLoader) loader.style.display = 'none';
-      else localStorage.setItem('seenWorkingsLoader', 'true');
-    });
-
-    // 📱 Menu sous-sections mobile
-    document.querySelectorAll('.toggle-submenu').forEach(link => {
-      link.addEventListener('click', function(e) {
-        if (window.innerWidth < 768) {
-          e.preventDefault();
-          this.parentElement.classList.toggle('open');
-        }
+    // ✅ Close menu after click on link (mobile)
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.querySelector('.nav-links').classList.remove('active');
       });
     });
   </script>
-
 </body>
 </html>
