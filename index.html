@@ -203,15 +203,24 @@
     }
 
     .cta {
-      display: block;
-      text-align: center;
-      margin: 3rem auto;
-      padding: 1rem 2rem;
-      background: #2c5364;
-      color: white;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: transform 0.3s ease, background 0.3s ease;
+  display: block;
+  text-align: center;
+  margin: 3rem auto 0;
+  width: fit-content;
+  padding: 1.2rem 2.5rem; /* Taille du bouton */
+  font-size: 1.1rem;
+  background: #2c5364;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.cta:hover {
+  background: #1a3e72;
+  transform: scale(1.05);
+}
+
     }
 
     .cta:hover {
@@ -317,7 +326,8 @@
     <div class="img-slide-left"><img src="Image1.jpg" alt="Vision humaine" /></div>
   </div>
 
-  <a class="cta" href="academy.html">Rejoindre l’académie</a>
+ <a class="cta bottom-cta" href="academy.html">Rejoindre l’académie</a>
+
 
   <div class="cloud-divider">
     <img src="Image44.png" alt="Nuages WORKINGS" class="cloud-image">
