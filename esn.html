@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>WORKINGS ESN</title>
+  <title>WORKINGS - Academy & ESN Salesforce</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
   <style>
     body {
@@ -13,9 +13,44 @@
       scroll-behavior: smooth;
     }
 
+    /* 🌥️ Loader */
+    #loader {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 9999;
+      background: url('ImageCloudsWelcome.png') no-repeat center center;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      animation: fadeOut 1.8s ease 2.5s forwards;
+    }
+
+    #loader h2 {
+      color: white;
+      font-size: 2.2rem;
+      animation: slideUp 1.4s ease-in-out 0.6s forwards;
+      opacity: 0;
+      text-align: center;
+      padding: 0 1.5rem;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to   { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeOut {
+      to { opacity: 0; visibility: hidden; }
+    }
+
     header {
-      background: url('https://images.unsplash.com/photo-1503264116251-35a269479413') center/cover no-repeat;
-      filter: brightness(0.8) hue-rotate(40deg); /* Teinte spécifique à ESN */
+      background: url('https://images.unsplash.com/photo-1503264116251-35a269479413') no-repeat center center;
+      background-size: cover;
+      filter: brightness(0.8);
       color: white;
       text-align: center;
       padding: 6rem 2rem;
@@ -98,36 +133,49 @@
       padding: 4rem 2rem;
     }
 
-    .fade-right {
-      opacity: 0;
-      transform: translateX(50px);
-      transition: all 1.3s ease;
+    .section h2 {
+      font-size: 2rem;
     }
 
-    .fade-right.in-view {
+    .img-band {
+      overflow: hidden;
+      height: auto;
+      border-radius: 12px;
+      margin-top: 2rem;
+    }
+
+    .img-band img {
+      width: 100%;
+      height: auto;
+      max-height: 500px;
+      object-fit: cover;
+      opacity: 0;
+      transform: scale(1.05);
+      transition: transform 1.4s ease, opacity 1.2s ease;
+    }
+
+    .img-band.in-view img {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    .img-slide-left {
+      max-width: 700px;
+      margin: 3rem auto;
+      transform: translateX(-50px);
+      opacity: 0;
+      transition: all 1.2s ease;
+    }
+
+    .img-slide-left.in-view {
       transform: translateX(0);
       opacity: 1;
     }
 
-    .img-parallax {
-      height: 320px;
-      overflow: hidden;
-      border-radius: 10px;
-      margin: 2rem 0;
-    }
-
-    .img-parallax img {
+    .img-slide-left img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transform: scale(1.05);
-      transition: transform 1.5s ease, opacity 1.2s ease;
-      opacity: 0;
-    }
-
-    .img-parallax.in-view img {
-      transform: scale(1);
-      opacity: 1;
+      border-radius: 15px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
     }
 
     .cta {
@@ -174,14 +222,19 @@
   </style>
 </head>
 <body>
+
+  <!-- ⛅ Loader -->
+  <div id="loader">
+    <h2>Bienvenue chez WORKINGS</h2>
+  </div>
+
+  <!-- ✅ Contenu principal -->
   <header>
     <img src="workings-logo.png" class="logo" />
     <div class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('active')">
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
+      <div class="bar"></div><div class="bar"></div><div class="bar"></div>
     </div>
-    <h1>WORKINGS ESN</h1>
+    <h1>WORKINGS - Academy & ESN Salesforce</h1>
   </header>
 
   <nav>
@@ -192,22 +245,23 @@
     <a href="contact.html">Contact</a>
   </nav>
 
-  <div class="section fade-right">
-    <h2>Une ESN sur-mesure</h2>
-    <p>Nos consultants sont encadrés tout au long de leur parcours, formés aux standards du marché et certifiés sur les solutions Salesforce.</p>
-    <p>Ils arrivent en mission préparés, opérationnels et alignés sur vos enjeux métier.</p>
-    <p>WORKINGS vous propose des profils fiables, rigoureux et adaptés à vos besoins concrets.</p>
-    <div class="img-parallax"><img src="Image3.jpg" alt="Consultants Salesforce" /></div>
+  <div class="section">
+    <h2>Notre mission</h2>
+    <p>WORKINGS est une ESN & Academy 100% Salesforce.</p>
+    <p>Notre ambition est de révéler le potentiel de chacun via des formations certifiantes, un accompagnement humain, et une intégration rapide en entreprise.</p>
+    <p>Juniors, reconvertis ou consultants expérimentés : nous accompagnons chacun vers son prochain niveau de performance.</p>
+    <p>WORKINGS, c’est une montée en compétences, une certification et une mission à la clé.</p>
+    <div class="img-band"><img src="Image21.png" alt="Mission Workings" /></div>
   </div>
 
-  <div class="section fade-right">
-    <h2>Prestations</h2>
-    <p>Que ce soit en régie, en TMA, en forfait ou en accompagnement de PME, nos formats d’intervention sont souples et adaptables.</p>
-    <p>WORKINGS s’aligne sur votre organisation, vos délais et vos priorités pour vous garantir un delivery fluide et efficace.</p>
-    <div class="img-parallax"><img src="Image9.jpg" alt="Consultant WORKINGS" /></div>
+  <div class="section">
+    <h2>Une vision humaine</h2>
+    <p>Nous croyons au pouvoir de la transmission, du coaching individualisé et de la progression continue.</p>
+    <p>Nos talents juniors montent en puissance, tandis que nos profils confirmés et seniors continuent de se perfectionner et de transmettre leur expertise.</p>
+    <div class="img-slide-left"><img src="Image1.jpg" alt="Vision humaine" /></div>
   </div>
 
-  <a class="cta" href="contact.html">Contactez-nous</a>
+  <a class="cta" href="academy.html">Rejoindre l’académie</a>
 
   <div class="cloud-divider">
     <img src="Image44.png" alt="Nuages WORKINGS" class="cloud-image">
@@ -215,12 +269,31 @@
 
   <footer>&copy; 2025 WORKINGS – Tous droits réservés.</footer>
 
+  <!-- ✅ Scripts -->
   <script>
+    // Animation scroll
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('in-view'); });
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        }
+      });
     }, { threshold: 0.4 });
 
-    document.querySelectorAll('.fade-right, .img-parallax').forEach(el => observer.observe(el));
+    document.querySelectorAll('.img-band, .img-slide-left').forEach(el => observer.observe(el));
+
+    // 🎯 Animation loader : une seule fois
+    window.addEventListener("DOMContentLoaded", () => {
+      const loader = document.getElementById('loader');
+      const seenLoader = localStorage.getItem('seenWorkingsLoader');
+
+      if (seenLoader) {
+        loader.style.display = 'none';
+      } else {
+        localStorage.setItem('seenWorkingsLoader', 'true');
+      }
+    });
   </script>
+
 </body>
 </html>
