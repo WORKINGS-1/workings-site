@@ -26,7 +26,8 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      animation: fadeOut 1.6s ease 2.2s forwards;
+      opacity: 1;
+      transition: opacity 1s ease;
     }
 
     #loader h2 {
@@ -41,13 +42,6 @@
     @keyframes slideUp {
       from { transform: translateY(20px); opacity: 0; }
       to   { transform: translateY(0); opacity: 1; }
-    }
-
-    @keyframes fadeOut {
-      to {
-        opacity: 0;
-        visibility: hidden;
-      }
     }
 
     header {
@@ -73,6 +67,7 @@
 
     @media (max-width: 768px) {
       .logo { width: 70px; }
+      #loader h2 { font-size: 1.5rem; }
     }
 
     .menu-toggle {
@@ -270,9 +265,8 @@
 
   <footer>&copy; 2025 WORKINGS – Tous droits réservés.</footer>
 
-  <!-- ✅ Scripts -->
+  <!-- ✅ JS -->
   <script>
-    // Animation scroll
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -283,14 +277,18 @@
 
     document.querySelectorAll('.img-band, .img-slide-left').forEach(el => observer.observe(el));
 
-    // 🎯 Afficher le loader uniquement à la première visite
+    // Loader affiché 1 seule fois
     window.addEventListener("DOMContentLoaded", () => {
       const loader = document.getElementById('loader');
-      const hasSeenLoader = localStorage.getItem('seenWorkingsLoader');
+      const seen = localStorage.getItem('seenWorkingsLoader');
 
-      if (hasSeenLoader) {
+      if (seen) {
         loader.style.display = 'none';
       } else {
+        setTimeout(() => {
+          loader.style.opacity = '0';
+          setTimeout(() => loader.style.display = 'none', 1000);
+        }, 2500);
         localStorage.setItem('seenWorkingsLoader', 'true');
       }
     });
