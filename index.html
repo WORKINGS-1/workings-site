@@ -19,34 +19,27 @@
       top: 0; left: 0;
       width: 100vw;
       height: 100vh;
-      z-index: 9999;
       background: url('ImageCloudsWelcome.png') no-repeat center center;
       background-size: cover;
+      z-index: 9999;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      animation: fadeOut 1.6s ease 2.2s forwards;
+      animation: fadeOut 1.4s ease 2.5s forwards;
     }
 
     #loader h2 {
       color: white;
-      font-size: 2.4rem;
-      animation: slideUp 1.2s ease-in-out 0.4s forwards;
+      font-size: 2.2rem;
+      animation: slideUp 1.5s ease-in-out forwards;
       opacity: 0;
       text-align: center;
-      padding: 0 1.5rem;
-      max-width: 90%;
-    }
-
-    @media (max-width: 768px) {
-      #loader h2 {
-        font-size: 1.8rem;
-      }
+      padding: 0 1rem;
     }
 
     @keyframes slideUp {
-      from { transform: translateY(20px); opacity: 0; }
+      from { transform: translateY(30px); opacity: 0; }
       to   { transform: translateY(0); opacity: 1; }
     }
 
@@ -80,6 +73,7 @@
 
     @media (max-width: 768px) {
       .logo { width: 70px; }
+      #loader h2 { font-size: 1.6rem; }
     }
 
     .menu-toggle {
@@ -279,7 +273,7 @@
 
   <!-- ✅ Scripts -->
   <script>
-    // Observer pour les animations d’apparition
+    // Scroll animations
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -287,14 +281,14 @@
         }
       });
     }, { threshold: 0.4 });
-
     document.querySelectorAll('.img-band, .img-slide-left').forEach(el => observer.observe(el));
 
     // 🎯 Afficher le loader uniquement à la première visite
     window.addEventListener("DOMContentLoaded", () => {
       const loader = document.getElementById('loader');
-      const hasSeen = localStorage.getItem('seenWorkingsLoader');
-      if (hasSeen) {
+      const hasSeenLoader = localStorage.getItem('seenWorkingsLoader');
+
+      if (hasSeenLoader) {
         loader.style.display = 'none';
       } else {
         localStorage.setItem('seenWorkingsLoader', 'true');
