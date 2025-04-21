@@ -13,7 +13,7 @@
       scroll-behavior: smooth;
     }
 
-    /* 🌥️ Loader */
+    /* 🌥️ Nouveau Loader full-screen */
     #loader {
       position: fixed;
       top: 0; left: 0;
@@ -26,8 +26,7 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      opacity: 1;
-      transition: opacity 1s ease;
+      animation: fadeOut 1.6s ease 2.2s forwards;
     }
 
     #loader h2 {
@@ -35,13 +34,18 @@
       font-size: 2rem;
       animation: slideUp 1.2s ease-in-out 0.4s forwards;
       opacity: 0;
-      text-align: center;
-      padding: 0 1rem;
     }
 
     @keyframes slideUp {
       from { transform: translateY(20px); opacity: 0; }
       to   { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
     }
 
     header {
@@ -67,7 +71,6 @@
 
     @media (max-width: 768px) {
       .logo { width: 70px; }
-      #loader h2 { font-size: 1.5rem; }
     }
 
     .menu-toggle {
@@ -265,7 +268,6 @@
 
   <footer>&copy; 2025 WORKINGS – Tous droits réservés.</footer>
 
-  <!-- ✅ JS -->
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -276,22 +278,6 @@
     }, { threshold: 0.4 });
 
     document.querySelectorAll('.img-band, .img-slide-left').forEach(el => observer.observe(el));
-
-    // Loader affiché 1 seule fois
-    window.addEventListener("DOMContentLoaded", () => {
-      const loader = document.getElementById('loader');
-      const seen = localStorage.getItem('seenWorkingsLoader');
-
-      if (seen) {
-        loader.style.display = 'none';
-      } else {
-        setTimeout(() => {
-          loader.style.opacity = '0';
-          setTimeout(() => loader.style.display = 'none', 1000);
-        }, 2500);
-        localStorage.setItem('seenWorkingsLoader', 'true');
-      }
-    });
   </script>
 
 </body>
