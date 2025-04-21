@@ -6,6 +6,7 @@
   <title>WORKINGS - Academy & ESN Salesforce</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
   <style>
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
@@ -13,9 +14,42 @@
       scroll-behavior: smooth;
     }
 
-    header {
-      background: url('https://images.unsplash.com/photo-1503264116251-35a269479413') no-repeat center center;
+    /* Loader */
+    #loader {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: url('Image35.png') no-repeat center center;
       background-size: cover;
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      animation: fadeOut 1.4s ease 2.5s forwards;
+    }
+
+    #loader h2 {
+      color: white;
+      font-size: 2.2rem;
+      animation: slideUp 1.5s ease-in-out forwards;
+      opacity: 0;
+      text-align: center;
+      padding: 0 1rem;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to   { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeOut {
+      to { opacity: 0; visibility: hidden; }
+    }
+
+    header {
+      background: url('https://images.unsplash.com/photo-1503264116251-35a269479413') center/cover no-repeat;
       filter: brightness(0.8);
       color: white;
       text-align: center;
@@ -31,95 +65,98 @@
       position: absolute;
       top: 20px;
       left: 20px;
-      transition: width 0.3s ease;
     }
 
-    @media (max-width: 768px) {
-      .logo { width: 70px; }
-    }
-
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      padding: 1rem;
-      position: absolute;
-      right: 20px;
-      top: 20px;
-      z-index: 11;
-    }
-
-    .bar {
-      height: 3px;
-      width: 25px;
-      background: white;
-      margin: 4px 0;
-    }
-
+    /* Menu + Dropdowns */
     nav {
+      display: flex;
+      justify-content: center;
       background: white;
       box-shadow: 0 2px 5px rgba(0,0,0,0.05);
       position: sticky;
       top: 0;
       z-index: 10;
-    }
-
-    .nav-links {
-      display: flex;
-      justify-content: center;
       flex-wrap: wrap;
     }
 
-    .nav-links details {
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    nav li {
       position: relative;
     }
 
-    nav a, details summary {
+    nav a {
       color: #2c5364;
       text-decoration: none;
-      padding: 1rem 2rem;
-      cursor: pointer;
+      padding: 1rem 1.5rem;
+      display: block;
     }
 
-    details[open] summary {
-      background-color: #f1f5fa;
+    nav li:hover > ul {
+      display: block;
     }
 
-    details ul {
+    nav ul ul {
+      display: none;
       position: absolute;
       top: 100%;
       left: 0;
       background: white;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 99;
     }
 
-    details ul li a {
-      display: block;
+    nav ul ul li a {
       padding: 0.8rem 1.5rem;
       white-space: nowrap;
     }
 
-    details ul li a:hover {
+    nav a:hover {
       background: #e0efff;
-      color: #1a3e72;
+    }
+
+    /* Responsive burger */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      cursor: pointer;
+      z-index: 20;
+    }
+
+    .bar {
+      height: 3px;
+      width: 25px;
+      background: #2c5364;
+      margin: 4px 0;
     }
 
     @media (max-width: 768px) {
-      .nav-links {
-        display: none;
+      .logo { width: 70px; }
+      nav ul {
         flex-direction: column;
+        display: none;
+        width: 100%;
       }
-      .nav-links.active {
+
+      nav ul.active {
         display: flex;
       }
+
       .menu-toggle {
         display: flex;
       }
-      details ul {
+
+      nav ul ul {
         position: relative;
+        box-shadow: none;
       }
     }
 
@@ -127,12 +164,6 @@
       max-width: 1000px;
       margin: auto;
       padding: 4rem 2rem;
-    }
-
-    .img-band {
-      overflow: hidden;
-      border-radius: 12px;
-      margin-top: 2rem;
     }
 
     .img-band img {
@@ -143,6 +174,8 @@
       opacity: 0;
       transform: scale(1.05);
       transition: transform 1.4s ease, opacity 1.2s ease;
+      border-radius: 12px;
+      margin-top: 2rem;
     }
 
     .img-band.in-view img {
@@ -173,13 +206,12 @@
       display: block;
       text-align: center;
       margin: 3rem auto;
-      width: fit-content;
       padding: 1rem 2rem;
       background: #2c5364;
       color: white;
       border-radius: 8px;
       text-decoration: none;
-      transition: background 0.3s ease, transform 0.3s ease;
+      transition: transform 0.3s ease, background 0.3s ease;
     }
 
     .cta:hover {
@@ -208,72 +240,80 @@
       color: #2c5364;
       text-align: center;
       padding: 2rem 1rem 4rem;
-      margin-top: 0;
     }
   </style>
 </head>
 <body>
+
+  <!-- ⛅ Loader -->
+  <div id="loader">
+    <h2>Bienvenue chez WORKINGS</h2>
+  </div>
+
   <header>
     <img src="workings-logo.png" class="logo" />
-    <div class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')">
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
+    <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('active')">
+      <div class="bar"></div><div class="bar"></div><div class="bar"></div>
     </div>
     <h1>WORKINGS - Academy & ESN Salesforce</h1>
   </header>
 
+  <!-- ✅ Navigation -->
   <nav>
-    <div class="nav-links">
-      <a href="index.html">Accueil</a>
-      <details>
-        <summary>Academy</summary>
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+
+      <li><a href="academy.html">Academy</a>
         <ul>
-          <li><a href="#">Parcours Admin</a></li>
-          <li><a href="#">Parcours Développeur</a></li>
-          <li><a href="#">Méthodologie</a></li>
-          <li><a href="#">Certification</a></li>
+          <li><a href="parcours-admin.html">Parcours Admin</a></li>
+          <li><a href="parcours-dev.html">Parcours Développeur</a></li>
+          <li><a href="methodologie.html">Méthodologie</a></li>
+          <li><a href="certification.html">Certification</a></li>
         </ul>
-      </details>
-      <details>
-        <summary>ESN</summary>
+      </li>
+
+      <li><a href="esn.html">ESN</a>
         <ul>
-          <li><a href="#">Nos prestations</a></li>
-          <li><a href="#">Secteurs d'intervention</a></li>
-          <li><a href="#">Success stories</a></li>
-          <li><a href="#">Modèles de mission</a></li>
+          <li><a href="prestations.html">Nos prestations</a></li>
+          <li><a href="secteurs.html">Secteurs d'intervention</a></li>
+          <li><a href="success-stories.html">Success stories</a></li>
+          <li><a href="modeles.html">Modèles de mission</a></li>
         </ul>
-      </details>
-      <details>
-        <summary>À propos</summary>
+      </li>
+
+      <li><a href="apropos.html">À propos</a>
         <ul>
-          <li><a href="#">Notre vision</a></li>
-          <li><a href="#">L'équipe</a></li>
-          <li><a href="#">Valeurs</a></li>
-          <li><a href="#">Engagement</a></li>
+          <li><a href="vision.html">Notre vision</a></li>
+          <li><a href="equipe.html">L'équipe</a></li>
+          <li><a href="valeurs.html">Valeurs</a></li>
+          <li><a href="engagement.html">Engagement</a></li>
         </ul>
-      </details>
-      <details>
-        <summary>Contact</summary>
+      </li>
+
+      <li><a href="contact.html">Contact</a>
         <ul>
-          <li><a href="#">Nous écrire</a></li>
-          <li><a href="#">Rejoindre l'équipe</a></li>
-          <li><a href="#">FAQ</a></li>
+          <li><a href="ecrire.html">Nous écrire</a></li>
+          <li><a href="recrutement.html">Rejoindre l'équipe</a></li>
+          <li><a href="faq.html">FAQ</a></li>
         </ul>
-      </details>
-    </div>
+      </li>
+    </ul>
   </nav>
 
+  <!-- ✅ Contenu principal -->
   <div class="section">
     <h2>Notre mission</h2>
     <p>WORKINGS est une ESN & Academy 100% Salesforce.</p>
     <p>Notre ambition est de révéler le potentiel de chacun via des formations certifiantes, un accompagnement humain, et une intégration rapide en entreprise.</p>
+    <p>Juniors, reconvertis ou consultants expérimentés : nous accompagnons chacun vers son prochain niveau de performance.</p>
+    <p>WORKINGS, c’est une montée en compétences, une certification et une mission à la clé.</p>
     <div class="img-band"><img src="Image21.png" alt="Mission Workings" /></div>
   </div>
 
   <div class="section">
     <h2>Une vision humaine</h2>
     <p>Nous croyons au pouvoir de la transmission, du coaching individualisé et de la progression continue.</p>
+    <p>Nos talents juniors montent en puissance, tandis que nos profils confirmés et seniors continuent de se perfectionner et de transmettre leur expertise.</p>
     <div class="img-slide-left"><img src="Image1.jpg" alt="Vision humaine" /></div>
   </div>
 
@@ -293,13 +333,18 @@
         }
       });
     }, { threshold: 0.4 });
+
     document.querySelectorAll('.img-band, .img-slide-left').forEach(el => observer.observe(el));
 
-    // ✅ Close menu after click on link (mobile)
-    document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', () => {
-        document.querySelector('.nav-links').classList.remove('active');
-      });
+    // Affiche le loader seulement à la première visite
+    window.addEventListener("DOMContentLoaded", () => {
+      const loader = document.getElementById('loader');
+      const hasSeenLoader = localStorage.getItem('seenWorkingsLoader');
+      if (hasSeenLoader) {
+        loader.style.display = 'none';
+      } else {
+        localStorage.setItem('seenWorkingsLoader', 'true');
+      }
     });
   </script>
 </body>
