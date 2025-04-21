@@ -44,10 +44,7 @@
     }
 
     @keyframes fadeOut {
-      to {
-        opacity: 0;
-        visibility: hidden;
-      }
+      to { opacity: 0; visibility: hidden; }
     }
 
     header {
@@ -76,38 +73,36 @@
       #loader h2 { font-size: 1.6rem; }
     }
 
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      padding: 1rem;
-      position: absolute;
-      right: 20px;
-      top: 20px;
-      z-index: 11;
-    }
-
-    .bar {
-      height: 3px;
-      width: 25px;
-      background: white;
-      margin: 4px 0;
-    }
-
+    /* Menu */
     nav {
       display: flex;
       justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
       background: white;
       box-shadow: 0 2px 5px rgba(0,0,0,0.05);
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 1000;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      position: relative;
     }
 
     nav a {
-      color: #2c5364;
+      display: block;
+      padding: 1rem 1.5rem;
       text-decoration: none;
-      padding: 1rem 2rem;
+      color: #2c5364;
+      font-weight: 500;
       transition: background 0.3s ease, color 0.3s ease;
     }
 
@@ -116,14 +111,76 @@
       color: #1a3e72;
     }
 
+    nav ul ul {
+      display: none;
+      position: absolute;
+      background: white;
+      top: 100%;
+      left: 0;
+      min-width: 220px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    nav ul li:hover > ul {
+      display: block;
+    }
+
+    nav ul ul li a {
+      padding: 0.8rem 1.2rem;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      padding: 1rem;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      z-index: 1100;
+    }
+
+    .bar {
+      height: 3px;
+      width: 25px;
+      background: #2c5364;
+      margin: 4px 0;
+    }
+
     @media (max-width: 768px) {
-      nav {
+      nav ul {
         flex-direction: column;
         display: none;
+        width: 100%;
+        background: white;
       }
-      nav.active {
+
+      nav ul.active {
         display: flex;
       }
+
+      nav ul ul {
+        position: relative;
+        top: 0;
+        box-shadow: none;
+      }
+
+      nav ul li:hover > ul {
+        display: none;
+      }
+
+      nav ul li > a.toggle-submenu::after {
+        content: "▾";
+        float: right;
+        margin-left: 8px;
+      }
+
+      nav ul li.open > ul {
+        display: block;
+      }
+
       .menu-toggle {
         display: flex;
       }
@@ -230,21 +287,53 @@
     <h2>Bienvenue chez WORKINGS</h2>
   </div>
 
-  <!-- ✅ Contenu principal -->
   <header>
     <img src="workings-logo.png" class="logo" />
-    <div class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('active')">
+    <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('active')">
       <div class="bar"></div><div class="bar"></div><div class="bar"></div>
     </div>
     <h1>WORKINGS - Academy & ESN Salesforce</h1>
   </header>
 
   <nav>
-    <a href="index.html">Accueil</a>
-    <a href="academy.html">Academy</a>
-    <a href="esn.html">ESN</a>
-    <a href="apropos.html">À propos</a>
-    <a href="contact.html">Contact</a>
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+      <li>
+        <a href="#" class="toggle-submenu">Academy</a>
+        <ul>
+          <li><a href="#">Parcours Admin</a></li>
+          <li><a href="#">Parcours Développeur</a></li>
+          <li><a href="#">Méthodologie</a></li>
+          <li><a href="#">Certification</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#" class="toggle-submenu">ESN</a>
+        <ul>
+          <li><a href="#">Nos prestations</a></li>
+          <li><a href="#">Secteurs d'intervention</a></li>
+          <li><a href="#">Success stories</a></li>
+          <li><a href="#">Modèles de mission</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#" class="toggle-submenu">À propos</a>
+        <ul>
+          <li><a href="#">Notre vision</a></li>
+          <li><a href="#">L'équipe</a></li>
+          <li><a href="#">Valeurs</a></li>
+          <li><a href="#">Engagement</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#" class="toggle-submenu">Contact</a>
+        <ul>
+          <li><a href="#">Nous écrire</a></li>
+          <li><a href="#">Rejoindre l'équipe</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </li>
+    </ul>
   </nav>
 
   <div class="section">
@@ -271,28 +360,32 @@
 
   <footer>&copy; 2025 WORKINGS – Tous droits réservés.</footer>
 
-  <!-- ✅ Scripts -->
   <script>
-    // Scroll animations
+    // Scroll animation
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('in-view');
       });
     }, { threshold: 0.4 });
+
     document.querySelectorAll('.img-band, .img-slide-left').forEach(el => observer.observe(el));
 
-    // 🎯 Afficher le loader uniquement à la première visite
+    // ✅ Loader uniquement à la première visite
     window.addEventListener("DOMContentLoaded", () => {
       const loader = document.getElementById('loader');
       const hasSeenLoader = localStorage.getItem('seenWorkingsLoader');
+      if (hasSeenLoader) loader.style.display = 'none';
+      else localStorage.setItem('seenWorkingsLoader', 'true');
+    });
 
-      if (hasSeenLoader) {
-        loader.style.display = 'none';
-      } else {
-        localStorage.setItem('seenWorkingsLoader', 'true');
-      }
+    // 📱 Menu sous-sections mobile
+    document.querySelectorAll('.toggle-submenu').forEach(link => {
+      link.addEventListener('click', function(e) {
+        if (window.innerWidth < 768) {
+          e.preventDefault();
+          this.parentElement.classList.toggle('open');
+        }
+      });
     });
   </script>
 
