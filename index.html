@@ -13,55 +13,38 @@
       scroll-behavior: smooth;
     }
 
-    /* 🌥️ Loader animé WORKINGS */
+    /* 🌥️ Loader */
     #loader {
       position: fixed;
       top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      background: linear-gradient(to bottom, #d6e9f9, #f7f9fc);
+      width: 100vw;
+      height: 100vh;
+      z-index: 9999;
+      background: url('ImageCloudsWelcome.png') no-repeat center center;
+      background-size: cover;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      z-index: 9999;
-      overflow: hidden;
+      animation: fadeOut 1.8s ease 2.5s forwards;
     }
 
-    .clouds {
-      position: absolute;
-      top: 0; left: 0;
-      width: 200%; height: 200%;
-      background: url('ImageCloudsWelcome.png') repeat-x center center;
-      background-size: cover;
-      animation: moveClouds 6s linear forwards;
-      z-index: 1;
-    }
-
-    #loader-content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
+    #loader h2 {
+      color: white;
+      font-size: 2.2rem;
+      animation: slideUp 1.4s ease-in-out 0.6s forwards;
       opacity: 0;
-      animation: fadeIn 1.2s ease 2s forwards;
+      text-align: center;
+      padding: 0 1.5rem;
     }
 
-    #loader-content img {
-      width: 120px;
-      margin-bottom: 1rem;
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to   { transform: translateY(0); opacity: 1; }
     }
 
-    #loader-content h2 {
-      color: #2c5364;
-      font-size: 1.8rem;
-    }
-
-    @keyframes moveClouds {
-      0% { transform: translateX(0); opacity: 1; }
-      100% { transform: translateX(-50%); opacity: 0; }
-    }
-
-    @keyframes fadeIn {
-      to { opacity: 1; }
+    @keyframes fadeOut {
+      to { opacity: 0; visibility: hidden; }
     }
 
     header {
@@ -134,9 +117,11 @@
         flex-direction: column;
         display: none;
       }
+
       nav.active {
         display: flex;
       }
+
       .menu-toggle {
         display: flex;
       }
@@ -238,14 +223,12 @@
 </head>
 <body>
 
+  <!-- ⛅ Loader -->
   <div id="loader">
-    <div class="clouds"></div>
-    <div id="loader-content">
-      <img src="workings-logo.png" alt="WORKINGS Logo">
-      <h2>Bienvenue chez WORKINGS</h2>
-    </div>
+    <h2>Bienvenue chez WORKINGS</h2>
   </div>
 
+  <!-- ✅ Contenu principal -->
   <header>
     <img src="workings-logo.png" class="logo" />
     <div class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('active')">
@@ -286,7 +269,9 @@
 
   <footer>&copy; 2025 WORKINGS – Tous droits réservés.</footer>
 
+  <!-- ✅ Scripts -->
   <script>
+    // Animation scroll
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -297,15 +282,15 @@
 
     document.querySelectorAll('.img-band, .img-slide-left').forEach(el => observer.observe(el));
 
+    // 🎯 Animation loader : une seule fois
     window.addEventListener("DOMContentLoaded", () => {
       const loader = document.getElementById('loader');
-      const hasSeenLoader = localStorage.getItem('seenWorkingsLoader');
+      const seenLoader = localStorage.getItem('seenWorkingsLoader');
 
-      if (hasSeenLoader) {
+      if (seenLoader) {
         loader.style.display = 'none';
       } else {
         localStorage.setItem('seenWorkingsLoader', 'true');
-        setTimeout(() => loader.style.display = 'none', 5000);
       }
     });
   </script>
