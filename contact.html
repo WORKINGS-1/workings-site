@@ -22,8 +22,9 @@
       filter: grayscale(0.3);
     }
 
- .logo {
-  width: 80px;
+/* Remplace dans <style> */
+.logo {
+  width: 100px;
   background: white;
   padding: 10px;
   border-radius: 50%;
@@ -31,11 +32,14 @@
   top: 20px;
   left: 20px;
   transition: width 0.3s ease;
-    }
+}
 
-    @media (max-width: 768px) {
-      .logo { width: 56px; }
-    }
+@media (max-width: 768px) {
+  .logo {
+    width: 70px;
+  }
+}
+
 
     .menu-toggle {
       display: none;
