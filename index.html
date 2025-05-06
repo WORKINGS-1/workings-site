@@ -53,6 +53,7 @@
 
     header {
       background: url('https://images.unsplash.com/photo-1503264116251-35a269479413') center/cover no-repeat;
+      filter: hue-rotate(60deg); /* ✅ Teinte jaune */
       color: white;
       text-align: center;
       padding: 6rem 2rem;
@@ -329,7 +330,6 @@
 
   <footer>&copy; 2025 WORKINGS – Tous droits réservés.</footer>
 
-  <!-- ✅ Scripts -->
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -341,7 +341,6 @@
 
     document.querySelectorAll('.img-band, .img-slide-left').forEach(el => observer.observe(el));
 
-    // ✅ Affiche loader une seule fois
     window.addEventListener("DOMContentLoaded", () => {
       const loader = document.getElementById('loader');
       const hasSeenLoader = localStorage.getItem('seenWorkingsLoader');
