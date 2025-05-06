@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Parcours Admin - WORKINGS</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WORKINGS Academy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
   <style>
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
       background: #f7f9fc;
+      scroll-behavior: smooth;
     }
 
     header {
-      background: url('https://images.unsplash.com/photo-1559027615-cdcbcb43c158') center/cover no-repeat;
-      filter: hue-rotate(40deg);
+      background: url('https://images.unsplash.com/photo-1503264116251-35a269479413') no-repeat center center;
+      background-size: cover;
+      filter: hue-rotate(10deg);
       color: white;
       text-align: center;
       padding: 6rem 2rem;
@@ -22,15 +24,17 @@
     }
 
     .logo {
-      width: 100px;
-      background: white;
-      padding: 10px;
-      border-radius: 50%;
-      position: absolute;
-      top: 20px;
-      left: 20px;
-    }
+  width: 80px;
+  background: white;
+  padding: 10px;
+  border-radius: 50%;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
 
+
+    /* Menu déroulant identique à index */
     nav {
       display: flex;
       justify-content: center;
@@ -44,9 +48,9 @@
 
     nav ul {
       list-style: none;
-      display: flex;
-      padding: 0;
       margin: 0;
+      padding: 0;
+      display: flex;
     }
 
     nav li {
@@ -54,14 +58,73 @@
     }
 
     nav a {
-      display: block;
-      padding: 1rem 1.5rem;
       color: #2c5364;
       text-decoration: none;
+      padding: 1rem 1.5rem;
+      display: block;
+    }
+
+    nav li:hover > ul {
+      display: block;
+    }
+
+    nav ul ul {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 99;
+    }
+
+    nav ul ul li a {
+      padding: 0.8rem 1.5rem;
+      white-space: nowrap;
     }
 
     nav a:hover {
       background: #e0efff;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      cursor: pointer;
+      z-index: 20;
+    }
+
+    .bar {
+      height: 3px;
+      width: 25px;
+      background: white;
+      margin: 4px 0;
+    }
+
+    @media (max-width: 768px) {
+      .logo { width: 56px; }
+
+      nav ul {
+        flex-direction: column;
+        display: none;
+        width: 100%;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      nav ul ul {
+        position: relative;
+        box-shadow: none;
+      }
     }
 
     .section {
@@ -70,20 +133,59 @@
       padding: 4rem 2rem;
     }
 
-    .img-effect {
-      width: 100%;
-      max-height: 400px;
-      object-fit: cover;
+    .img-zoom-left {
+      max-width: 100%;
+      overflow: hidden;
       border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-      opacity: 0;
-      transform: scale(1.05);
-      transition: transform 1.4s ease, opacity 1.2s ease;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      margin: 2rem 0;
     }
 
-    .in-view .img-effect {
-      transform: scale(1);
+    .img-zoom-left img {
+      width: 100%;
+      height: auto;
+      transform: scale(1.1) translateX(-40px);
+      transition: all 1.5s ease;
+      opacity: 0;
+    }
+
+    .img-zoom-left.in-view img {
+      transform: scale(1) translateX(0);
       opacity: 1;
+    }
+
+    .cta {
+      display: block;
+      text-align: center;
+      margin: 3rem auto 0;
+      width: fit-content;
+      padding: 1rem 2rem;
+      background: #2c5364;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .cta:hover {
+      background: #1a3e72;
+      transform: scale(1.05);
+    }
+
+    .cloud-divider {
+      width: 100%;
+      height: 150px;
+      overflow: hidden;
+      margin-top: 3rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .cloud-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     footer {
@@ -96,29 +198,81 @@
 </head>
 <body>
   <header>
-    <img src="workings-logo.png" class="logo" alt="Logo Workings">
-    <h1>Parcours Admin Salesforce</h1>
+    <img src="workings-logo.png" class="logo" />
+    <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('active')">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <h1>WORKINGS Academy</h1>
   </header>
 
+  <!-- ✅ Navigation avec sous-menus -->
   <nav>
     <ul>
       <li><a href="index.html">Accueil</a></li>
-      <li><a href="academy.html">Academy</a></li>
-      <li><a href="esn.html">ESN</a></li>
-      <li><a href="apropos.html">À propos</a></li>
-      <li><a href="contact.html">Contact</a></li>
+
+      <li><a href="academy.html">Academy</a>
+        <ul>
+          <li><a href="parcours-admin.html">Parcours Admin</a></li>
+          <li><a href="parcours-dev.html">Parcours Développeur</a></li>
+          <li><a href="methodologie.html">Méthodologie</a></li>
+          <li><a href="certification.html">Certification</a></li>
+        </ul>
+      </li>
+
+      <li><a href="esn.html">ESN</a>
+        <ul>
+          <li><a href="prestations.html">Nos prestations</a></li>
+          <li><a href="secteurs.html">Secteurs d'intervention</a></li>
+          <li><a href="success-stories.html">Success stories</a></li>
+          <li><a href="modeles.html">Modèles de mission</a></li>
+        </ul>
+      </li>
+
+      <li><a href="apropos.html">À propos</a>
+        <ul>
+          <li><a href="vision.html">Notre vision</a></li>
+          <li><a href="equipe.html">L'équipe</a></li>
+          <li><a href="valeurs.html">Valeurs</a></li>
+          <li><a href="engagement.html">Engagement</a></li>
+        </ul>
+      </li>
+
+      <li><a href="contact.html">Contact</a>
+        <ul>
+          <li><a href="ecrire.html">Nous écrire</a></li>
+          <li><a href="recrutement.html">Rejoindre l'équipe</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </li>
     </ul>
   </nav>
 
+  <!-- ✅ Contenu -->
   <div class="section">
-    <h2>Un parcours structuré</h2>
-    <p>Le parcours Admin est conçu pour vous initier à la plateforme Salesforce, acquérir les fondamentaux, et obtenir votre première certification officielle.</p>
-    <img src="https://images.unsplash.com/photo-1581093588401-9cc89fd1b6a1" class="img-effect" alt="Parcours Admin Salesforce">
+    <h2>Des parcours certifiants</h2>
+    <p>Admin Salesforce, Développeur, Consultant confirmé — chaque profil suit un chemin clair, encadré, et orienté métier.</p>
+    <p>Chez WORKINGS, nous croyons que le savoir-faire se construit dans la durée.</p>
+    <p>C’est pourquoi nous formons et accompagnons chaque talent Salesforce dans un parcours de progression continue — de la première certif à l’architecture d’entreprise.</p>
+    <div class="img-zoom-left"><img src="Image7.jpg" alt="Formation Salesforce" /></div>
   </div>
 
-  <footer>
-    &copy; 2025 WORKINGS – Tous droits réservés.
-  </footer>
+  <div class="section">
+    <h2>Coaching & suivi</h2>
+    <p>Chaque apprenant est encadré par un mentor dédié qui suit sa progression de manière personnalisée.</p>
+    <p>Des retours réguliers permettent d’ajuster l’apprentissage et de renforcer les acquis.</p>
+    <p>Le tout est rythmé par des mises en situation concrètes, proches des missions réelles d’un consultant Salesforce.</p>
+    <div class="img-zoom-left"><img src="Image2.jpg" alt="Coaching Academy" /></div>
+  </div>
+
+  <a class="cta" href="esn.html">Voir les missions ESN</a>
+
+  <div class="cloud-divider">
+    <img src="Image44.png" alt="Nuages WORKINGS" class="cloud-image">
+  </div>
+
+  <footer>&copy; 2025 WORKINGS – Tous droits réservés.</footer>
 
   <script>
     const observer = new IntersectionObserver((entries) => {
@@ -129,7 +283,7 @@
       });
     }, { threshold: 0.3 });
 
-    document.querySelectorAll('.section').forEach(el => observer.observe(el));
+    document.querySelectorAll('.img-zoom-left').forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
