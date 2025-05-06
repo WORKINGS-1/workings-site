@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>WORKINGS Academy - Parcours Admin</title>
+  <title>Parcours Admin - WORKINGS</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
   <style>
     body {
@@ -14,9 +14,9 @@
     }
 
     header {
-      background: url('https://images.unsplash.com/photo-1503264116251-35a269479413') no-repeat center center;
+      background: url('https://images.unsplash.com/photo-1503264116251-35a269479413') center/cover no-repeat;
       background-size: cover;
-      filter: hue-rotate(10deg);
+      filter: hue-rotate(15deg);
       color: white;
       text-align: center;
       padding: 6rem 2rem;
@@ -24,17 +24,15 @@
     }
 
     .logo {
-  width: 80px;
-  background: white;
-  padding: 10px;
-  border-radius: 50%;
-  position: absolute;
-  top: 20px;
-  left: 20px;
-}
+      width: 100px;
+      background: white;
+      padding: 10px;
+      border-radius: 50%;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
 
-
-    /* Menu déroulant identique à index */
     nav {
       display: flex;
       justify-content: center;
@@ -105,7 +103,7 @@
     }
 
     @media (max-width: 768px) {
-      .logo { width: 56px; }
+      .logo { width: 70px; }
 
       nav ul {
         flex-direction: column;
@@ -197,21 +195,19 @@
   </style>
 </head>
 <body>
+
   <header>
     <img src="workings-logo.png" class="logo" />
     <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('active')">
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
+      <div class="bar"></div><div class="bar"></div><div class="bar"></div>
     </div>
-    <h1>WORKINGS Academy</h1>
+    <h1>Parcours Admin Salesforce</h1>
   </header>
 
-  <!-- ✅ Navigation avec sous-menus -->
+  <!-- Navigation identique -->
   <nav>
     <ul>
       <li><a href="index.html">Accueil</a></li>
-
       <li><a href="academy.html">Academy</a>
         <ul>
           <li><a href="parcours-admin.html">Parcours Admin</a></li>
@@ -220,7 +216,6 @@
           <li><a href="certification.html">Certification</a></li>
         </ul>
       </li>
-
       <li><a href="esn.html">ESN</a>
         <ul>
           <li><a href="prestations.html">Nos prestations</a></li>
@@ -229,7 +224,6 @@
           <li><a href="modeles.html">Modèles de mission</a></li>
         </ul>
       </li>
-
       <li><a href="apropos.html">À propos</a>
         <ul>
           <li><a href="vision.html">Notre vision</a></li>
@@ -238,7 +232,6 @@
           <li><a href="engagement.html">Engagement</a></li>
         </ul>
       </li>
-
       <li><a href="contact.html">Contact</a>
         <ul>
           <li><a href="ecrire.html">Nous écrire</a></li>
@@ -249,24 +242,23 @@
     </ul>
   </nav>
 
-  <!-- ✅ Contenu -->
   <div class="section">
-    <h2>Des parcours certifiants</h2>
-    <p>Admin Salesforce, Développeur, Consultant confirmé — chaque profil suit un chemin clair, encadré, et orienté métier.</p>
-    <p>Chez WORKINGS, nous croyons que le savoir-faire se construit dans la durée.</p>
-    <p>C’est pourquoi nous formons et accompagnons chaque talent Salesforce dans un parcours de progression continue — de la première certif à l’architecture d’entreprise.</p>
-    <div class="img-zoom-left"><img src="Image7.jpg" alt="Formation Salesforce" /></div>
+    <h2>Objectif : Certification Admin Salesforce</h2>
+    <p>Ce parcours s’adresse à tous ceux qui souhaitent devenir administrateur certifié Salesforce, même sans expérience préalable en CRM.</p>
+    <p>Vous serez formé à la configuration de Salesforce, à la gestion des utilisateurs, à la sécurité, aux rapports, aux tableaux de bord, et plus encore.</p>
+    <div class="img-zoom-left"><img src="Image_admin.jpg" alt="Formation Admin Salesforce" /></div>
   </div>
 
   <div class="section">
-    <h2>Coaching & suivi</h2>
-    <p>Chaque apprenant est encadré par un mentor dédié qui suit sa progression de manière personnalisée.</p>
-    <p>Des retours réguliers permettent d’ajuster l’apprentissage et de renforcer les acquis.</p>
-    <p>Le tout est rythmé par des mises en situation concrètes, proches des missions réelles d’un consultant Salesforce.</p>
-    <div class="img-zoom-left"><img src="Image2.jpg" alt="Coaching Academy" /></div>
+    <h2>Contenu de la formation</h2>
+    <p>• Prise en main de Salesforce</p>
+    <p>• Gestion des profils et autorisations</p>
+    <p>• Automatisation des processus (flows, règles)</p>
+    <p>• Construction de rapports & tableaux de bord</p>
+    <div class="img-zoom-left"><img src="Image_admin2.jpg" alt="Contenu pédagogique Salesforce" /></div>
   </div>
 
-  <a class="cta" href="esn.html">Voir les missions ESN</a>
+  <a class="cta" href="contact.html">Je veux devenir Admin !</a>
 
   <div class="cloud-divider">
     <img src="Image44.png" alt="Nuages WORKINGS" class="cloud-image">
