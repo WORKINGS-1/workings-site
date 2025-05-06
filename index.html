@@ -14,38 +14,31 @@
       scroll-behavior: smooth;
     }
 
-    /* Loader */
+    /* ✅ Nouveau loader simple */
     #loader {
       position: fixed;
       top: 0; left: 0;
       width: 100vw;
       height: 100vh;
-      background: url('Image35.png') no-repeat center center;
-      background-size: cover;
+      background: #f7f9fc;
       z-index: 9999;
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
-      animation: fadeOut 1.4s ease 2.5s forwards;
     }
 
-    #loader h2 {
-      color: white;
-      font-size: 2.2rem;
-      animation: slideUp 1.5s ease-in-out forwards;
-      opacity: 0;
-      text-align: center;
-      padding: 0 1rem;
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid #d9e3f0;
+      border-top: 5px solid #2c5364;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
     }
 
-    @keyframes slideUp {
-      from { transform: translateY(30px); opacity: 0; }
-      to   { transform: translateY(0); opacity: 1; }
-    }
-
-    @keyframes fadeOut {
-      to { opacity: 0; visibility: hidden; }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
 
     header {
@@ -67,7 +60,6 @@
       left: 20px;
     }
 
-    /* Menu + Dropdowns */
     nav {
       display: flex;
       justify-content: center;
@@ -120,7 +112,6 @@
       background: #e0efff;
     }
 
-    /* Responsive burger */
     .menu-toggle {
       display: none;
       flex-direction: column;
@@ -131,16 +122,16 @@
       z-index: 20;
     }
 
- .bar {
+    .bar {
       height: 3px;
       width: 25px;
       background: white;
       margin: 4px 0;
     }
 
-nav ul.active ~ .bar {
-  background: #2c5364;
-}
+    nav ul.active ~ .bar {
+      background: #2c5364;
+    }
 
     @media (max-width: 768px) {
       .logo { width: 70px; }
@@ -207,24 +198,17 @@ nav ul.active ~ .bar {
     }
 
     .cta {
-  display: block;
-  text-align: center;
-  margin: 3rem auto 0;
-  width: fit-content;
-  padding: 1.2rem 2.5rem; /* Taille du bouton */
-  font-size: 1.1rem;
-  background: #2c5364;
-  color: white;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: background 0.3s ease, transform 0.3s ease;
-}
-
-.cta:hover {
-  background: #1a3e72;
-  transform: scale(1.05);
-}
-
+      display: block;
+      text-align: center;
+      margin: 3rem auto 0;
+      width: fit-content;
+      padding: 1.2rem 2.5rem;
+      font-size: 1.1rem;
+      background: #2c5364;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s ease, transform 0.3s ease;
     }
 
     .cta:hover {
@@ -258,9 +242,9 @@ nav ul.active ~ .bar {
 </head>
 <body>
 
-  <!-- ⛅ Loader -->
+  <!-- ✅ Loader simple -->
   <div id="loader">
-    <h2>Bienvenue chez WORKINGS</h2>
+    <div class="spinner"></div>
   </div>
 
   <header>
@@ -275,7 +259,6 @@ nav ul.active ~ .bar {
   <nav>
     <ul>
       <li><a href="index.html">Accueil</a></li>
-
       <li><a href="academy.html">Academy</a>
         <ul>
           <li><a href="parcours-admin.html">Parcours Admin</a></li>
@@ -284,7 +267,6 @@ nav ul.active ~ .bar {
           <li><a href="certification.html">Certification</a></li>
         </ul>
       </li>
-
       <li><a href="esn.html">ESN</a>
         <ul>
           <li><a href="prestations.html">Nos prestations</a></li>
@@ -293,7 +275,6 @@ nav ul.active ~ .bar {
           <li><a href="modeles.html">Modèles de mission</a></li>
         </ul>
       </li>
-
       <li><a href="apropos.html">À propos</a>
         <ul>
           <li><a href="vision.html">Notre vision</a></li>
@@ -302,7 +283,6 @@ nav ul.active ~ .bar {
           <li><a href="engagement.html">Engagement</a></li>
         </ul>
       </li>
-
       <li><a href="contact.html">Contact</a>
         <ul>
           <li><a href="ecrire.html">Nous écrire</a></li>
@@ -330,8 +310,7 @@ nav ul.active ~ .bar {
     <div class="img-slide-left"><img src="Image1.jpg" alt="Vision humaine" /></div>
   </div>
 
- <a class="cta bottom-cta" href="academy.html">Rejoindre l’académie</a>
-
+  <a class="cta bottom-cta" href="academy.html">Rejoindre l’académie</a>
 
   <div class="cloud-divider">
     <img src="Image44.png" alt="Nuages WORKINGS" class="cloud-image">
@@ -350,7 +329,7 @@ nav ul.active ~ .bar {
 
     document.querySelectorAll('.img-band, .img-slide-left').forEach(el => observer.observe(el));
 
-    // Affiche le loader seulement à la première visite
+    // ✅ Affiche loader une seule fois
     window.addEventListener("DOMContentLoaded", () => {
       const loader = document.getElementById('loader');
       const hasSeenLoader = localStorage.getItem('seenWorkingsLoader');
@@ -358,8 +337,12 @@ nav ul.active ~ .bar {
         loader.style.display = 'none';
       } else {
         localStorage.setItem('seenWorkingsLoader', 'true');
+        setTimeout(() => {
+          loader.style.display = 'none';
+        }, 1500);
       }
     });
   </script>
 </body>
 </html>
+
