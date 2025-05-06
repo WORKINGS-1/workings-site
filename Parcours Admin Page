@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parcours Admin - WORKINGS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f7f9fc;
+    }
+
+    header {
+      background: url('https://images.unsplash.com/photo-1559027615-cdcbcb43c158') center/cover no-repeat;
+      filter: hue-rotate(40deg);
+      color: white;
+      text-align: center;
+      padding: 6rem 2rem;
+      position: relative;
+    }
+
+    .logo {
+      width: 100px;
+      background: white;
+      padding: 10px;
+      border-radius: 50%;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      flex-wrap: wrap;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav li {
+      position: relative;
+    }
+
+    nav a {
+      display: block;
+      padding: 1rem 1.5rem;
+      color: #2c5364;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      background: #e0efff;
+    }
+
+    .section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 4rem 2rem;
+    }
+
+    .img-effect {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      opacity: 0;
+      transform: scale(1.05);
+      transition: transform 1.4s ease, opacity 1.2s ease;
+    }
+
+    .in-view .img-effect {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    footer {
+      background: #e7ecf4;
+      color: #2c5364;
+      text-align: center;
+      padding: 2rem 1rem 4rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="workings-logo.png" class="logo" alt="Logo Workings">
+    <h1>Parcours Admin Salesforce</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="academy.html">Academy</a></li>
+      <li><a href="esn.html">ESN</a></li>
+      <li><a href="apropos.html">À propos</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="section">
+    <h2>Un parcours structuré</h2>
+    <p>Le parcours Admin est conçu pour vous initier à la plateforme Salesforce, acquérir les fondamentaux, et obtenir votre première certification officielle.</p>
+    <img src="https://images.unsplash.com/photo-1581093588401-9cc89fd1b6a1" class="img-effect" alt="Parcours Admin Salesforce">
+  </div>
+
+  <footer>
+    &copy; 2025 WORKINGS – Tous droits réservés.
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        }
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.section').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
