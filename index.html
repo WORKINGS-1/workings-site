@@ -14,7 +14,6 @@
       scroll-behavior: smooth;
     }
 
-    /* ✅ Loader avec logo */
     #loader {
       position: fixed;
       top: 0; left: 0;
@@ -53,7 +52,7 @@
 
     header {
       background: url('https://images.unsplash.com/photo-1503264116251-35a269479413') center/cover no-repeat;
-      filter: hue-rotate(50deg); /* ✅ Teinte jaune */
+      filter: hue-rotate(50deg);
       color: white;
       text-align: center;
       padding: 6rem 2rem;
@@ -242,6 +241,39 @@
       object-fit: cover;
     }
 
+    .double-entry {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 4rem 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .entry-box {
+      flex: 1 1 400px;
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+      text-align: left;
+      transition: transform 0.3s ease;
+    }
+
+    .entry-box:hover {
+      transform: scale(1.02);
+    }
+
+    .entry-box h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .entry-box p {
+      margin: 0.5rem 0;
+    }
+
     footer {
       background: #e7ecf4;
       color: #2c5364;
@@ -251,8 +283,6 @@
   </style>
 </head>
 <body>
-
-  <!-- ✅ Loader avec logo -->
   <div id="loader">
     <div class="spinner">
       <img src="workings-logo.png" alt="Logo WORKINGS" class="spinner-logo" />
@@ -267,7 +297,6 @@
     <h1>WORKINGS - Academy & ESN Salesforce</h1>
   </header>
 
-  <!-- ✅ Navigation -->
   <nav>
     <ul>
       <li><a href="index.html">Accueil</a></li>
@@ -305,14 +334,30 @@
     </ul>
   </nav>
 
-  <!-- ✅ Contenu principal -->
   <div class="section">
-    <h2>Notre mission</h2>
+    <h2>🌟 Formez. Certifiez. Placez.</h2>
     <p>WORKINGS est une ESN & Academy 100% Salesforce.</p>
     <p>Notre ambition est de révéler le potentiel de chacun via des formations certifiantes, un accompagnement humain, et une intégration rapide en entreprise.</p>
     <p>Juniors, reconvertis ou consultants expérimentés : nous accompagnons chacun vers son prochain niveau de performance.</p>
     <p>WORKINGS, c’est une montée en compétences, une certification et une mission à la clé.</p>
     <div class="img-band"><img src="Image21.png" alt="Mission Workings" /></div>
+  </div>
+
+  <div class="double-entry">
+    <div class="entry-box">
+      <h3>🚀 Vous êtes... ?<br>👩‍🎓 Un candidat ou une personne en reconversion ?</h3>
+      <p>→ Découvrez nos 4 parcours Salesforce adaptés à tous les profils</p>
+      <p>→ Obtenez votre certification officielle</p>
+      <p>→ Bénéficiez de notre accompagnement vers l’emploi (missions ESN, CDI, alternance)</p>
+      <a class="cta" href="academy.html">Je découvre les parcours</a>
+    </div>
+    <div class="entry-box">
+      <h3>🧑‍💼 Une entreprise ou un recruteur ?</h3>
+      <p>→ Accédez à une nouvelle génération de consultants Salesforce</p>
+      <p>→ Formés, encadrés et déjà certifiés</p>
+      <p>→ Disponibles rapidement, en régie ou en pré-embauche</p>
+      <a class="cta" href="contact.html">Voir nos profils disponibles</a>
+    </div>
   </div>
 
   <div class="section">
