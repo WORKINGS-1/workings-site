@@ -132,23 +132,21 @@
     }
 
     .img-zoom-left {
-      max-width: 100%;
-      overflow: hidden;
-      border-radius: 12px;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-      margin: 2rem 0;
+  max-width: 600px;
+  margin: 2rem auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+
     }
 
     .img-zoom-left img {
-  width: 70%;
-  max-width: 500px;
-  height: auto;
-  display: block;
-  margin: auto;
-  transform: scale(1.1) translateX(-20px);
-  transition: all 1.5s ease;
-  opacity: 0;
-}
+      width: 100%;
+      height: auto;
+      transform: scale(1.1) translateX(-40px);
+      transition: all 1.5s ease;
+      opacity: 0;
+    }
 
     .img-zoom-left.in-view img {
       transform: scale(1) translateX(0);
