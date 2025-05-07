@@ -194,6 +194,35 @@
       text-align: center;
       padding: 2rem 1rem 4rem;
     }
+    .parcours-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.parcours-card {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.parcours-card:hover {
+  transform: translateY(-4px);
+}
+
+.parcours-card h3 {
+  color: #1a3e72;
+  margin-top: 0;
+}
+
+.parcours-card p {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+}
+
   </style>
 </head>
 <body>
@@ -267,6 +296,39 @@
   </div>
 
   <a class="cta" href="esn.html">Voir les missions ESN</a>
+<div class="section">
+  <h2 style="text-align:center; color:#2c5364;">🧩 Nos 4 parcours Salesforce</h2>
+  <div class="parcours-grid">
+    <div class="parcours-card" style="border-left: 6px solid #3b82f6;">
+      <h3>🟦 Parcours Administrator</h3>
+      <p>Apprenez à configurer et gérer Salesforce sans coder.</p>
+      <p>🎓 <strong>Certif :</strong> Salesforce Administrator (ADM 201)</p>
+      <p>👤 <strong>Idéal pour :</strong> débutants, reconversion, profils métiers</p>
+      <a class="cta" href="parcours-admin.html">Découvrir le parcours Admin ➜</a>
+    </div>
+    <div class="parcours-card" style="border-left: 6px solid #8b5cf6;">
+      <h3>🟪 Parcours Developer</h3>
+      <p>Développez des solutions personnalisées avec Apex et LWC.</p>
+      <p>🎓 <strong>Certif :</strong> Platform Developer I</p>
+      <p>👤 <strong>Idéal pour :</strong> développeurs, profils IT, alternants tech</p>
+      <a class="cta" href="parcours-dev.html">Découvrir le parcours Dev ➜</a>
+    </div>
+    <div class="parcours-card" style="border-left: 6px solid #f97316;">
+      <h3>🟧 Parcours Business Analyst</h3>
+      <p>Traduisez les besoins métier en solutions Salesforce.</p>
+      <p>🎓 <strong>Certif :</strong> Business Analyst</p>
+      <p>👤 <strong>Idéal pour :</strong> gestion de projet, AMOA, reconversion fonctionnelle</p>
+      <a class="cta" href="parcours-ba.html">Découvrir le parcours BA ➜</a>
+    </div>
+    <div class="parcours-card" style="border-left: 6px solid #10b981;">
+      <h3>🟩 Parcours IA & Data</h3>
+      <p>Maîtrisez Einstein, Agentforce et Data Cloud.</p>
+      <p>🎓 <strong>Certif :</strong> Agentforce Specialist (et +)</p>
+      <p>👤 <strong>Idéal pour :</strong> profils innovants, data, IA, techniques ou fonctionnels</p>
+      <a class="cta" href="parcours-ia.html">Découvrir le parcours IA ➜</a>
+    </div>
+  </div>
+</div>
 
   <div class="cloud-divider">
     <img src="Image44.png" alt="Nuages WORKINGS" class="cloud-image">
