@@ -2,16 +2,16 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Parcours Développeur - WORKINGS</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
       background: #f7f9fc;
-      scroll-behavior: smooth;
     }
+
     header {
       background: url('https://images.unsplash.com/photo-1503264116251-35a269479413') center/cover no-repeat;
       filter: hue-rotate(200deg);
@@ -20,6 +20,7 @@
       padding: 6rem 2rem;
       position: relative;
     }
+
     .logo {
       width: 100px;
       background: white;
@@ -29,6 +30,7 @@
       top: 20px;
       left: 20px;
     }
+
     nav {
       display: flex;
       justify-content: center;
@@ -37,22 +39,30 @@
       position: sticky;
       top: 0;
       z-index: 10;
-      flex-wrap: wrap;
     }
+
     nav ul {
       list-style: none;
-      margin: 0;
-      padding: 0;
       display: flex;
+      padding: 0;
+      margin: 0;
     }
-    nav li { position: relative; }
+
+    nav li {
+      position: relative;
+    }
+
     nav a {
+      display: block;
+      padding: 1rem 1.5rem;
       color: #2c5364;
       text-decoration: none;
-      padding: 1rem 1.5rem;
+    }
+
+    nav li:hover > ul {
       display: block;
     }
-    nav li:hover > ul { display: block; }
+
     nav ul ul {
       display: none;
       position: absolute;
@@ -60,48 +70,55 @@
       left: 0;
       background: white;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      z-index: 99;
     }
-    nav ul ul li a {
-      padding: 0.8rem 1.5rem;
-      white-space: nowrap;
-    }
+
     .section {
       max-width: 1000px;
       margin: auto;
       padding: 4rem 2rem;
     }
+
+    h2 {
+      color: #2c5364;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 2rem;
+      margin: 2rem 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     }
-    table, th, td {
+
+    table th, table td {
       border: 1px solid #ccc;
-    }
-    th, td {
       padding: 1rem;
       text-align: left;
     }
-    th {
-      background-color: #e7ecf4;
+
+    table th {
+      background: #e7ecf4;
+      color: #2c5364;
     }
+
     .cta {
       display: inline-block;
-      margin-top: 2rem;
-      padding: 1rem 2rem;
       background: #2c5364;
       color: white;
-      border-radius: 6px;
+      padding: 1rem 2rem;
+      border-radius: 8px;
       text-decoration: none;
+      margin-top: 2rem;
     }
-    .info-box {
-      background: #ffffff;
-      border-left: 6px solid #2c5364;
-      padding: 1rem 1.5rem;
-      margin: 2rem 0;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+
+    .highlight {
+      background: #f9f9f9;
+      padding: 1.5rem;
+      border-left: 4px solid #2c5364;
+      margin-bottom: 2rem;
     }
+
     footer {
       background: #e7ecf4;
       color: #2c5364;
@@ -132,51 +149,56 @@
 
   <div class="section">
     <h2>📚 Contenu de la formation & certification</h2>
-    <div class="info-box">🧱 Tronc commun – Formation au métier de développeur Salesforce</div>
+    <div class="highlight">🧱 Tronc commun – Formation au métier de développeur Salesforce</div>
     <table>
-      <tr><th>Étape</th><th>Contenu</th><th>Certification</th><th>Coûts</th></tr>
-      <tr><td>1️⃣</td><td>Introduction à la plateforme Salesforce & environnements Dev</td><td>—</td><td>—</td></tr>
-      <tr><td>2️⃣</td><td>Langage Apex (backend)</td><td>—</td><td>—</td></tr>
-      <tr><td>3️⃣</td><td>SOQL/SOSL & base de données</td><td>—</td><td>—</td></tr>
-      <tr><td>4️⃣</td><td>Interfaces avec Lightning Web Components (LWC)</td><td>—</td><td>—</td></tr>
-      <tr><td>5️⃣</td><td>Tests unitaires, déploiement, gestion de projet</td><td>—</td><td>—</td></tr>
-      <tr><td>6️⃣</td><td>Préparation & passage certif Platform Dev I</td><td>🎓 Salesforce PD1</td><td>💰 200 $</td></tr>
+      <thead>
+        <tr><th>Étape</th><th>Contenu</th><th>Certification</th><th>Coût</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1️⃣</td><td>Introduction à la plateforme Salesforce & aux environnements Dev</td><td>–</td><td>–</td></tr>
+        <tr><td>2️⃣</td><td>Apprentissage du langage Apex (backend)</td><td>–</td><td>–</td></tr>
+        <tr><td>3️⃣</td><td>SOQL/SOSL – Requêtes & gestion de la base de données</td><td>–</td><td>–</td></tr>
+        <tr><td>4️⃣</td><td>Développement d’interfaces avec Lightning Web Components (LWC)</td><td>–</td><td>–</td></tr>
+        <tr><td>5️⃣</td><td>Tests unitaires, déploiement, gestion de projet Dev Salesforce</td><td>–</td><td>–</td></tr>
+        <tr><td>6️⃣</td><td>Préparation & passage de la certification Platform Developer I</td><td>🎓 Salesforce PD1</td><td>💰 200 $</td></tr>
+      </tbody>
     </table>
-  </div>
 
-  <div class="section">
     <h2>🔁 Spécialisations possibles après certif</h2>
     <ul>
       <li>Platform Developer II – Bonnes pratiques, intégration avancée (200 $)</li>
-      <li>JavaScript Developer I – Maîtrise LWC & web modernes (200 $)</li>
-      <li>Omnistudio Developer – Secteurs télécom, assurance... (200 $)</li>
-      <li>B2C Commerce Developer – E-commerce & client (200 $)</li>
-      <li>Salesforce Architect – Architecture technique (400 $+)</li>
+      <li>JavaScript Developer I – Maîtrise des LWC & web modernes (200 $)</li>
+      <li>Omnistudio Developer – Développement sectoriel (200 $)</li>
+      <li>B2C Commerce Developer – E-commerce & expérience client (200 $)</li>
+      <li>Salesforce Architect – Architecture technique complète (400 $+)</li>
     </ul>
-  </div>
 
-  <div class="section">
     <h2>💼 Débouchés & salaires estimés</h2>
     <table>
-      <tr><th>Profil</th><th>CDI (an)</th><th>Freelance (TJM)</th></tr>
-      <tr><td>Dev Salesforce Junior (1 an)</td><td>40–48 k€</td><td>400 €/jour</td></tr>
-      <tr><td>Confirmé (2+ ans)</td><td>50–65 k€</td><td>500–600 €/jour</td></tr>
-      <tr><td>Dev LWC / Omnistudio</td><td>60–75 k€</td><td>600 €/jour +</td></tr>
+      <thead>
+        <tr><th>Profil</th><th>CDI (an)</th><th>Freelance (TJM)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Développeur Salesforce Junior (1 an)</td><td>40–48 k€</td><td>400 €/jour</td></tr>
+        <tr><td>Confirmé (2+ ans)</td><td>50–65 k€</td><td>500–600 €/jour</td></tr>
+        <tr><td>Dev LWC ou Omnistudio</td><td>60–75 k€</td><td>600 €/jour +</td></tr>
+      </tbody>
     </table>
-  </div>
 
-  <div class="section">
     <h2>🎓 Ce que vous obtenez chez WORKINGS</h2>
     <ul>
-      <li>✅ Environnement dev Salesforce (Playground, Sandboxes)</li>
-      <li>✅ Cours structurés + exercices encadrés</li>
+      <li>✅ Accès à un environnement dev Salesforce (Playground & Sandboxes)</li>
+      <li>✅ Cours structurés + exercices pratiques encadrés</li>
       <li>✅ Mentorat par développeurs certifiés</li>
       <li>✅ Coaching certif Platform Dev I</li>
       <li>✅ Accompagnement vers mission ESN / CDI technique</li>
     </ul>
-    <a class="cta" href="contact.html">Je veux devenir Développeur Salesforce</a>
+
+    <a class="cta" href="contact.html">Je veux devenir développeur</a>
   </div>
 
-  <footer>&copy; 2025 WORKINGS – Tous droits réservés.</footer>
+  <footer>
+    &copy; 2025 WORKINGS – Tous droits réservés.
+  </footer>
 </body>
 </html>
