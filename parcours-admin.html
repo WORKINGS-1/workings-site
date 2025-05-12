@@ -193,6 +193,28 @@
       text-align: center;
       padding: 2rem 1rem 4rem;
     }
+    .step-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.step-number {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
   </style>
 </head>
 <body>
@@ -253,19 +275,54 @@
     <p>✅ Très forte demande sur le marché de l’emploi</p>
     <div class="img-zoom-left"><img src="Image99.png" alt="Formation Admin Salesforce" /></div>
   </div>
-
-  <div class="section">
-    <h2>📚 Contenu de la formation</h2>
-    <p>• Introduction Salesforce & Ecosystème CRM</p>
-    <p>• Configuration des objets, utilisateurs, sécurité</p>
-    <p>• Automatisations : Flows, règles, validations</p>
-    <p>• Tableaux de bord, rapports, analytics de base</p>
-    <p>• Préparation à l’examen ADM201 (examens blancs inclus)</p>
-    <p>• 🕒 Durée : 6 à 8 semaines</p>
-    <p>• 📍 Format : 100 % en ligne</p>
-    <p>• 💼 Finançable CPF / Pôle Emploi</p>
-    <div class="img-zoom-left"><img src="Image2.jpg" alt="Contenu pédagogique Salesforce" /></div>
+<div class="section">
+  <h2>📚 Contenu de la formation</h2>
+  <div class="step-list">
+    <div class="step-item">
+      <span class="step-number">1️⃣</span>
+      <div>
+        <strong>Introduction Salesforce & Ecosystème CRM</strong>
+        <p>Découverte de la plateforme et de ses grands principes.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <span class="step-number">2️⃣</span>
+      <div>
+        <strong>Configuration des objets, utilisateurs & sécurité</strong>
+        <p>Création, gestion des données, profils et autorisations.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <span class="step-number">3️⃣</span>
+      <div>
+        <strong>Automatisations : Flows, règles, validations</strong>
+        <p>Optimisation des processus métier sans coder.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <span class="step-number">4️⃣</span>
+      <div>
+        <strong>Tableaux de bord, rapports & analytics de base</strong>
+        <p>Visualiser les données & suivre les indicateurs de performance.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <span class="step-number">5️⃣</span>
+      <div>
+        <strong>Préparation à l’examen ADM201</strong>
+        <p>Exercices pratiques & examens blancs inclus.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <span class="step-number">6️⃣</span>
+      <div>
+        <strong>Infos pratiques</strong>
+        <p>🕒 Durée : 6 à 8 semaines • 📍 100 % en ligne • 💼 CPF / Pôle Emploi</p>
+      </div>
+    </div>
   </div>
+</div>
+
 
    <div class="section">
     <h2>🔁 Poursuivez avec une spécialisation certifiante</h2>
