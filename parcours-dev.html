@@ -218,6 +218,28 @@
 .course-table tr:last-child td {
   border-bottom: none;
 }
+    .step-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.step-number {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
 
   </style>
 </head>
@@ -282,24 +304,54 @@
   <div class="section">
   <h2>📚 Contenu de la formation & certification</h2>
   <p><strong>🧱 Tronc commun – Formation au métier de développeur Salesforce</strong></p>
-  <table class="course-table">
-    <thead>
-      <tr>
-        <th>Étape</th>
-        <th>Contenu</th>
-        <th>Certification</th>
-        <th>Coût</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>1️⃣</td><td>Introduction à la plateforme Salesforce & aux environnements Dev</td><td>–</td><td>–</td></tr>
-      <tr><td>2️⃣</td><td>Apprentissage du langage Apex (backend)</td><td>–</td><td>–</td></tr>
-      <tr><td>3️⃣</td><td>SOQL/SOSL – Requêtes & gestion de la base de données</td><td>–</td><td>–</td></tr>
-      <tr><td>4️⃣</td><td>Développement avec Lightning Web Components (LWC)</td><td>–</td><td>–</td></tr>
-      <tr><td>5️⃣</td><td>Tests unitaires, déploiement, gestion de projet</td><td>–</td><td>–</td></tr>
-      <tr><td>6️⃣</td><td>Préparation & passage de la certification</td><td>🎓 Salesforce PD1</td><td>💰 200 $</td></tr>
-    </tbody>
-  </table>
+  <div class="section">
+  <h2>📚 Contenu de la formation & certification</h2>
+  <div class="step-list">
+    <div class="step-item">
+      <span class="step-number">1️⃣</span>
+      <div>
+        <strong>Introduction à la plateforme Salesforce & environnements Dev</strong>
+        <p>Familiarisation avec l'écosystème Salesforce & création de sandbox.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <span class="step-number">2️⃣</span>
+      <div>
+        <strong>Apprentissage du langage Apex (backend)</strong>
+        <p>Premiers scripts, logique métier, automatisation serveur.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <span class="step-number">3️⃣</span>
+      <div>
+        <strong>SOQL/SOSL – Requêtes & gestion de base de données</strong>
+        <p>Extraire, filtrer et croiser les données Salesforce efficacement.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <span class="step-number">4️⃣</span>
+      <div>
+        <strong>Développement d’interfaces avec Lightning Web Components (LWC)</strong>
+        <p>Création d’interfaces dynamiques & responsive.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <span class="step-number">5️⃣</span>
+      <div>
+        <strong>Tests unitaires, déploiement & gestion de projet Dev Salesforce</strong>
+        <p>Bonnes pratiques de livraison & collaboration avec les équipes métier.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <span class="step-number">6️⃣</span>
+      <div>
+        <strong>Préparation & passage de la certification Platform Developer I</strong>
+        <p>🎓 Certif visée : <strong>Platform Developer I</strong> — 💰 Coût : <strong>200 $</strong></p>
+      </div>
+    </div>
+  </div>
+</div>
+
 </div>
 
 <div class="section">
