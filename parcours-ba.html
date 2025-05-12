@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Parcours Développeur - WORKINGS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f7f9fc;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: url('https://images.unsplash.com/photo-1503264116251-35a269479413') center/cover no-repeat;
+      background-size: cover;
+      filter: hue-rotate(200deg); /* teinte bleue */
+      color: white;
+      text-align: center;
+      padding: 6rem 2rem;
+      position: relative;
+    }
+
+    .logo {
+      width: 100px;
+      background: white;
+      padding: 10px;
+      border-radius: 50%;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      flex-wrap: wrap;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    nav li {
+      position: relative;
+    }
+
+    nav a {
+      color: #2c5364;
+      text-decoration: none;
+      padding: 1rem 1.5rem;
+      display: block;
+    }
+
+    nav li:hover > ul {
+      display: block;
+    }
+
+    nav ul ul {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 99;
+    }
+
+    nav ul ul li a {
+      padding: 0.8rem 1.5rem;
+      white-space: nowrap;
+    }
+
+    nav a:hover {
+      background: #e0efff;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      cursor: pointer;
+      z-index: 20;
+    }
+
+    .bar {
+      height: 3px;
+      width: 25px;
+      background: white;
+      margin: 4px 0;
+    }
+
+    @media (max-width: 768px) {
+      .logo { width: 70px; }
+
+      nav ul {
+        flex-direction: column;
+        display: none;
+        width: 100%;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      nav ul ul {
+        position: relative;
+        box-shadow: none;
+      }
+    }
+
+    .section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 4rem 2rem;
+    }
+
+    .img-zoom-left {
+      max-width: 100%;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      margin: 2rem 0;
+    }
+
+    .img-zoom-left img {
+      width: 100%;
+      height: auto;
+      transform: scale(1.1) translateX(-40px);
+      transition: all 1.5s ease;
+      opacity: 0;
+    }
+
+    .img-zoom-left.in-view img {
+      transform: scale(1) translateX(0);
+      opacity: 1;
+    }
+
+    .cta {
+      display: block;
+      text-align: center;
+      margin: 3rem auto 0;
+      width: fit-content;
+      padding: 1rem 2rem;
+      background: #2c5364;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .cta:hover {
+      background: #1a3e72;
+      transform: scale(1.05);
+    }
+
+    .cloud-divider {
+      width: 100%;
+      height: 150px;
+      overflow: hidden;
+      margin-top: 3rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .cloud-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    footer {
+      background: #e7ecf4;
+      color: #2c5364;
+      text-align: center;
+      padding: 2rem 1rem 4rem;
+    }
+    .course-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.course-table th,
+.course-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.course-table th {
+  background: #2c5364;
+  color: white;
+  font-weight: 600;
+}
+
+.course-table tr:last-child td {
+  border-bottom: none;
+}
+    .step-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.step-number {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="workings-logo.png" class="logo" />
+    <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('active')">
+      <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+    </div>
+    <h1>Parcours Développeur Salesforce</h1>
+  </header>
+
+  <!-- Navigation identique -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="academy.html">Academy</a>
+        <ul>
+          <li><a href="parcours-admin.html">Parcours Admin</a></li>
+          <li><a href="parcours-dev.html">Parcours Développeur</a></li>
+          <li><a href="methodologie.html">Méthodologie</a></li>
+          <li><a href="certification.html">Certification</a></li>
+        </ul>
+      </li>
+      <li><a href="esn.html">ESN</a>
+        <ul>
+          <li><a href="prestations.html">Nos prestations</a></li>
+          <li><a href="secteurs.html">Secteurs d'intervention</a></li>
+          <li><a href="success-stories.html">Success stories</a></li>
+          <li><a href="modeles.html">Modèles de mission</a></li>
+        </ul>
+      </li>
+      <li><a href="apropos.html">À propos</a>
+        <ul>
+          <li><a href="vision.html">Notre vision</a></li>
+          <li><a href="equipe.html">L'équipe</a></li>
+          <li><a href="valeurs.html">Valeurs</a></li>
+          <li><a href="engagement.html">Engagement</a></li>
+        </ul>
+      </li>
+      <li><a href="contact.html">Contact</a>
+        <ul>
+          <li><a href="ecrire.html">Nous écrire</a></li>
+          <li><a href="recrutement.html">Rejoindre l'équipe</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="section">
+    <h2>🧭 Pourquoi choisir le parcours Developer ?</h2>
+    <p>Salesforce est bien plus qu’un CRM : c’est une plateforme complète, extensible et au cœur de la stratégie digitale des entreprises.</p>
+    <p>Le rôle de développeur Salesforce est aujourd’hui parmi les plus demandés, notamment chez les intégrateurs, les ESN, et les entreprises en transformation.</p>
+    <p>✅ Un environnement cloud dynamique<p>
+    <p>✅ Des technologies puissantes (Apex, LWC, API)<p>
+    <p>✅ Un salaire au-dessus de la moyenne IT
+    <p>✅ Des perspectives rapides : développeur, architecte, CTO…<p>
+    <div class="img-zoom-left"><img src="Image8.jpg" alt="Développement Salesforce" /></div>
+  </div>
+  <div class="section">
+  <h2>📚 Contenu de la formation & certification</h2>
+  <p><strong>🧱 Tronc commun – Formation au métier de développeur Salesforce</strong></p>
+  <div class="section">
+  <div class="step-list">
+    <div class="step-item">
+      <span class="step-number">1️⃣</span>
+      <div>
+        <strong>Introduction à la plateforme Salesforce & environnements Dev</strong>
+        <p>Familiarisation avec l'écosystème Salesforce & création de sandbox.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <span class="step-number">2️⃣</span>
+      <div>
+        <strong>Apprentissage du langage Apex (backend)</strong>
+        <p>Premiers scripts, logique métier, automatisation serveur.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <span class="step-number">3️⃣</span>
+      <div>
+        <strong>SOQL/SOSL – Requêtes & gestion de base de données</strong>
+        <p>Extraire, filtrer et croiser les données Salesforce efficacement.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <span class="step-number">4️⃣</span>
+      <div>
+        <strong>Développement d’interfaces avec Lightning Web Components (LWC)</strong>
+        <p>Création d’interfaces dynamiques & responsive.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <span class="step-number">5️⃣</span>
+      <div>
+        <strong>Tests unitaires, déploiement & gestion de projet Dev Salesforce</strong>
+        <p>Bonnes pratiques de livraison & collaboration avec les équipes métier.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <span class="step-number">6️⃣</span>
+      <div>
+        <strong>Préparation & passage de la certification Platform Developer I</strong>
+        <p>🎓 Certif visée : <strong>Platform Developer I</strong> — 💰 Coût : <strong>200 $</strong></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div class="section">
+  <h2>🔁 Spécialisations possibles après certif</h2>
+  <ul>
+    <li>Platform Developer II – Bonnes pratiques, intégration avancée </li>
+    <li>JavaScript Developer I – Maîtrise des LWC & web modernes </li>
+    <li>Omnistudio Developer – Dév. sectoriel (telco, assurance…) </li>
+    <li>B2C Commerce Developer – E-commerce & expérience client </li>
+    <li>Salesforce Architect – Architecture technique complète </li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2>💼 Débouchés & salaires estimés</h2>
+  <table class="course-table">
+    <thead>
+      <tr>
+        <th>Profil</th>
+        <th>CDI (an)</th>
+        <th>Freelance (TJM)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Dév Salesforce Junior (1 an)</td><td>40–48 k€</td><td>400 €/jour</td></tr>
+      <tr><td>Confirmé (2+ ans)</td><td>50–65 k€</td><td>500–600 €/jour</td></tr>
+      <tr><td>Dev LWC ou Omnistudio</td><td>60–75 k€</td><td>600 €/jour +</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section">
+  <h2>🎓 Ce que vous obtenez chez WORKINGS</h2>
+  <ul>
+    <li>✅ Accès à un environnement dev Salesforce (Playground & Sandboxes)</li>
+    <li>✅ Cours structurés + exercices pratiques encadrés</li>
+    <li>✅ Mentorat par développeurs certifiés</li>
+    <li>✅ Coaching certif Platform Dev I</li>
+    <li>✅ Accompagnement vers mission ESN / CDI technique</li>
+  </ul>
+</div>
+
+  <a class="cta" href="contact.html">Je veux devenir Développeur</a>
+
+  <div class="cloud-divider">
+    <img src="Image44.png" alt="Nuages WORKINGS" class="cloud-image">
+  </div>
+
+  <footer>&copy; 2025 WORKINGS – Tous droits réservés.</footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        }
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.img-zoom-left').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
