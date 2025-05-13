@@ -240,40 +240,39 @@
   flex-shrink: 0;
 }
 
-<div class="section">
-  <h2>🔁 Poursuivez avec une spécialisation certifiante</h2>
-  <p>Une fois certifié Administrateur Salesforce, vous pouvez choisir une spécialisation selon votre profil et vos objectifs :</p>
+.certif-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
 
-  <div class="certif-cards">
-    <div class="certif-card">
-      <img src="certifs/sales-cloud.png" alt="Sales Cloud" />
-      <h3>Sales Cloud Consultant</h3>
-      <p>Vente & pipeline client</p>
-    </div>
+.certif-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
 
-    <div class="certif-card">
-      <img src="certifs/service-cloud.png" alt="Service Cloud" />
-      <h3>Service Cloud Consultant</h3>
-      <p>Support & relation client</p>
-    </div>
+.certif-card:hover {
+  transform: translateY(-5px);
+}
 
-    <div class="certif-card">
-      <img src="certifs/app-builder.png" alt="App Builder" />
-      <h3>Platform App Builder</h3>
-      <p>Création d'apps sans code</p>
-    </div>
+.certif-card img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
 
-    <div class="certif-card">
-      <img src="certifs/advanced-admin.png" alt="Advanced Admin" />
-      <h3>Advanced Admin</h3>
-      <p>Configuration avancée & automatisation</p>
-    </div>
-  </div>
+.certif-card h3 {
+  margin: 0.5rem 0;
+  color: #2c5364;
+  font-size: 1.1rem;
+}
 
-  <p style="text-align: center; margin-top: 2rem;">
-    Développez votre expertise et accédez à des postes plus qualifiés ou mieux rémunérés.
-  </p>
-</div>
 
   </style>
 </head>
