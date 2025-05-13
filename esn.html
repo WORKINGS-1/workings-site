@@ -278,6 +278,56 @@ nav ul.active ~ .bar {
   font-size: 0.95rem;
   color: #444;
 }
+.formats-section {
+  background: #ffffff;
+  padding: 4rem 2rem;
+}
+
+.formats-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+  color: #2c5364;
+}
+
+.formats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.format-card {
+  background: #f1f5fb;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease;
+}
+
+.format-card:hover {
+  transform: translateY(-5px);
+}
+
+.format-card .emoji {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.format-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #1a3e72;
+}
+
+.format-card p {
+  font-size: 0.95rem;
+  color: #444;
+  margin: 0.5rem 0;
+}
 
   </style>
 </head>
@@ -344,7 +394,37 @@ nav ul.active ~ .bar {
        <p>Une approche humaine, agile et orientée résultats</p>
     <div class="img-parallax"><img src="Image3.jpg" alt="Consultants Salesforce" /></div>
   </div>
+<section class="formats-section">
+  <h2>🔧 Nos formats d’intervention</h2>
+  <div class="formats-grid">
+    <div class="format-card">
+      <span class="emoji">🔧</span>
+      <h3>Régie</h3>
+      <p>Consultant dans vos locaux ou à distance</p>
+      <p><strong>Idéal :</strong> Renforcer une équipe projet</p>
+    </div>
+    <div class="format-card">
+      <span class="emoji">🧩</span>
+      <h3>Forfait</h3>
+      <p>Livraison clé-en-main d’un périmètre défini</p>
+      <p><strong>Idéal :</strong> Intégration ou évolution de CRM</p>
+    </div>
+    <div class="format-card">
+      <span class="emoji">♻️</span>
+      <h3>TMA</h3>
+      <p>Maintenance corrective & évolutive</p>
+      <p><strong>Idéal :</strong> Maintenir votre org Salesforce</p>
+    </div>
+    <div class="format-card">
+      <span class="emoji">🤝</span>
+      <h3>Pré-embauche</h3>
+      <p>Consultant avec option d’embauche</p>
+      <p><strong>Idéal :</strong> Sécuriser un recrutement qualifié</p>
+    </div>
+  </div>
+</section>
 
+  
   <section class="secteurs-section">
   <h2>🌍 Nos secteurs d’intervention</h2>
   <div class="secteurs-grid">
