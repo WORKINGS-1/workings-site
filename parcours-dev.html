@@ -239,6 +239,38 @@
   font-size: 1.5rem;
   flex-shrink: 0;
 }
+.certif-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.certif-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.certif-card:hover {
+  transform: translateY(-5px);
+}
+
+.certif-card img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.certif-card h3 {
+  margin: 0.5rem 0;
+  color: #2c5364;
+  font-size: 1.1rem;
+}
 
 
   </style>
@@ -303,7 +335,6 @@
   </div>
   <div class="section">
   <h2>📚 Contenu de la formation & certification</h2>
-  <p><strong>Formation au métier de développeur Salesforce</strong></p>
   <div class="section">
   <div class="step-list">
     <div class="step-item">
@@ -354,15 +385,40 @@
 </div>
 
 <div class="section">
-  <h2>🔁 Spécialisations possibles après certif</h2>
-  <ul>
-    <li>Platform Developer II – Bonnes pratiques, intégration avancée </li>
-    <li>JavaScript Developer I – Maîtrise des LWC & web modernes </li>
-    <li>Omnistudio Developer – Dév. sectoriel (telco, assurance…) </li>
-    <li>B2C Commerce Developer – E-commerce & expérience client </li>
-    <li>Salesforce Architect – Architecture technique complète </li>
-  </ul>
+  <h2>🔁 Poursuivez avec une spécialisation certifiante</h2>
+  <p>Une fois certifié Développeur Salesforce, vous pouvez choisir une spécialisation selon votre profil et vos objectifs :</p>
+
+  <div class="certif-cards">
+    <div class="certif-card">
+      <img src="certifs/sales-cloud.png" alt="Sales Cloud" />
+      <h3>Platform Developer II</h3>
+      <p>Bonnes pratiques, intégration avancée</p>
+    </div>
+
+    <div class="certif-card">
+      <img src="certifs/service-cloud.png" alt="Service Cloud" />
+      <h3>JavaScript Developer I</h3>
+      <p>Maîtrise des LWC & web modernes</p>
+    </div>
+
+    <div class="certif-card">
+      <img src="certifs/app-builder.png" alt="App Builder" />
+      <h3>Omnistudio Developer</h3>
+      <p>Dév. sectoriel (telco, assurance…)</p>
+    </div>
+
+    <div class="certif-card">
+      <img src="certifs/advanced-admin.png" alt="Advanced Admin" />
+      <h3>B2C Commerce Developer</h3>
+      <p>E.commerce & expérience client</p>
+    </div>
+  </div>
+
+  <p style="text-align: center; margin-top: 2rem;">
+    Développez votre expertise et accédez à des postes plus qualifiés ou mieux rémunérés.
+  </p>
 </div>
+
 
 <div class="section">
   <h2>💼 Débouchés & salaires estimés</h2>
