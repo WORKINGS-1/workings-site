@@ -195,6 +195,93 @@
       padding: 2rem 1rem 4rem;
       margin-top: 0;
     }
+    .contact-section, .besoin-section, .coordonnees-section {
+  padding: 4rem 2rem;
+  background: #ffffff;
+  text-align: center;
+}
+
+.contact-section h2,
+.besoin-section h2,
+.coordonnees-section h2 {
+  color: #2c5364;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.contact-intro {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 1rem;
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem auto 2rem;
+  max-width: 600px;
+  text-align: left;
+}
+
+.contact-list li {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  padding-left: 1rem;
+}
+
+.besoin-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.besoin-card {
+  background: #f1f5fb;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  max-width: 400px;
+  flex: 1 1 300px;
+  transition: transform 0.3s ease;
+}
+
+.besoin-card:hover {
+  transform: translateY(-5px);
+}
+
+.besoin-card h3 {
+  color: #1a3e72;
+  margin-bottom: 1rem;
+}
+
+.besoin-card p {
+  font-size: 0.95rem;
+  color: #444;
+  margin: 0.5rem 0;
+}
+
+.coordonnees-box {
+  background: #f7f9fc;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.coordonnees-box p {
+  font-size: 1rem;
+  margin: 0.8rem 0;
+  color: #2c5364;
+}
+
+.coordonnees-box a {
+  color: #1a3e72;
+  text-decoration: underline;
+}
+
   </style>
 </head>
 <body>
@@ -232,13 +319,45 @@
     </ul>
   </nav>
 
-  <div class="section">
-    <h2>Une question ? Un projet ?</h2>
-    <p>📩 contact@workings.fr<br>📞 +33 6 00 00 00 00<br>💼 LinkedIn :
-      <a href="https://www.linkedin.com/in/shai-botbol" target="_blank">Shai Botbol</a>
-    </p>
-    <img src="Image11.png" alt="Consultant WORKINGS" />
+  <section class="contact-section">
+  <h2>💬 Comment pouvons-nous vous aider ?</h2>
+  <p class="contact-intro">WORKINGS vous accompagne dans vos projets de formation, de recrutement ou d'insertion professionnelle.</p>
+  <p class="contact-intro">Contactez-nous, que vous soyez :</p>
+  <ul class="contact-list">
+    <li>👨‍🎓 Un futur apprenant</li>
+    <li>🏢 Une entreprise à la recherche de talents Salesforce</li>
+    <li>👩‍🏫 Un professionnel souhaitant rejoindre notre équipe pédagogique</li>
+  </ul>
+</section>
+
+<section class="besoin-section">
+  <h2>📌 Choisissez votre besoin</h2>
+  <div class="besoin-grid">
+    <div class="besoin-card">
+      <h3>✉️ Nous écrire</h3>
+      <p>Un projet, une demande d’information ou une collaboration ?</p>
+      <p>Laissez-nous un message via notre formulaire.</p>
+      <a href="ecrire.html" class="cta">Accéder à la sous page ➜</a>
+    </div>
+    <div class="besoin-card">
+      <h3>👥 Rejoindre l’équipe</h3>
+      <p>Vous êtes formateur, coach, ou passionné par l’accompagnement des talents ?</p>
+      <p>Découvrez comment rejoindre l’aventure WORKINGS.</p>
+      <a href="recrutement.html" class="cta">Accéder à la page ➜</a>
+    </div>
   </div>
+</section>
+
+<section class="coordonnees-section">
+  <h2>📍 Coordonnées directes</h2>
+  <div class="coordonnees-box">
+    <p>📧 <strong>Email :</strong> <a href="mailto:contact@workings.fr">contact@workings.fr</a></p>
+    <p>📞 <strong>Téléphone :</strong> 06 44 67 55 55</p>
+    <p>📍 <strong>Basé en France</strong> – Formations & accompagnement 100 % à distance</p>
+    <p>📱 <strong>LinkedIn :</strong> <a href="https://www.linkedin.com/company/workings" target="_blank">linkedin.com/company/workings</a></p>
+  </div>
+</section>
+
 
   <a class="cta" href="index.html">Retour à l’accueil</a>
 
