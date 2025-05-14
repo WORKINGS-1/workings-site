@@ -201,6 +201,51 @@
       padding: 2rem 1rem 4rem;
       margin-top: 0;
     }
+    .team-grid {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.team-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+  width: 200px;
+}
+
+.team-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.8rem;
+}
+
+.valeurs-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #2c5364;
+}
+
+.valeurs-list li {
+  margin: 0.6rem 0;
+}
+
+.cta-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin: 3rem 0;
+}
+
   </style>
 </head>
 <body>
@@ -252,6 +297,54 @@
     <p>Chacun développe une posture professionnelle solide, devient autonome et prend en main sa carrière.</p>
     <div class="img-container"><img src="Image10.png" alt="Collaboration en équipe" /></div>
   </div>
+  <section class="section fade-right">
+  <h2>WORKINGS, c’est plus qu’une formation</h2>
+  <p>C’est une nouvelle voie vers l’emploi, par la compétence et la confiance.</p>
+</section>
+
+<section class="section fade-right">
+  <h3>🔭 Notre vision</h3>
+  <p>Chez WORKINGS, nous croyons que l'accès à une carrière dans le numérique ne devrait pas dépendre de son diplôme ou de son passé, mais de sa motivation à apprendre.</p>
+  <p><strong>🎯 Notre mission :</strong> former, certifier, et insérer durablement des talents dans l’écosystème Salesforce et IA.</p>
+  <p><strong>🎯 Notre modèle :</strong> Academy + ESN intégrée, pour garantir une formation alignée avec les attentes du terrain… et un débouché concret.</p>
+</section>
+
+<section class="section team-section fade-right">
+  <h3>👥 L'équipe fondatrice</h3>
+  <p>WORKINGS est née de la rencontre entre des experts Salesforce, des formateurs passionnés et des recruteurs terrain.</p>
+  <p>Des profils complémentaires réunis autour d’une idée simple : <strong>donner à chacun les moyens d’intégrer un métier du numérique durablement.</strong></p>
+
+  <div class="team-grid">
+    <div class="team-card">
+      <img src="fondateur1.jpg" alt="Fondateur 1">
+      <h4>Julie M.</h4>
+      <p>Ex-consultante CRM & coach certif</p>
+    </div>
+    <div class="team-card">
+      <img src="fondateur2.jpg" alt="Fondateur 2">
+      <h4>David B.</h4>
+      <p>Formateur Salesforce & Dev Fullstack</p>
+    </div>
+    <!-- Ajoute + membres si besoin -->
+  </div>
+</section>
+
+<section class="section fade-right">
+  <h3>💡 Nos valeurs</h3>
+  <ul class="valeurs-list">
+    <li><strong>💬 Accessibilité :</strong> Des formations ouvertes à tous, sans préjugé ni jargon</li>
+    <li><strong>🎯 Impact :</strong> Un objectif clair : vous former pour vous faire embaucher</li>
+    <li><strong>🧠 Excellence :</strong> Des formateurs certifiés, un suivi exigeant et humain</li>
+    <li><strong>🤝 Transparence :</strong> Zéro bullshit : on dit ce qu’on fait, on fait ce qu’on dit</li>
+  </ul>
+</section>
+
+<div class="cta-group">
+  <a class="cta" href="academy.html">👉 Découvrir nos formations</a>
+  <a class="cta" href="contact.html">👉 Voir nos consultants disponibles</a>
+  <a class="cta" href="ecrire.html">👉 Nous contacter</a>
+</div>
+
 
   <a class="cta" href="academy.html">Découvrir l’académie</a>
 
