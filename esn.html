@@ -308,6 +308,57 @@ nav ul.active ~ .bar {
     </div>
   </div>
 </section>
+.formats-section {
+  background: #f4f7fb;
+  padding: 4rem 2rem;
+}
+
+.formats-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #2c5364;
+  margin-bottom: 3rem;
+}
+
+.formats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.format-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.format-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.format-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #2c5364;
+}
+
+.format-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #1a3e72;
+}
+
+.format-card p {
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.5;
+}
 
   </style>
 </head>
@@ -374,31 +425,32 @@ nav ul.active ~ .bar {
        <p>Une approche humaine, agile et orientée résultats</p>
     <div class="img-parallax"><img src="Image3.jpg" alt="Consultants Salesforce" /></div>
   </div>
-<section class="section">
-  <h2 style="text-align:center; color:#2c5364;">🔧 Nos formats d’intervention</h2>
-  <div class="intervention-timeline">
-    <div class="intervention-step" data-icon="🔧">
+<section class="formats-section">
+  <h2>🧩 Nos formats d’intervention</h2>
+  <div class="formats-grid">
+    <div class="format-card">
+      <div class="format-icon">🔧</div>
       <h3>Régie</h3>
-      <p>Un consultant travaille chez vous ou à distance.</p>
-      <p><strong>Idéal pour :</strong> renforcer une équipe projet déjà en place.</p>
+      <p>Un consultant WORKINGS intervient au sein de vos équipes (en présentiel ou télétravail) pour renforcer un projet existant.</p>
     </div>
-    <div class="intervention-step" data-icon="🧩">
+    <div class="format-card">
+      <div class="format-icon">🧩</div>
       <h3>Forfait</h3>
-      <p>Livraison clé-en-main d’un périmètre précis.</p>
-      <p><strong>Idéal pour :</strong> intégration, migration ou évolution de votre CRM.</p>
+      <p>Vous externalisez un périmètre complet : WORKINGS le conçoit, le développe et vous le livre clé en main.</p>
     </div>
-    <div class="intervention-step" data-icon="♻️">
-      <h3>TMA (Tierce Maintenance Applicative)</h3>
-      <p>Suivi et évolution continue de votre org Salesforce.</p>
-      <p><strong>Idéal pour :</strong> corrections, évolutions ou petits projets récurrents.</p>
+    <div class="format-card">
+      <div class="format-icon">♻️</div>
+      <h3>TMA</h3>
+      <p>Correctifs, évolutions ou support utilisateur : nous assurons la maintenance continue de votre org Salesforce.</p>
     </div>
-    <div class="intervention-step" data-icon="🤝">
+    <div class="format-card">
+      <div class="format-icon">🤝</div>
       <h3>Pré-embauche</h3>
-      <p>Un consultant WORKINGS intervient chez vous avec une option de recrutement.</p>
-      <p><strong>Idéal pour :</strong> tester un talent avant embauche définitive.</p>
+      <p>Un format hybride pour tester un consultant certifié en mission, avec une option d’embauche à la clé.</p>
     </div>
   </div>
 </section>
+
 
 
   
