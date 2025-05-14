@@ -245,6 +245,78 @@
   gap: 1rem;
   margin: 3rem 0;
 }
+    .vision-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.vision-left, .vision-right {
+  flex: 1 1 45%;
+  background: #f1f5fb;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.vision-left {
+  animation: slideInLeft 1.2s ease forwards;
+}
+.vision-right {
+  animation: slideInRight 1.2s ease forwards;
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-50px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes slideInRight {
+  from { transform: translateX(50px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .vision-grid {
+    flex-direction: column;
+  }
+}
+
+.valeurs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.valeur-box {
+  background: #f1f5fb;
+  padding: 2rem 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease;
+}
+
+.valeur-box:hover {
+  transform: translateY(-5px);
+}
+
+.valeur-box h4 {
+  margin-bottom: 0.8rem;
+  color: #1a3e72;
+  font-size: 1.1rem;
+}
+
+.valeur-box p {
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.valeur1 { background: #eaf7ff; } /* bleu clair */
+.valeur2 { background: #e9fce8; } /* vert pastel */
+.valeur3 { background: #fff3db; } /* jaune clair */
+.valeur4 { background: #f2eaff; } /* violet pâle */
 
   </style>
 </head>
@@ -288,12 +360,19 @@
   <h2>WORKINGS, c’est plus qu’une formation</h2>
   <p>C’est une nouvelle voie vers l’emploi, par la compétence et la confiance.</p>
 </section>
-<section class="section fade-right">
-  <h3>🔭 Notre vision</h3>
-  <p>Chez WORKINGS, nous croyons que l'accès à une carrière dans le numérique ne devrait pas dépendre de son diplôme ou de son passé, mais de sa motivation à apprendre.</p>
-  <p><strong>🎯 Notre mission :</strong> former, certifier, et insérer durablement des talents dans l’écosystème Salesforce et IA.</p>
-  <p><strong>🎯 Notre modèle :</strong> Academy + ESN intégrée, pour garantir une formation alignée avec les attentes du terrain… et un débouché concret.</p>
+<section class="section vision-section">
+  <div class="vision-grid">
+    <div class="vision-left fade-right">
+      <h3>🔭 Notre vision</h3>
+      <p>Chez WORKINGS, nous croyons que l'accès à une carrière dans le numérique ne devrait pas dépendre de son diplôme ou de son passé, mais de sa motivation à apprendre.</p>
+    </div>
+    <div class="vision-right fade-right">
+      <p><strong>🎯 Notre mission :</strong> Former, certifier, et insérer durablement des talents dans l’écosystème Salesforce et IA.</p>
+      <p><strong>🎯 Notre modèle :</strong> Academy + ESN intégrée, pour garantir une formation alignée avec les attentes du terrain… et un débouché concret.</p>
+    </div>
+  </div>
 </section>
+
 
 <section class="section team-section fade-right">
   <h3>👥 L'équipe fondatrice</h3>
@@ -315,15 +394,28 @@
   </div>
 </section>
 
-<section class="section fade-right">
+  <section class="section valeurs-section">
   <h3>💡 Nos valeurs</h3>
-  <ul class="valeurs-list">
-    <li><strong>💬 Accessibilité :</strong> Des formations ouvertes à tous, sans préjugé ni jargon</li>
-    <li><strong>🎯 Impact :</strong> Un objectif clair : vous former pour vous faire embaucher</li>
-    <li><strong>🧠 Excellence :</strong> Des formateurs certifiés, un suivi exigeant et humain</li>
-    <li><strong>🤝 Transparence :</strong> Zéro bullshit : on dit ce qu’on fait, on fait ce qu’on dit</li>
-  </ul>
+  <div class="valeurs-grid">
+    <div class="valeur-box valeur1">
+      <h4>💬 Accessibilité</h4>
+      <p>Des formations ouvertes à tous, sans préjugé ni jargon</p>
+    </div>
+    <div class="valeur-box valeur2">
+      <h4>🎯 Impact</h4>
+      <p>Un objectif clair : vous former pour vous faire embaucher</p>
+    </div>
+    <div class="valeur-box valeur3">
+      <h4>🧠 Excellence</h4>
+      <p>Des formateurs certifiés, un suivi exigeant et humain</p>
+    </div>
+    <div class="valeur-box valeur4">
+      <h4>🤝 Transparence</h4>
+      <p>Zéro bullshit : on dit ce qu’on fait, on fait ce qu’on dit</p>
+    </div>
+  </div>
 </section>
+
 
 <div class="cta-group">
   <a class="cta" href="academy.html">👉 Découvrir nos formations</a>
