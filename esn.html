@@ -384,6 +384,47 @@ nav ul.active ~ .bar {
   margin-bottom: 1rem;
   color: #ffb100;
 }
+.formats-scroll-section {
+  padding: 4rem 2rem;
+  background: #ffffff;
+}
+
+.formats-scroll-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #2c5364;
+}
+
+.formats-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.format-box {
+  flex: 0 0 250px;
+  padding: 2rem;
+  border-radius: 14px;
+  scroll-snap-align: start;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+  text-align: center;
+  color: #2c5364;
+  background: #f8f9fb;
+}
+
+.format-box:hover {
+  transform: translateY(-5px);
+}
+
+.format1 { background: #e6f0ff; }  /* bleu clair */
+.format2 { background: #eafbf0; }  /* vert très pâle */
+.format3 { background: #fff4e6; }  /* orange très clair */
+.format4 { background: #f4eaff; }  /* violet clair */
 
   </style>
 </head>
@@ -450,31 +491,32 @@ nav ul.active ~ .bar {
        <p>Une approche humaine, agile et orientée résultats</p>
     <div class="img-parallax"><img src="Image3.jpg" alt="Consultants Salesforce" /></div>
   </div>
-<section class="formats-section">
-  <h2>🧩 Nos formats d’intervention</h2>
-  <div class="formats-grid">
-    <div class="format-card">
-      <div class="format-icon">🔧</div>
-      <h3>Régie</h3>
-      <p>Un consultant WORKINGS intervient au sein de vos équipes (en présentiel ou télétravail) pour renforcer un projet existant.</p>
+<section class="formats-scroll-section">
+  <h2>🔧 Nos formats d’intervention</h2>
+  <div class="formats-scroll">
+    <div class="format-box format1">
+      <h3>🔧 Régie</h3>
+      <p>Consultant dans vos locaux ou à distance</p>
+      <p><strong>Idéal :</strong> Renforcer une équipe projet</p>
     </div>
-    <div class="format-card">
-      <div class="format-icon">🧩</div>
-      <h3>Forfait</h3>
-      <p>Vous externalisez un périmètre complet : WORKINGS le conçoit, le développe et vous le livre clé en main.</p>
+    <div class="format-box format2">
+      <h3>🧩 Forfait</h3>
+      <p>Livraison clé-en-main d’un périmètre défini</p>
+      <p><strong>Idéal :</strong> Intégration ou évolution de CRM</p>
     </div>
-    <div class="format-card">
-      <div class="format-icon">♻️</div>
-      <h3>TMA</h3>
-      <p>Correctifs, évolutions ou support utilisateur : nous assurons la maintenance continue de votre org Salesforce.</p>
+    <div class="format-box format3">
+      <h3>♻️ TMA</h3>
+      <p>Maintenance corrective & évolutive</p>
+      <p><strong>Idéal :</strong> Maintenir votre org Salesforce</p>
     </div>
-    <div class="format-card">
-      <div class="format-icon">🤝</div>
-      <h3>Pré-embauche</h3>
-      <p>Un format hybride pour tester un consultant certifié en mission, avec une option d’embauche à la clé.</p>
+    <div class="format-box format4">
+      <h3>🤝 Pré-embauche</h3>
+      <p>Consultant avec option d’embauche</p>
+      <p><strong>Idéal :</strong> Sécuriser un recrutement qualifié</p>
     </div>
   </div>
 </section>
+
 
 
 
