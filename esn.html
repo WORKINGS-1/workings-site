@@ -627,7 +627,10 @@ nav ul.active ~ .bar {
     <li>✅ Accéder à du coaching, des ressources et un suivi client</li>
   </ul>
 
- <form class="consultant-form" id="consultantForm">
+<form class="consultant-form" id="consultantForm"
+  action="https://script.google.com/macros/s/https://script.google.com/macros/s/AKfycbwaYvhfSyWwe6H8FtgC5fPhj9JIyaojtfn9j3DvRhQNqh_kYiL0O3TVcWVCYLJoEHGT/exec/exec"
+  method="POST" enctype="multipart/form-data">
+
   <input type="text" name="nom" placeholder="Votre nom" required>
   <input type="email" name="email" placeholder="Votre email" required>
   <select name="certification" required>
@@ -668,35 +671,30 @@ nav ul.active ~ .bar {
 
     document.querySelectorAll('.fade-right, .img-parallax').forEach(el => observer.observe(el));
   </script>
-  <script>
-document.getElementById('consultant-form').addEventListener('submit', async function(e) {
-  e.preventDefault();
+<script>
+  document.getElementById('consultantForm').addEventListener('submit', function(e) {
+    e.preventDefault();
 
-  const form = e.target;
-  const formData = new FormData(form);
-  const file = formData.get('CV');
+    const form = e.target;
+    const data = new FormData(form);
 
-  // Envoi des données au Google Sheet (sans le fichier)
-  const plainData = {
-    Nom: formData.get('Nom'),
-    Email: formData.get('Email'),
-    Spécialité: formData.get('Spécialité')
-  };
-
-  await fetch("https://script.google.com/macros/s/AKfycbwaYvhfSyWwe6H8FtgC5fPhj9JIyaojtfn9j3DvRhQNqh_kYiL0O3TVcWVCYLJoEHGT/exec", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(plainData)
+    fetch(form.action, {
+      method: 'POST',
+      body: data
+    })
+    .then(response => response.text())
+    .then(result => {
+      document.getElementById('successMessage').style.display = 'block';
+      form.reset();
+    })
+    .catch(error => {
+      alert("Une erreur est survenue. Merci de réessayer.");
+      console.error('Erreur formulaire :', error);
+    });
   });
-
-  // Envoi du fichier CV par email via mailto:
-  const mailtoLink = `mailto:jokeinsta116@gmail.com?subject=Candidature WORKINGS&body=Nom: ${plainData.Nom}%0AEmail: ${plainData.Email}%0ASpécialité: ${plainData.Spécialité}`;
-  window.open(mailtoLink, '_blank');
-
-  document.getElementById('success-msg').style.display = 'block';
-  form.reset();
-});
 </script>
+
+
 
 </body>
 </html>
