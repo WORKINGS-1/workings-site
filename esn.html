@@ -627,21 +627,38 @@ nav ul.active ~ .bar {
     <li>✅ Accéder à du coaching, des ressources et un suivi client</li>
   </ul>
 
- <form class="consultant-form" id="consultantForm">
-  <input type="text" name="nom" placeholder="Votre nom" required>
-  <input type="email" name="email" placeholder="Votre email" required>
-  <select name="certification" required>
-    <option value="">Certification Salesforce ?</option>
-    <option value="oui">Oui</option>
-    <option value="non">En cours</option>
-  </select>
-  <textarea name="message" placeholder="Quelques infos sur votre profil..." rows="3"></textarea>
-  
-  <!-- Nouveau champ fichier -->
-  <input type="file" name="cv" accept=".pdf,.doc,.docx" />
+<section class="section">
+  <h2>📣 Vous êtes consultant ou freelance ?</h2>
+  <p>Nous intégrons aussi des freelances externes dans notre écosystème WORKINGS.</p>
+  <p>Si vous êtes certifié Salesforce ou en reconversion active, vous pouvez :</p>
+  <ul>
+    <li>✔ Être accompagné pour trouver vos missions</li>
+    <li>✔ Rejoindre notre réseau de consultants WORKINGS</li>
+    <li>✔ Accéder à du coaching, des ressources et un suivi client</li>
+  </ul>
 
-  <button type="submit">Rejoindre notre réseau ➜</button>
-</form>
+  <form id="consultant-form">
+    <label>Nom<br>
+      <input type="text" name="Nom" required>
+    </label><br><br>
+
+    <label>Email<br>
+      <input type="email" name="Email" required>
+    </label><br><br>
+
+    <label>Spécialité Salesforce<br>
+      <input type="text" name="Specialite" required>
+    </label><br><br>
+
+    <label>CV (fichier)<br>
+      <input type="file" id="cv-file" accept=".pdf,.doc,.docx">
+    </label><br><br>
+
+    <button type="submit">📨 Rejoindre notre réseau de consultants</button>
+    <p id="form-status" style="color: green; display: none;">✅ Merci ! Votre candidature a bien été transmise.</p>
+  </form>
+</section>
+
 
 <div id="successMessage" style="display:none; color:green; margin-top:1rem;">
   ✅ Merci ! Votre demande a bien été envoyée.
@@ -659,44 +676,40 @@ nav ul.active ~ .bar {
 
   <footer>&copy; 2025 WORKINGS – Tous droits réservés.</footer>
 
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('in-view');
-      });
-    }, { threshold: 0.4 });
+<script>
+  document.getElementById("consultant-form").addEventListener("submit", function(e) {
+    e.preventDefault();
 
-    document.querySelectorAll('.fade-right, .img-parallax').forEach(el => observer.observe(el));
-  </script>
-  <script>
-document.getElementById('consultant-form').addEventListener('submit', async function(e) {
-  e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    const fileInput = document.getElementById("cv-file");
 
-  const form = e.target;
-  const formData = new FormData(form);
-  const file = formData.get('CV');
+    const url = "https://script.google.com/macros/s/AKfycbwaYvhfSyWwe6H8FtgC5fPhj9JIyaojtfn9j3DvRhQNqh_kYiL0O3TVcWVCYLJoEHGT/exec";
 
-  // Envoi des données au Google Sheet (sans le fichier)
-  const plainData = {
-    Nom: formData.get('Nom'),
-    Email: formData.get('Email'),
-    Spécialité: formData.get('Spécialité')
-  };
+    fetch(url, {
+      method: "POST",
+      body: formData
+    })
+    .then(response => {
+      if (response.ok) {
+        document.getElementById("form-status").style.display = "block";
 
-  await fetch("https://script.google.com/macros/s/AKfycbwaYvhfSyWwe6H8FtgC5fPhj9JIyaojtfn9j3DvRhQNqh_kYiL0O3TVcWVCYLJoEHGT/exec", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(plainData)
+        // Envoi d’un email avec pièce jointe
+        const mailto = `mailto:jokeinsta116@gmail.com?subject=Candidature Consultant&body=Nom: ${formData.get("Nom")}%0D%0AEmail: ${formData.get("Email")}%0D%0ASpécialité: ${formData.get("Specialite")}`;
+        window.open(mailto, '_blank');
+
+        form.reset();
+      } else {
+        alert("Erreur d'envoi. Veuillez réessayer.");
+      }
+    })
+    .catch(error => {
+      alert("Erreur de connexion. Réessayez plus tard.");
+      console.error("Erreur:", error);
+    });
   });
-
-  // Envoi du fichier CV par email via mailto:
-  const mailtoLink = `mailto:jokeinsta116@gmail.com?subject=Candidature WORKINGS&body=Nom: ${plainData.Nom}%0AEmail: ${plainData.Email}%0ASpécialité: ${plainData.Spécialité}`;
-  window.open(mailtoLink, '_blank');
-
-  document.getElementById('success-msg').style.display = 'block';
-  form.reset();
-});
 </script>
+
 
 </body>
 </html>
