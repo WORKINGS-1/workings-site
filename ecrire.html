@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact WORKINGS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #eef1f6;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: url('https://images.unsplash.com/photo-1503264116251-35a269479413') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 6rem 2rem;
+      position: relative;
+      filter: grayscale(0.3);
+    }
+
+ .logo {
+  width: 80px;
+  background: white;
+  padding: 10px;
+  border-radius: 50%;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  transition: width 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+      .logo { width: 56px; }
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      padding: 1rem;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      z-index: 20;
+    }
+
+    .bar {
+      height: 3px;
+      width: 25px;
+      background: white;
+      margin: 4px 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      flex-wrap: wrap;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    nav li {
+      position: relative;
+    }
+
+    nav a {
+      color: #2c5364;
+      text-decoration: none;
+      padding: 1rem 1.5rem;
+      display: block;
+    }
+
+    nav li:hover > ul {
+      display: block;
+    }
+
+    nav ul ul {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 99;
+    }
+
+    nav ul ul li a {
+      padding: 0.8rem 1.5rem;
+      white-space: nowrap;
+    }
+
+    nav a:hover {
+      background-color: #e0efff;
+      color: #1a3e72;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        display: none;
+        width: 100%;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      nav ul ul {
+        position: relative;
+        box-shadow: none;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+    }
+
+    .section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .section img {
+      width: 100%;
+      max-width: 700px;
+      height: auto;
+      border-radius: 12px;
+      opacity: 0;
+      transform: scale(0.95);
+      transition: all 1.2s ease;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      margin-top: 2rem;
+    }
+
+    .section.in-view img {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .cta {
+      display: block;
+      text-align: center;
+      margin: 3rem auto 0;
+      width: fit-content;
+      padding: 1rem 2rem;
+      background: #2c5364;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .cta:hover {
+      background: #1a3e72;
+      transform: scale(1.05);
+    }
+
+    .cloud-divider {
+      width: 100%;
+      height: 150px;
+      overflow: hidden;
+      margin-top: 3rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .cloud-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    footer {
+      background: #e7ecf4;
+      color: #2c5364;
+      text-align: center;
+      padding: 2rem 1rem 4rem;
+      margin-top: 0;
+    }
+    .contact-section, .besoin-section, .coordonnees-section {
+  padding: 4rem 2rem;
+  background: #ffffff;
+  text-align: center;
+}
+
+.contact-section h2,
+.besoin-section h2,
+.coordonnees-section h2 {
+  color: #2c5364;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.contact-intro {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 1rem;
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem auto 2rem;
+  max-width: 600px;
+  text-align: left;
+}
+
+.contact-list li {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  padding-left: 1rem;
+}
+
+.besoin-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.besoin-card {
+  background: #f1f5fb;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  max-width: 400px;
+  flex: 1 1 300px;
+  transition: transform 0.3s ease;
+}
+
+.besoin-card:hover {
+  transform: translateY(-5px);
+}
+
+.besoin-card h3 {
+  color: #1a3e72;
+  margin-bottom: 1rem;
+}
+
+.besoin-card p {
+  font-size: 0.95rem;
+  color: #444;
+  margin: 0.5rem 0;
+}
+
+.coordonnees-box {
+  background: #f7f9fc;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.coordonnees-box p {
+  font-size: 1rem;
+  margin: 0.8rem 0;
+  color: #2c5364;
+}
+
+.coordonnees-box a {
+  color: #1a3e72;
+  text-decoration: underline;
+}
+.ecrire-section {
+  background: #ffffff;
+  padding: 4rem 2rem;
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+}
+
+.ecrire-section h2 {
+  color: #2c5364;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.ecrire-section p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #444;
+}
+
+#ecrireForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#ecrireForm input,
+#ecrireForm textarea {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+#ecrireForm button {
+  background: #2c5364;
+  color: white;
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#ecrireForm button:hover {
+  background: #1a3e72;
+}
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="workings-logo.png" class="logo" />
+    <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('active')">
+      <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+    </div>
+    <h1>Contact WORKINGS</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="academy.html">Academy</a>
+        <ul>
+          <li><a href="parcours-admin.html">Parcours Admin</a></li>
+          <li><a href="parcours-dev.html">Parcours Développeur</a></li>
+          <li><a href="parcours-ba.html">Parcours Business Analyst</a></li>
+          <li><a href="parcours-ia.html">Parcours IA & Data</a></li>
+        </ul>
+      </li>
+      <li><a href="esn.html">ESN</a>
+       
+      <li><a href="apropos.html">À propos</a>
+        
+      <li><a href="contact.html">Contact</a>
+        <ul>
+          <li><a href="ecrire.html">Nous écrire</a></li>
+          <li><a href="recrutement.html">Rejoindre l'équipe</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+ <section class="ecrire-section">
+  <h2>✉️ Nous écrire</h2>
+  <p>Un projet, une demande d’information ou une collaboration ?</p>
+  <form id="ecrireForm">
+    <input type="text" name="nom" placeholder="Votre nom" required />
+    <input type="email" name="email" placeholder="Votre email" required />
+    <input type="text" name="objet" placeholder="Objet de votre message" required />
+    <textarea name="message" rows="5" placeholder="Votre message..." required></textarea>
+    <button type="submit">Envoyer le message ➜</button>
+  </form>
+  <div id="successMessage" style="display:none; color:green; margin-top:1rem;">
+    ✅ Merci ! Votre message a été envoyé.
+  </div>
+</section>
+
+
+  <a class="cta" href="index.html">Retour à l’accueil</a>
+
+  <div class="cloud-divider">
+    <img src="Image44.png" alt="Nuages WORKINGS" class="cloud-image">
+  </div>
+
+  <footer>&copy; 2025 WORKINGS – Tous droits réservés.</footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('in-view');
+      });
+    }, { threshold: 0.4 });
+
+    document.querySelectorAll('.section').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
