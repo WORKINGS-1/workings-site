@@ -551,7 +551,8 @@ nav ul.active ~ .bar {
   </div>
 <section class="formats-scroll-section">
   <h2>🔧 Nos formats d’intervention</h2>
-  <div class="formats-scroll">
+ <div class="formats-scroll" style="scroll-behavior: smooth; scroll-padding-left: 0;" id="formatsScroll">
+
     <div class="format-box format1">
       <h3>🔧 Régie</h3>
       <p>Consultant dans vos locaux ou à distance</p>
@@ -686,6 +687,14 @@ nav ul.active ~ .bar {
       alert("Une erreur est survenue. Merci de réessayer.");
       console.error('Erreur formulaire :', error);
     });
+  });
+</script>
+<script>
+  window.addEventListener('load', () => {
+    const scrollContainer = document.getElementById('formatsScroll');
+    if (scrollContainer) {
+      scrollContainer.scrollLeft = 0;
+    }
   });
 </script>
 
