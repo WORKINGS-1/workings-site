@@ -458,33 +458,39 @@ nav ul.active ~ .bar {
   font-size: 1rem;
 }
 
-#consultant-form input, #consultant-form button {
-  padding: 1rem;
-  font-size: 1rem;
+.consultant-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 500px;
+  margin: auto;
+}
+
+.consultant-form input,
+.consultant-form select,
+.consultant-form textarea {
+  padding: 0.8rem;
   border: 1px solid #ccc;
   border-radius: 8px;
-  font-family: 'Poppins', sans-serif;
+  font-family: inherit;
+  font-size: 1rem;
 }
 
-#consultant-form input:focus {
-  outline: none;
-  border-color: #2c5364;
-}
-
-#consultant-form button {
-  background-color: #2c5364;
+.consultant-form button {
+  background: #2c5364;
   color: white;
-  cursor: pointer;
+  padding: 1rem;
   border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
   transition: background 0.3s ease;
 }
 
-#consultant-form button:hover {
-  background-color: #1a3e72;
+.consultant-form button:hover {
+  background: #1a3e72;
 }
 
-
-    
   </style>
 </head>
 <body>
@@ -621,21 +627,21 @@ nav ul.active ~ .bar {
     <li>✅ Accéder à du coaching, des ressources et un suivi client</li>
   </ul>
 
-  <form id="consultant-form" enctype="multipart/form-data">
-    <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 500px; margin: auto;">
-      <input type="text" name="Nom" placeholder="Votre nom complet" required>
-      <input type="email" name="Email" placeholder="Votre adresse email" required>
-      <input type="text" name="Certif" placeholder="Certification Salesforce (ou en cours)" required>
-      <input type="file" name="CV" accept=".pdf,.doc,.docx" required>
-      <button type="submit" class="cta">Rejoindre le réseau</button>
-    </div>
-  </form>
+ <form class="consultant-form" id="consultantForm">
+  <input type="text" name="nom" placeholder="Votre nom" required>
+  <input type="email" name="email" placeholder="Votre email" required>
+  <select name="certification" required>
+    <option value="">Certification Salesforce ?</option>
+    <option value="oui">Oui</option>
+    <option value="non">En cours</option>
+  </select>
+  <textarea name="message" placeholder="Quelques infos sur votre profil..." rows="3"></textarea>
+  
+  <!-- Nouveau champ fichier -->
+  <input type="file" name="cv" accept=".pdf,.doc,.docx" />
 
-  <p id="form-message" style="text-align:center; margin-top: 1rem;"></p>
-</section>
-
-</section>
-
+  <button type="submit">Rejoindre notre réseau ➜</button>
+</form>
 
 <div id="successMessage" style="display:none; color:green; margin-top:1rem;">
   ✅ Merci ! Votre demande a bien été envoyée.
@@ -653,29 +659,45 @@ nav ul.active ~ .bar {
 
   <footer>&copy; 2025 WORKINGS – Tous droits réservés.</footer>
 
-<script>
-document.getElementById("consultant-form").addEventListener("submit", function(e) {
-  e.preventDefault();
-  const form = e.target;
-  const data = new FormData(form);
-  const scriptURL = "https://script.google.com/macros/s/TON_URL_SCRIPT/exec";
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('in-view');
+      });
+    }, { threshold: 0.4 });
 
-  fetch(scriptURL, {
+    document.querySelectorAll('.fade-right, .img-parallax').forEach(el => observer.observe(el));
+  </script>
+  <script>
+document.getElementById('consultant-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const formData = new FormData(form);
+  const file = formData.get('CV');
+
+  // Envoi des données au Google Sheet (sans le fichier)
+  const plainData = {
+    Nom: formData.get('Nom'),
+    Email: formData.get('Email'),
+    Spécialité: formData.get('Spécialité')
+  };
+
+  await fetch("https://script.google.com/macros/s/AKfycbwaYvhfSyWwe6H8FtgC5fPhj9JIyaojtfn9j3DvRhQNqh_kYiL0O3TVcWVCYLJoEHGT/exec", {
     method: "POST",
-    body: data
-  })
-  .then(response => {
-    document.getElementById("form-message").innerText = "✅ Merci, votre profil a bien été envoyé !";
-    form.reset();
-  })
-  .catch(error => {
-    document.getElementById("form-message").innerText = "❌ Une erreur est survenue. Merci de réessayer.";
-    console.error("Erreur formulaire :", error);
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(plainData)
   });
+
+  // Envoi du fichier CV par email via mailto:
+  const mailtoLink = `mailto:jokeinsta116@gmail.com?subject=Candidature WORKINGS&body=Nom: ${plainData.Nom}%0AEmail: ${plainData.Email}%0ASpécialité: ${plainData.Spécialité}`;
+  window.open(mailtoLink, '_blank');
+
+  document.getElementById('success-msg').style.display = 'block';
+  form.reset();
 });
 </script>
 
-
-
 </body>
+</html>
 </html>
