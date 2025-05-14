@@ -458,39 +458,33 @@ nav ul.active ~ .bar {
   font-size: 1rem;
 }
 
-.consultant-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  max-width: 500px;
-  margin: auto;
-}
-
-.consultant-form input,
-.consultant-form select,
-.consultant-form textarea {
-  padding: 0.8rem;
+#consultant-form input, #consultant-form button {
+  padding: 1rem;
+  font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 8px;
-  font-family: inherit;
-  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
 }
 
-.consultant-form button {
-  background: #2c5364;
+#consultant-form input:focus {
+  outline: none;
+  border-color: #2c5364;
+}
+
+#consultant-form button {
+  background-color: #2c5364;
   color: white;
-  padding: 1rem;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
   cursor: pointer;
+  border: none;
   transition: background 0.3s ease;
 }
 
-.consultant-form button:hover {
-  background: #1a3e72;
+#consultant-form button:hover {
+  background-color: #1a3e72;
 }
 
+
+    
   </style>
 </head>
 <body>
@@ -627,36 +621,19 @@ nav ul.active ~ .bar {
     <li>✅ Accéder à du coaching, des ressources et un suivi client</li>
   </ul>
 
-<section class="section">
-  <h2>📣 Vous êtes consultant ou freelance ?</h2>
-  <p>Nous intégrons aussi des freelances externes dans notre écosystème WORKINGS.</p>
-  <p>Si vous êtes certifié Salesforce ou en reconversion active, vous pouvez :</p>
-  <ul>
-    <li>✔ Être accompagné pour trouver vos missions</li>
-    <li>✔ Rejoindre notre réseau de consultants WORKINGS</li>
-    <li>✔ Accéder à du coaching, des ressources et un suivi client</li>
-  </ul>
-
-  <form id="consultant-form">
-    <label>Nom<br>
-      <input type="text" name="Nom" required>
-    </label><br><br>
-
-    <label>Email<br>
-      <input type="email" name="Email" required>
-    </label><br><br>
-
-    <label>Spécialité Salesforce<br>
-      <input type="text" name="Specialite" required>
-    </label><br><br>
-
-    <label>CV (fichier)<br>
-      <input type="file" id="cv-file" accept=".pdf,.doc,.docx">
-    </label><br><br>
-
-    <button type="submit">📨 Rejoindre notre réseau de consultants</button>
-    <p id="form-status" style="color: green; display: none;">✅ Merci ! Votre candidature a bien été transmise.</p>
+  <form id="consultant-form" enctype="multipart/form-data">
+    <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 500px; margin: auto;">
+      <input type="text" name="Nom" placeholder="Votre nom complet" required>
+      <input type="email" name="Email" placeholder="Votre adresse email" required>
+      <input type="text" name="Certif" placeholder="Certification Salesforce (ou en cours)" required>
+      <input type="file" name="CV" accept=".pdf,.doc,.docx" required>
+      <button type="submit" class="cta">Rejoindre le réseau</button>
+    </div>
   </form>
+
+  <p id="form-message" style="text-align:center; margin-top: 1rem;"></p>
+</section>
+
 </section>
 
 
@@ -677,38 +654,27 @@ nav ul.active ~ .bar {
   <footer>&copy; 2025 WORKINGS – Tous droits réservés.</footer>
 
 <script>
-  document.getElementById("consultant-form").addEventListener("submit", function(e) {
-    e.preventDefault();
+document.getElementById("consultant-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const form = e.target;
+  const data = new FormData(form);
+  const scriptURL = "https://script.google.com/macros/s/TON_URL_SCRIPT/exec";
 
-    const form = e.target;
-    const formData = new FormData(form);
-    const fileInput = document.getElementById("cv-file");
-
-    const url = "https://script.google.com/macros/s/AKfycbwaYvhfSyWwe6H8FtgC5fPhj9JIyaojtfn9j3DvRhQNqh_kYiL0O3TVcWVCYLJoEHGT/exec";
-
-    fetch(url, {
-      method: "POST",
-      body: formData
-    })
-    .then(response => {
-      if (response.ok) {
-        document.getElementById("form-status").style.display = "block";
-
-        // Envoi d’un email avec pièce jointe
-        const mailto = `mailto:jokeinsta116@gmail.com?subject=Candidature Consultant&body=Nom: ${formData.get("Nom")}%0D%0AEmail: ${formData.get("Email")}%0D%0ASpécialité: ${formData.get("Specialite")}`;
-        window.open(mailto, '_blank');
-
-        form.reset();
-      } else {
-        alert("Erreur d'envoi. Veuillez réessayer.");
-      }
-    })
-    .catch(error => {
-      alert("Erreur de connexion. Réessayez plus tard.");
-      console.error("Erreur:", error);
-    });
+  fetch(scriptURL, {
+    method: "POST",
+    body: data
+  })
+  .then(response => {
+    document.getElementById("form-message").innerText = "✅ Merci, votre profil a bien été envoyé !";
+    form.reset();
+  })
+  .catch(error => {
+    document.getElementById("form-message").innerText = "❌ Une erreur est survenue. Merci de réessayer.";
+    console.error("Erreur formulaire :", error);
   });
+});
 </script>
+
 
 
 </body>
