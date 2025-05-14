@@ -359,6 +359,59 @@ nav ul.active ~ .bar {
   color: #444;
   line-height: 1.5;
 }
+.secteurs-section {
+  background: #ffffff;
+  padding: 4rem 2rem;
+}
+
+.secteurs-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #2c5364;
+}
+
+.secteurs-carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 1.5rem;
+  padding-bottom: 1rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.secteur-card {
+  flex: 0 0 260px;
+  scroll-snap-align: start;
+  background: #f1f5fb;
+  border-radius: 14px;
+  padding: 2rem 1.2rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.secteur-card:hover {
+  transform: translateY(-4px);
+}
+
+.secteur-card h3 {
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+  color: #1a3e72;
+}
+
+.secteur-card p {
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.4;
+}
+
+.secteur-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #ffb100;
+}
 
   </style>
 </head>
@@ -456,39 +509,35 @@ nav ul.active ~ .bar {
   
   <section class="secteurs-section">
   <h2>🌍 Nos secteurs d’intervention</h2>
-  <div class="secteurs-grid">
+  <div class="secteurs-carousel">
     <div class="secteur-card">
-      <i>🏦</i>
-      <h3>Banque & Assurance</h3>
-      <p>Optimisation du CRM, automatisation des processus de vente et support client.</p>
+      <div class="secteur-icon">🏥</div>
+      <h3>Santé</h3>
+      <p>Suivi patient, gestion de dossiers médicaux, intégration avec SIH et outils métier santé.</p>
     </div>
     <div class="secteur-card">
-      <i>🛍️</i>
-      <h3>Retail & e-commerce</h3>
-      <p>Personnalisation de l’expérience client, intégration omnicanal et fidélisation.</p>
+      <div class="secteur-icon">🏛️</div>
+      <h3>Service public</h3>
+      <p>Digitalisation des démarches, relation usager, automatisation de process internes.</p>
     </div>
     <div class="secteur-card">
-      <i>🏥</i>
-      <h3>Santé & Médico-social</h3>
-      <p>Suivi des patients, gestion de la relation usager et digitalisation des parcours.</p>
+      <div class="secteur-icon">💼</div>
+      <h3>Conseil & ESN</h3>
+      <p>Appui projet, développement Salesforce en équipe, réponse à appels d’offre clients.</p>
     </div>
     <div class="secteur-card">
-      <i>🏗️</i>
-      <h3>Industrie & Services</h3>
-      <p>Gestion de projet, suivi des interventions et coordination des équipes terrain.</p>
+      <div class="secteur-icon">🏢</div>
+      <h3>Grands comptes</h3>
+      <p>Intégration Salesforce à l’échelle, gouvernance multi-clouds, sécurité & scalabilité.</p>
     </div>
     <div class="secteur-card">
-      <i>🎓</i>
-      <h3>Éducation & Formation</h3>
-      <p>Suivi des apprenants, gestion des cursus et automatisation administrative.</p>
-    </div>
-    <div class="secteur-card">
-      <i>🏛️</i>
-      <h3>Public & Collectivités</h3>
-      <p>Relation citoyen, simplification des démarches et transparence des données.</p>
+      <div class="secteur-icon">🛍️</div>
+      <h3>Retail</h3>
+      <p>Parcours client omnicanal, marketing automation, e-commerce & CRM client final.</p>
     </div>
   </div>
 </section>
+
 
   <div class="section fade-right">
     <h2>Prestations</h2>
