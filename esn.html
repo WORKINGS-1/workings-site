@@ -627,17 +627,26 @@ nav ul.active ~ .bar {
     <li>✅ Accéder à du coaching, des ressources et un suivi client</li>
   </ul>
 
-  <form class="consultant-form">
-    <input type="text" name="nom" placeholder="Votre nom" required>
-    <input type="email" name="email" placeholder="Votre email" required>
-    <select name="certification" required>
-      <option value="">Certification Salesforce ?</option>
-      <option value="oui">Oui</option>
-      <option value="non">En cours</option>
-    </select>
-    <textarea name="message" placeholder="Quelques infos sur votre profil..." rows="3"></textarea>
-    <button type="submit">Rejoindre notre réseau ➜</button>
-  </form>
+ <form class="consultant-form" id="consultantForm">
+  <input type="text" name="nom" placeholder="Votre nom" required>
+  <input type="email" name="email" placeholder="Votre email" required>
+  <select name="certification" required>
+    <option value="">Certification Salesforce ?</option>
+    <option value="oui">Oui</option>
+    <option value="non">En cours</option>
+  </select>
+  <textarea name="message" placeholder="Quelques infos sur votre profil..." rows="3"></textarea>
+  
+  <!-- Nouveau champ fichier -->
+  <input type="file" name="cv" accept=".pdf,.doc,.docx" />
+
+  <button type="submit">Rejoindre notre réseau ➜</button>
+</form>
+
+<div id="successMessage" style="display:none; color:green; margin-top:1rem;">
+  ✅ Merci ! Votre demande a bien été envoyée.
+</div>
+
 </section>
 
 
