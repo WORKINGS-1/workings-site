@@ -60,6 +60,7 @@
       margin: 0;
       padding: 0;
       display: flex;
+      justify-content: center;
     }
 
     nav li {
@@ -125,9 +126,11 @@ nav ul.active ~ .bar {
         width: 100%;
       }
 
-      nav ul.active {
-        display: flex;
-      }
+     nav ul.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centrer verticalement sur mobile */
+}
 
       .menu-toggle {
         display: flex;
