@@ -427,6 +427,70 @@ nav ul.active ~ .bar {
 .format3 { background: #fff4e6; }  /* orange très clair */
 .format4 { background: #f4eaff; }  /* violet clair */
 
+    .consultant-section {
+  background: #ffffff;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.consultant-section h2 {
+  font-size: 2rem;
+  color: #2c5364;
+  margin-bottom: 1rem;
+}
+
+.consultant-section .intro {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: #444;
+}
+
+.benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto 2rem;
+  max-width: 600px;
+  text-align: left;
+}
+
+.benefits-list li {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.consultant-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 500px;
+  margin: auto;
+}
+
+.consultant-form input,
+.consultant-form select,
+.consultant-form textarea {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.consultant-form button {
+  background: #2c5364;
+  color: white;
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.consultant-form button:hover {
+  background: #1a3e72;
+}
+
   </style>
 </head>
 <body>
@@ -554,18 +618,35 @@ nav ul.active ~ .bar {
 </section>
 
 
-  <div class="section fade-right">
-    <h2>Prestations</h2>
-    <p>Que ce soit en régie, en TMA, en forfait ou en accompagnement de PME, nos formats d’intervention sont souples et adaptables.</p>
-    <p>WORKINGS s’aligne sur votre organisation, vos délais et vos priorités pour vous garantir un delivery fluide et efficace.</p>
-    <div class="img-parallax"><img src="Image9.jpg" alt="Consultant WORKINGS" /></div>
-  </div>
+ <section class="consultant-section">
+  <h2>📣 Vous êtes consultant ou freelance ?</h2>
+  <p class="intro">Nous intégrons aussi des freelances externes dans notre écosystème WORKINGS.</p>
+  <ul class="benefits-list">
+    <li>✅ Être accompagné pour trouver vos missions</li>
+    <li>✅ Rejoindre notre réseau de consultants WORKINGS</li>
+    <li>✅ Accéder à du coaching, des ressources et un suivi client</li>
+  </ul>
+
+  <form class="consultant-form">
+    <input type="text" name="nom" placeholder="Votre nom" required>
+    <input type="email" name="email" placeholder="Votre email" required>
+    <select name="certification" required>
+      <option value="">Certification Salesforce ?</option>
+      <option value="oui">Oui</option>
+      <option value="non">En cours</option>
+    </select>
+    <textarea name="message" placeholder="Quelques infos sur votre profil..." rows="3"></textarea>
+    <button type="submit">Rejoindre notre réseau ➜</button>
+  </form>
+</section>
+
 
   <a class="cta" href="contact.html">Contactez-nous</a>
 
   <div class="cloud-divider">
     <img src="Image44.png" alt="Nuages WORKINGS" class="cloud-image">
   </div>
+
 
   <footer>&copy; 2025 WORKINGS – Tous droits réservés.</footer>
 
