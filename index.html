@@ -324,31 +324,42 @@
   font-size: 1rem;
   padding: 1rem 2rem;
 }
-.cta-button-section {
+.cta-rounded-section {
   display: flex;
   justify-content: center;
+  gap: 2rem;
   flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 3rem;
+  margin: 3rem 0;
 }
 
-.cta-button-section a {
+.cta-rounded {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background: #2c5364;
   color: white;
   text-decoration: none;
-  padding: 1rem 2rem;
-  border-radius: 12px;
-  font-size: 1rem;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  font-size: 1.4rem;
+  font-weight: bold;
   transition: background 0.3s ease, transform 0.3s ease;
-  min-width: 220px;
   text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-.cta-button-section a:hover {
+.cta-rounded:hover {
   background: #1a3e72;
   transform: scale(1.05);
 }
 
+.cta-rounded span {
+  font-size: 0.85rem;
+  font-weight: normal;
+  margin-top: 0.5rem;
+}
 
   </style>
 </head>
@@ -471,12 +482,22 @@
   </div>
 
  
-<div class="cta-button-section">
-  <a href="academy.html">🎓 Rejoindre la formation</a>
-  <a href="contact.html">📞 Être recontacté</a>
-  <a href="esn.html">👥 Voir les profils</a>
+</div>
+<div class="cta-rounded-section">
+  <a class="cta-rounded" href="academy.html" title="Rejoindre la formation">
+    🎓<br><span>Rejoindre la formation</span>
+  </a>
+  <a class="cta-rounded" href="contact.html" title="Être recontacté">
+    📞<br><span>Être recontacté</span>
+  </a>
+  <a class="cta-rounded" href="esn.html" title="Profils disponibles">
+    👥<br><span>Voir les profils</span>
+  </a>
 </div>
 
+  <div class="cloud-divider">
+    <img src="Image44.png" alt="Nuages WORKINGS" class="cloud-image">
+  </div>
   <style>
   .benefits-section {
     background: #ffffff;
@@ -543,12 +564,7 @@
 
 
 </style>
-   <div class="cloud-divider">
-    <img src="Image44.png" alt="Nuages WORKINGS" class="cloud-image">
-  </div>
-
   <footer>&copy; 2025 WORKINGS – Tous droits réservés.</footer>
-
 
   <script>
     const observer = new IntersectionObserver((entries) => {
