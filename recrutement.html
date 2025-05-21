@@ -315,15 +315,36 @@
 
 <section class="join-section">
   <h2>🎯 Profils que nous recherchons</h2>
-  <div class="profiles-grid">
-    <div class="profile-card">✅ Formateurs Salesforce certifiés</div>
-    <div class="profile-card">✅ Mentors pédagogiques</div>
-    <div class="profile-card">✅ Coachs insertion pro</div>
-    <div class="profile-card">✅ Recruteurs / ESN</div>
-    <div class="profile-card">✅ Freelances Salesforce / IA</div>
+  <div class="profils-grid">
+    <div class="profil-card">
+      <div class="emoji">🎓</div>
+      <h3>Formateurs Salesforce</h3>
+      <p>Certifiés Admin, Dev ou Consultant, avec envie de transmettre et structurer un parcours.</p>
+    </div>
+    <div class="profil-card">
+      <div class="emoji">🧑‍🏫</div>
+      <h3>Mentors pédagogiques</h3>
+      <p>Profils hybrides tech / humain pour accompagner les apprenants sur la durée.</p>
+    </div>
+    <div class="profil-card">
+      <div class="emoji">🤝</div>
+      <h3>Coach insertion</h3>
+      <p>CV, posture, préparation aux entretiens, accompagnement individualisé.</p>
+    </div>
+    <div class="profil-card">
+      <div class="emoji">📢</div>
+      <h3>Recruteurs / Chargés de mission</h3>
+      <p>Pour connecter les bons profils WORKINGS aux bons projets clients.</p>
+    </div>
+    <div class="profil-card">
+      <div class="emoji">💼</div>
+      <h3>Freelances Salesforce / IA</h3>
+      <p>Vous avez envie de transmettre vos compétences ou de co-animer une mission ? Bienvenue.</p>
+    </div>
   </div>
   <p class="profile-note">🕒 Missions ponctuelles ou récurrentes &nbsp;|&nbsp; 🌍 100 % à distance &nbsp;|&nbsp; 🤝 Soutien de notre pôle pédagogique</p>
 </section>
+
 
 <section class="join-section fade-right">
   <h2>📥 Comment postuler ?</h2>
@@ -402,6 +423,44 @@
     font-size: 1rem;
     color: #333;
   }
+.profils-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.profil-card {
+  background: #ffffff;
+  padding: 2rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease;
+  text-align: center;
+}
+
+.profil-card:hover {
+  transform: translateY(-5px);
+}
+
+.profil-card .emoji {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.profil-card h3 {
+  margin-bottom: 0.5rem;
+  color: #1a3e72;
+  font-size: 1.2rem;
+}
+
+.profil-card p {
+  font-size: 0.95rem;
+  color: #444;
+}
 
   .cta-group {
     display: flex;
