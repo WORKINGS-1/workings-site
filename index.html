@@ -275,13 +275,19 @@
       margin: 0.5rem 0;
     }
 
-   footer {
+  footer {
   background: #e7ecf4;
   color: #2c5364;
-  text-align: center;
   padding: 2rem 1rem 4rem;
   width: 100%;
 }
+
+.footer-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
 
     .testimony-title {
   text-align: center;
@@ -586,7 +592,11 @@
 
 
 </style>
-  <footer>&copy; 2025 WORKINGS – Tous droits réservés.</footer>
+<footer>
+  <div class="footer-content">
+    &copy; 2025 WORKINGS – Tous droits réservés.
+  </div>
+</footer>
 
   <script>
     const observer = new IntersectionObserver((entries) => {
