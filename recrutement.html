@@ -3,26 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Rejoindre l’équipe – WORKINGS</title>
+  <title>WORKINGS Academy</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
   <style>
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: #eef1f6;
+      background: #f7f9fc;
       scroll-behavior: smooth;
     }
 
     header {
-      background: url('https://images.unsplash.com/photo-1503264116251-35a269479413') center/cover no-repeat;
+      background: url('https://images.unsplash.com/photo-1503264116251-35a269479413') no-repeat center center;
+      background-size: cover;
+      filter: hue-rotate(10deg);
       color: white;
       text-align: center;
       padding: 6rem 2rem;
       position: relative;
-      filter: grayscale(0.3);
     }
 
- .logo {
+    .logo {
   width: 80px;
   background: white;
   padding: 10px;
@@ -30,31 +31,10 @@
   position: absolute;
   top: 20px;
   left: 20px;
-  transition: width 0.3s ease;
-    }
+}
 
-    @media (max-width: 768px) {
-      .logo { width: 56px; }
-    }
 
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      padding: 1rem;
-      position: absolute;
-      right: 20px;
-      top: 20px;
-      z-index: 20;
-    }
-
-    .bar {
-      height: 3px;
-      width: 25px;
-      background: white;
-      margin: 4px 0;
-    }
-
+    /* Menu déroulant identique à index */
     nav {
       display: flex;
       justify-content: center;
@@ -71,7 +51,6 @@
       margin: 0;
       padding: 0;
       display: flex;
-      flex-wrap: wrap;
     }
 
     nav li {
@@ -105,11 +84,29 @@
     }
 
     nav a:hover {
-      background-color: #e0efff;
-      color: #1a3e72;
+      background: #e0efff;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      cursor: pointer;
+      z-index: 20;
+    }
+
+    .bar {
+      height: 3px;
+      width: 25px;
+      background: white;
+      margin: 4px 0;
     }
 
     @media (max-width: 768px) {
+      .logo { width: 56px; }
+
       nav ul {
         flex-direction: column;
         display: none;
@@ -120,13 +117,13 @@
         display: flex;
       }
 
+      .menu-toggle {
+        display: flex;
+      }
+
       nav ul ul {
         position: relative;
         box-shadow: none;
-      }
-
-      .menu-toggle {
-        display: flex;
       }
     }
 
@@ -134,24 +131,29 @@
       max-width: 1000px;
       margin: auto;
       padding: 4rem 2rem;
-      text-align: center;
     }
 
-    .section img {
-      width: 100%;
-      max-width: 700px;
-      height: auto;
-      border-radius: 12px;
-      opacity: 0;
-      transform: scale(0.95);
-      transition: all 1.2s ease;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-      margin-top: 2rem;
-    }
+ .img-zoom-left {
+  max-width: 700px; /* ou une valeur plus petite selon ton besoin */
+  margin: 2rem auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
 
-    .section.in-view img {
+   .img-zoom-left img {
+  width: 100%;
+  height: auto;
+  max-height: 650px; /* ✅ limite la hauteur */
+  transform: scale(1.1) translateX(-40px);
+  transition: all 1.5s ease;
+  opacity: 0;
+}
+
+
+    .img-zoom-left.in-view img {
+      transform: scale(1) translateX(0);
       opacity: 1;
-      transform: scale(1);
     }
 
     .cta {
@@ -193,136 +195,84 @@
       color: #2c5364;
       text-align: center;
       padding: 2rem 1rem 4rem;
-      margin-top: 0;
     }
-    .contact-section, .besoin-section, .coordonnees-section {
-  padding: 4rem 2rem;
-  background: #ffffff;
-  text-align: center;
-}
-
-.contact-section h2,
-.besoin-section h2,
-.coordonnees-section h2 {
-  color: #2c5364;
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-}
-
-.contact-intro {
-  font-size: 1.1rem;
-  color: #444;
-  margin-bottom: 1rem;
-}
-
-.contact-list {
-  list-style: none;
-  padding: 0;
-  margin: 1rem auto 2rem;
-  max-width: 600px;
-  text-align: left;
-}
-
-.contact-list li {
-  font-size: 1rem;
-  margin: 0.5rem 0;
-  padding-left: 1rem;
-}
-
-.besoin-grid {
-  display: flex;
-  flex-wrap: wrap;
+   .parcours-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
-  justify-content: center;
-  margin-top: 2rem;
+  max-width: 1000px;
+  margin: auto;
+  padding: 3rem 2rem;
 }
 
-.besoin-card {
-  background: #f1f5fb;
+@media (max-width: 600px) {
+  .parcours-grid {
+    grid-template-columns: 1fr; /* 1 carte par ligne sur mobile */
+  }
+}
+.parcours-card {
+  background: #ffffff;
   padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  max-width: 400px;
-  flex: 1 1 300px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.05);
   transition: transform 0.3s ease;
 }
 
-.besoin-card:hover {
-  transform: translateY(-5px);
+.parcours-card:hover {
+  transform: translateY(-4px);
 }
 
-.besoin-card h3 {
+.parcours-card h3 {
   color: #1a3e72;
-  margin-bottom: 1rem;
+  margin-top: 0;
 }
 
-.besoin-card p {
-  font-size: 0.95rem;
-  color: #444;
+.parcours-card p {
   margin: 0.5rem 0;
+  font-size: 0.95rem;
 }
-
-.coordonnees-box {
-  background: #f7f9fc;
-  padding: 2rem;
-  border-radius: 12px;
-  max-width: 600px;
-  margin: auto;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-
-.coordonnees-box p {
-  font-size: 1rem;
-  margin: 0.8rem 0;
-  color: #2c5364;
-}
-
-.coordonnees-box a {
-  color: #1a3e72;
-  text-decoration: underline;
-}
-.ecrire-section {
-  padding: 4rem 2rem;
-  background: #ffffff;
-  max-width: 800px;
-  margin: auto;
-  text-align: center;
-}
-
-.ecrire-section form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-top: 2rem;
-}
-
-.ecrire-section input,
-.ecrire-section textarea {
-  padding: 0.8rem;
-  font-family: inherit;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-}
-
-.ecrire-section button {
-  background: #2c5364;
-  color: white;
-  border: none;
-  padding: 1rem;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-.ecrire-section button:hover {
-  background: #1a3e72;
-}
-
 
   </style>
 </head>
+<body>
+  <header>
+    <img src="workings-logo.png" class="logo" />
+    <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('active')">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <h1>WORKINGS Academy</h1>
+  </header>
 
+  <!-- ✅ Navigation avec sous-menus -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+
+      <li><a href="academy.html">Academy</a>
+        <ul>
+          <li><a href="parcours-admin.html">Parcours Admin</a></li>
+          <li><a href="parcours-dev.html">Parcours Développeur</a></li>
+          <li><a href="parcours-ba.html">Parcours Business Analyst</a></li>
+          <li><a href="parcours-ia.html">Parcours IA & Data</a></li>
+        </ul>
+      </li>
+
+      <li><a href="esn.html">ESN</a>
+
+      <li><a href="apropos.html">À propos</a>
+      
+
+      <li><a href="contact.html">Contact</a>
+        <ul>
+          <li><a href="ecrire.html">Nous écrire</a></li>
+          <li><a href="recrutement.html">Rejoindre l'équipe</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
 
 <body>
 
