@@ -275,20 +275,12 @@
       margin: 0.5rem 0;
     }
 
- footer {
-  background: #e7ecf4;
-  color: #2c5364;
-  width: 100%;
-  padding: 2rem 1rem 4rem;
-}
-
-.footer-content {
-  max-width: 1000px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-
+    footer {
+      background: #e7ecf4;
+      color: #2c5364;
+      text-align: center;
+      padding: 2rem 1rem 4rem;
+    }
     .testimony-title {
   text-align: center;
   font-size: 1.8rem;
@@ -368,34 +360,9 @@
   font-weight: normal;
   margin-top: 0.5rem;
 }
-.cta-boutons {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  margin: 3rem auto;
-  flex-wrap: wrap;
-}
-
-.cta-shape {
-  background: #2c5364;
-  color: white;
-  padding: 1rem 1.8rem;
-  border-radius: 40px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: background 0.3s ease, transform 0.3s ease;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-}
-
-.cta-shape:hover {
-  background: #1a3e72;
-  transform: scale(1.05);
-}
 
   </style>
 </head>
-  
 <body>
   <div id="loader">
     <div class="spinner">
@@ -515,13 +482,22 @@
   </div>
 
  
-<div class="cta-boutons">
-  <a href="academy.html" class="cta-shape">Formations</a>
-  <a href="esn.html" class="cta-shape">ESN</a>
-  <a href="contact.html" class="cta-shape">Contact</a>
+</div>
+<div class="cta-rounded-section">
+  <a class="cta-rounded" href="academy.html" title="Rejoindre la formation">
+    🎓<br><span>Rejoindre la formation</span>
+  </a>
+  <a class="cta-rounded" href="contact.html" title="Être recontacté">
+    📞<br><span>Être recontacté</span>
+  </a>
+  <a class="cta-rounded" href="esn.html" title="Profils disponibles">
+    👥<br><span>Voir les profils</span>
+  </a>
 </div>
 
- 
+  <div class="cloud-divider">
+    <img src="Image44.png" alt="Nuages WORKINGS" class="cloud-image">
+  </div>
   <style>
   .benefits-section {
     background: #ffffff;
@@ -588,6 +564,7 @@
 
 
 </style>
+  <footer>&copy; 2025 WORKINGS – Tous droits réservés.</footer>
 
   <script>
     const observer = new IntersectionObserver((entries) => {
@@ -613,15 +590,5 @@
       }
     });
   </script>
-  <div class="cloud-divider">
-  <img src="Image44.png" alt="Nuages WORKINGS" class="cloud-image">
-</div>
-
-<footer>
-  <div class="footer-content">
-    &copy; 2025 WORKINGS – Tous droits réservés.
-  </div>
-</footer>
-
 </body>
 </html>
