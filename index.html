@@ -360,6 +360,47 @@
   font-weight: normal;
   margin-top: 0.5rem;
 }
+    .intro-section {
+  padding: 4rem 2rem;
+  background: #f7f9fc;
+}
+
+.intro-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1100px;
+  margin: auto;
+  flex-wrap: wrap; /* ← utile pour mobile */
+}
+
+.intro-text {
+  flex: 1 1 400px;
+}
+
+.intro-image {
+  flex: 1 1 400px;
+  text-align: center;
+}
+
+.intro-image img {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+/* 🔁 Responsive : image sous le texte sur mobile */
+@media (max-width: 768px) {
+  .intro-content {
+    flex-direction: column;
+  }
+
+  .intro-image img {
+    margin-top: 1.5rem;
+  }
+}
+
 
   </style>
 </head>
@@ -401,16 +442,19 @@
     </ul>
   </nav>
 
-  <div class="hero-flex">
-  <div class="hero-text">
-    <h2>🌟 Formez. Certifiez. Placez.</h2>
-    <p>WORKINGS vous forme, vous certifie sur Salesforce, et vous accompagne jusqu’à votre première mission en entreprise.</p>
-    <p>Formation + placement , tout est pensé pour que vous soyez opérationnel rapidement.</p>
+ <section class="intro-section">
+  <div class="intro-content">
+    <div class="intro-text">
+      <h2>🌟 Formez. Certifiez. Placez.</h2>
+      <p>WORKINGS est une ESN & Academy 100% Salesforce.</p>
+      <p>Nous révélons les talents par des formations certifiantes, un accompagnement humain, et une mission à la clé.</p>
+    </div>
+    <div class="intro-image">
+      <img src="workikkk.png" alt="Mission Workings">
+    </div>
   </div>
-  <div class="hero-image">
-    <img src="workikkk.png" alt="Mission Workings" />
-  </div>
-</div>
+</section>
+
 
     
   <div class="double-entry">
