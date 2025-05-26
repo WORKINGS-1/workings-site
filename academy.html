@@ -9,8 +9,28 @@
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: #f7f9fc;
       scroll-behavior: smooth;
+      position: relative;
+      background-color: #f7f9fc;
+    }
+
+    .animated-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: url('https://www.transparenttextures.com/patterns/cloudy-day.png');
+      background-color: #f7f9fc;
+      background-size: 300px 300px;
+      z-index: -1;
+      animation: scrollClouds 120s linear infinite;
+      opacity: 0.4;
+    }
+
+    @keyframes scrollClouds {
+      0% { background-position: 0 0; }
+      100% { background-position: 1000px 0; }
     }
 
     header {
@@ -24,17 +44,15 @@
     }
 
     .logo {
-  width: 80px;
-  background: white;
-  padding: 10px;
-  border-radius: 50%;
-  position: absolute;
-  top: 20px;
-  left: 20px;
-}
+      width: 80px;
+      background: white;
+      padding: 10px;
+      border-radius: 50%;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
 
-
-    /* Menu déroulant identique à index */
     nav {
       display: flex;
       justify-content: center;
@@ -133,33 +151,98 @@
       padding: 4rem 2rem;
     }
 
- .img-zoom-left {
-  max-width: 700px; /* ou une valeur plus petite selon ton besoin */
-  margin: 2rem auto;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-}
+    .hero-academy {
+      padding: 5rem 2rem 2rem;
+      text-align: center;
+      max-width: 900px;
+      margin: auto;
+    }
 
-   .img-zoom-left img {
-  width: 100%;
-  height: auto;
-  max-height: 650px; /* ✅ limite la hauteur */
-  transform: scale(1.1) translateX(-40px);
-  transition: all 1.5s ease;
-  opacity: 0;
-}
+    .hero-words {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #2c5364;
+      min-height: 3em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+      height: 3em;
+    }
 
+    .hero-words .word {
+      position: absolute;
+      opacity: 0;
+      animation: wordFade 9s linear infinite;
+    }
 
-    .img-zoom-left.in-view img {
-      transform: scale(1) translateX(0);
-      opacity: 1;
+    .hero-words .word:nth-child(1) { animation-delay: 0s; }
+    .hero-words .word:nth-child(2) { animation-delay: 3s; }
+    .hero-words .word:nth-child(3) { animation-delay: 6s; }
+
+    @keyframes wordFade {
+      0% { opacity: 0; transform: translateY(100%); }
+      10% { opacity: 1; transform: translateY(0); }
+      30% { opacity: 1; }
+      40% { opacity: 0; transform: translateY(-100%); }
+      100% { opacity: 0; }
+    }
+
+    .hero-description {
+      margin-top: 2rem;
+      font-size: 1.1rem;
+      color: #333;
+      line-height: 1.6;
+      animation: fadeInText 1s ease forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeInText {
+      to { opacity: 1; }
+    }
+
+    .parcours-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      max-width: 1000px;
+      margin: auto;
+      padding: 3rem 2rem;
+    }
+
+    @media (max-width: 600px) {
+      .parcours-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .parcours-card {
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .parcours-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .parcours-card h3 {
+      color: #1a3e72;
+      margin-top: 0;
+    }
+
+    .parcours-card p {
+      margin: 0.5rem 0;
+      font-size: 0.95rem;
     }
 
     .cta {
       display: block;
       text-align: center;
-      margin: 3rem auto 0;
+      margin: 2rem auto 0;
       width: fit-content;
       padding: 1rem 2rem;
       background: #2c5364;
@@ -196,123 +279,10 @@
       text-align: center;
       padding: 2rem 1rem 4rem;
     }
-   .parcours-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  max-width: 1000px;
-  margin: auto;
-  padding: 3rem 2rem;
-}
-
-@media (max-width: 600px) {
-  .parcours-grid {
-    grid-template-columns: 1fr; /* 1 carte par ligne sur mobile */
-  }
-}
-.parcours-card {
-  background: #ffffff;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.05);
-  transition: transform 0.3s ease;
-}
-
-.parcours-card:hover {
-  transform: translateY(-4px);
-}
-
-.parcours-card h3 {
-  color: #1a3e72;
-  margin-top: 0;
-}
-
-.parcours-card p {
-  margin: 0.5rem 0;
-  font-size: 0.95rem;
-}
-.hero-academy {
-  padding: 5rem 2rem 2rem;
-  text-align: center;
-  max-width: 900px;
-  margin: auto;
-}
-
-.hero-words {
-  font-size: 2.4rem;
-  font-weight: 700;
-  color: #2c5364;
-  min-height: 3em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  position: relative;
-  height: 3em;
-}
-
-.hero-words .word {
-  position: absolute;
-  opacity: 0;
-  animation: wordFade 9s linear infinite;
-}
-
-.hero-words .word:nth-child(1) { animation-delay: 0s; }
-.hero-words .word:nth-child(2) { animation-delay: 3s; }
-.hero-words .word:nth-child(3) { animation-delay: 6s; }
-
-@keyframes wordFade {
-  0% { opacity: 0; transform: translateY(100%); }
-  10% { opacity: 1; transform: translateY(0); }
-  30% { opacity: 1; }
-  40% { opacity: 0; transform: translateY(-100%); }
-  100% { opacity: 0; }
-}
-
-.hero-description {
-  margin-top: 2rem;
-  font-size: 1.1rem;
-  color: #333;
-  line-height: 1.6;
-  animation: fadeInText 1s ease forwards;
-  opacity: 0;
-}
-
-@keyframes fadeInText {
-  to { opacity: 1; }
-}
-body.academy-page {
-  background: url('https://www.transparenttextures.com/patterns/cloudy-day.png') repeat;
-  background-color: #f7f9fc;
-}
-.animated-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('https://www.transparenttextures.com/patterns/cloudy-day.png'), 
-              linear-gradient(180deg, #f7f9fc 0%, #eaf3fb 100%);
-  background-size: 300px 300px, cover;
-  animation: scrollClouds 60s linear infinite;
-  z-index: -1;
-  opacity: 0.3;
-}
-
-@keyframes scrollClouds {
-  0% {
-    background-position: 0 0, center;
-  }
-  100% {
-    background-position: 1000px 0, center;
-  }
-}
-
   </style>
 </head>
-<body class="academy-page">
+<body>
   <div class="animated-background"></div>
-
 
   <header>
     <img src="workings-logo.png" class="logo" />
@@ -324,11 +294,9 @@ body.academy-page {
     <h1>WORKINGS Academy</h1>
   </header>
 
-  <!-- ✅ Navigation avec sous-menus -->
   <nav>
     <ul>
       <li><a href="index.html">Accueil</a></li>
-
       <li><a href="academy.html">Academy</a>
         <ul>
           <li><a href="parcours-admin.html">Parcours Admin</a></li>
@@ -337,12 +305,8 @@ body.academy-page {
           <li><a href="parcours-ia.html">Parcours IA & Data</a></li>
         </ul>
       </li>
-
-      <li><a href="esn.html">ESN</a>
-
-      <li><a href="apropos.html">À propos</a>
-      
-
+      <li><a href="esn.html">ESN</a></li>
+      <li><a href="apropos.html">À propos</a></li>
       <li><a href="contact.html">Contact</a>
         <ul>
           <li><a href="ecrire.html">Nous écrire</a></li>
@@ -352,71 +316,56 @@ body.academy-page {
     </ul>
   </nav>
 
-  <!-- ✅ Contenu -->
- <section class="hero-academy">
-  <div class="hero-words">
-    <span class="word">Formez-vous</span>
-    <span class="word">Certifiez-vous</span>
-    <span class="word">Lancez votre carrière</span>
-  </div>
-  <p class="hero-description">
-    Rejoignez l’Academy WORKINGS : des parcours concrets pour devenir Admin, Dev ou Consultant Salesforce, 100 % en ligne et orientés emploi.<br>
-    Des formations certifiantes, accessibles à tous, avec un vrai débouché à la clé — et des spécialisations pour aller encore plus loin.
-  </p>
-</section>
+  <section class="hero-academy">
+    <div class="hero-words">
+      <span class="word">Formez-vous</span>
+      <span class="word">Certifiez-vous</span>
+      <span class="word">Lancez votre carrière</span>
+    </div>
+    <p class="hero-description">
+      Rejoignez l’Academy WORKINGS : des parcours concrets pour devenir Admin, Dev ou Consultant Salesforce, 100 % en ligne et orientés emploi.<br>
+      Des formations certifiantes, accessibles à tous, avec un vrai débouché à la clé — et des spécialisations pour aller encore plus loin.
+    </p>
+  </section>
 
-
+  <div class="section">
+    <h2 style="text-align:center; color:#2c5364;">🧩 Nos 4 parcours Salesforce</h2>
+    <div class="parcours-grid">
+      <div class="parcours-card" style="border-left: 6px solid #3b82f6;">
+        <h3>🟦 Parcours Administrator</h3>
+        <p>Apprenez à configurer et gérer Salesforce sans coder.</p>
+        <p>🎓 <strong>Certif :</strong> Salesforce Administrator (ADM 201)</p>
+        <p>👤 <strong>Idéal pour :</strong> débutants, reconversion, profils métiers</p>
+        <a class="cta" href="parcours-admin.html">Découvrir le parcours Admin ➜</a>
+      </div>
+      <div class="parcours-card" style="border-left: 6px solid #8b5cf6;">
+        <h3>🟪 Parcours Developer</h3>
+        <p>Développez des solutions personnalisées avec Apex et LWC.</p>
+        <p>🎓 <strong>Certif :</strong> Platform Developer I</p>
+        <p>👤 <strong>Idéal pour :</strong> développeurs, profils IT, alternants tech</p>
+        <a class="cta" href="parcours-dev.html">Découvrir le parcours Dev ➜</a>
+      </div>
+      <div class="parcours-card" style="border-left: 6px solid #f97316;">
+        <h3>🟧 Parcours Business Analyst</h3>
+        <p>Traduisez les besoins métier en solutions Salesforce.</p>
+        <p>🎓 <strong>Certif :</strong> Business Analyst</p>
+        <p>👤 <strong>Idéal pour :</strong> gestion de projet, AMOA, reconversion fonctionnelle</p>
+        <a class="cta" href="parcours-ba.html">Découvrir le parcours BA ➜</a>
+      </div>
+      <div class="parcours-card" style="border-left: 6px solid #10b981;">
+        <h3>🟩 Parcours IA & Data</h3>
+        <p>Maîtrisez Einstein, Agentforce et Data Cloud sur Salesforce.</p>
+        <p>🎓 <strong>Certif :</strong> Agentforce Specialist (et +)</p>
+        <p>👤 <strong>Idéal pour :</strong> profils innovants, data, IA, techniques ou fonctionnels</p>
+        <a class="cta" href="parcours-ia.html">Découvrir le parcours IA ➜</a>
+      </div>
+    </div>
   </div>
-<div class="section">
-  <h2 style="text-align:center; color:#2c5364;">🧩 Nos 4 parcours Salesforce</h2>
-  <div class="parcours-grid">
-    <div class="parcours-card" style="border-left: 6px solid #3b82f6;">
-      <h3>🟦 Parcours Administrator</h3>
-      <p>Apprenez à configurer et gérer Salesforce sans coder.</p>
-      <p>🎓 <strong>Certif :</strong> Salesforce Administrator (ADM 201)</p>
-      <p>👤 <strong>Idéal pour :</strong> débutants, reconversion, profils métiers</p>
-      <a class="cta" href="parcours-admin.html">Découvrir le parcours Admin ➜</a>
-    </div>
-    <div class="parcours-card" style="border-left: 6px solid #8b5cf6;">
-      <h3>🟪 Parcours Developer</h3>
-      <p>Développez des solutions personnalisées avec Apex et LWC.</p>
-      <p>🎓 <strong>Certif :</strong> Platform Developer I</p>
-      <p>👤 <strong>Idéal pour :</strong> développeurs, profils IT, alternants tech</p>
-      <a class="cta" href="parcours-dev.html">Découvrir le parcours Dev ➜</a>
-    </div>
-    <div class="parcours-card" style="border-left: 6px solid #f97316;">
-      <h3>🟧 Parcours Business Analyst</h3>
-      <p>Traduisez les besoins métier en solutions Salesforce.</p>
-      <p>🎓 <strong>Certif :</strong> Business Analyst</p>
-      <p>👤 <strong>Idéal pour :</strong> gestion de projet, AMOA, reconversion fonctionnelle</p>
-      <a class="cta" href="parcours-ba.html">Découvrir le parcours BA ➜</a>
-    </div>
-    <div class="parcours-card" style="border-left: 6px solid #10b981;">
-      <h3>🟩 Parcours IA & Data</h3>
-      <p>Maîtrisez Einstein, Agentforce et Data Cloud sur Salesforce.</p>
-      <p>🎓 <strong>Certif :</strong> Agentforce Specialist (et +)</p>
-      <p>👤 <strong>Idéal pour :</strong> profils innovants, data, IA, techniques ou fonctionnels</p>
-      <a class="cta" href="parcours-ia.html">Découvrir le parcours IA ➜</a>
-    </div>
-  </div>
-</div>
 
   <div class="cloud-divider">
     <img src="Image44.png" alt="Nuages WORKINGS" class="cloud-image">
   </div>
 
   <footer>&copy; 2025 WORKINGS – Tous droits réservés.</footer>
-
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-        }
-      });
-    }, { threshold: 0.3 });
-
-    document.querySelectorAll('.img-zoom-left').forEach(el => observer.observe(el));
-  </script>
 </body>
 </html>
